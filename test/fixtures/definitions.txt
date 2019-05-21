@@ -1,6 +1,7137 @@
-These are test definitions. This is a title.
+
+Tabs: Commonmark #1
 .
-The [markdown](//daringfireball.net/markdown) above should match the html below.
+	foo	baz		bim
 .
-<p>The <a href="//daringfireball.net/markdown">markdown</a> above should match the html below.</p>
+<pre><code>foo	baz		bim
+</code></pre>
+.
+
+
+Tabs: Commonmark #2
+.
+  	foo	baz		bim
+.
+<pre><code>foo	baz		bim
+</code></pre>
+.
+
+
+Tabs: Commonmark #3
+.
+    a	a
+    ὐ	a
+.
+<pre><code>a	a
+ὐ	a
+</code></pre>
+.
+
+
+Tabs: Commonmark #4
+.
+  - foo
+
+	bar
+.
+<ul>
+<li>
+<p>foo</p>
+<p>bar</p>
+</li>
+</ul>
+.
+
+
+Tabs: Commonmark #5
+.
+- foo
+
+		bar
+.
+<ul>
+<li>
+<p>foo</p>
+<pre><code>  bar
+</code></pre>
+</li>
+</ul>
+.
+
+
+Tabs: Commonmark #6
+.
+>		foo
+.
+<blockquote>
+<pre><code>  foo
+</code></pre>
+</blockquote>
+.
+
+
+Tabs: Commonmark #7
+.
+-		foo
+.
+<ul>
+<li>
+<pre><code>  foo
+</code></pre>
+</li>
+</ul>
+.
+
+
+Tabs: Commonmark #8
+.
+    foo
+	bar
+.
+<pre><code>foo
+bar
+</code></pre>
+.
+
+
+Tabs: Commonmark #9
+.
+ - foo
+   - bar
+	 - baz
+.
+<ul>
+<li>foo
+<ul>
+<li>bar
+<ul>
+<li>baz</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+.
+
+
+Tabs: Commonmark #10
+.
+#	Foo
+.
+<h1>Foo</h1>
+.
+
+
+Tabs: Commonmark #11
+.
+*	*	*	
+.
+<hr />
+.
+
+
+Precedence: Commonmark #12
+.
+- `one
+- two`
+.
+<ul>
+<li>`one</li>
+<li>two`</li>
+</ul>
+.
+
+
+Thematic breaks: Commonmark #13
+.
+***
+---
+___
+.
+<hr />
+<hr />
+<hr />
+.
+
+
+Thematic breaks: Commonmark #14
+.
++++
+.
+<p>+++</p>
+.
+
+
+Thematic breaks: Commonmark #15
+.
+===
+.
+<p>===</p>
+.
+
+
+Thematic breaks: Commonmark #16
+.
+--
+**
+__
+.
+<p>--
+**
+__</p>
+.
+
+
+Thematic breaks: Commonmark #17
+.
+ ***
+  ***
+   ***
+.
+<hr />
+<hr />
+<hr />
+.
+
+
+Thematic breaks: Commonmark #18
+.
+    ***
+.
+<pre><code>***
+</code></pre>
+.
+
+
+Thematic breaks: Commonmark #19
+.
+Foo
+    ***
+.
+<p>Foo
+***</p>
+.
+
+
+Thematic breaks: Commonmark #20
+.
+_____________________________________
+.
+<hr />
+.
+
+
+Thematic breaks: Commonmark #21
+.
+ - - -
+.
+<hr />
+.
+
+
+Thematic breaks: Commonmark #22
+.
+ **  * ** * ** * **
+.
+<hr />
+.
+
+
+Thematic breaks: Commonmark #23
+.
+-     -      -      -
+.
+<hr />
+.
+
+
+Thematic breaks: Commonmark #24
+.
+- - - -    
+.
+<hr />
+.
+
+
+Thematic breaks: Commonmark #25
+.
+_ _ _ _ a
+
+a------
+
+---a---
+.
+<p>_ _ _ _ a</p>
+<p>a------</p>
+<p>---a---</p>
+.
+
+
+Thematic breaks: Commonmark #26
+.
+ *-*
+.
+<p><em>-</em></p>
+.
+
+
+Thematic breaks: Commonmark #27
+.
+- foo
+***
+- bar
+.
+<ul>
+<li>foo</li>
+</ul>
+<hr />
+<ul>
+<li>bar</li>
+</ul>
+.
+
+
+Thematic breaks: Commonmark #28
+.
+Foo
+***
+bar
+.
+<p>Foo</p>
+<hr />
+<p>bar</p>
+.
+
+
+Thematic breaks: Commonmark #29
+.
+Foo
+---
+bar
+.
+<h2>Foo</h2>
+<p>bar</p>
+.
+
+
+Thematic breaks: Commonmark #30
+.
+* Foo
+* * *
+* Bar
+.
+<ul>
+<li>Foo</li>
+</ul>
+<hr />
+<ul>
+<li>Bar</li>
+</ul>
+.
+
+
+Thematic breaks: Commonmark #31
+.
+- Foo
+- * * *
+.
+<ul>
+<li>Foo</li>
+<li>
+<hr />
+</li>
+</ul>
+.
+
+
+ATX headings: Commonmark #32
+.
+# foo
+## foo
+### foo
+#### foo
+##### foo
+###### foo
+.
+<h1>foo</h1>
+<h2>foo</h2>
+<h3>foo</h3>
+<h4>foo</h4>
+<h5>foo</h5>
+<h6>foo</h6>
+.
+
+
+ATX headings: Commonmark #33
+.
+####### foo
+.
+<p>####### foo</p>
+.
+
+
+ATX headings: Commonmark #34
+.
+#5 bolt
+
+#hashtag
+.
+<p>#5 bolt</p>
+<p>#hashtag</p>
+.
+
+
+ATX headings: Commonmark #35
+.
+\## foo
+.
+<p>## foo</p>
+.
+
+
+ATX headings: Commonmark #36
+.
+# foo *bar* \*baz\*
+.
+<h1>foo <em>bar</em> *baz*</h1>
+.
+
+
+ATX headings: Commonmark #37
+.
+#                  foo                     
+.
+<h1>foo</h1>
+.
+
+
+ATX headings: Commonmark #38
+.
+ ### foo
+  ## foo
+   # foo
+.
+<h3>foo</h3>
+<h2>foo</h2>
+<h1>foo</h1>
+.
+
+
+ATX headings: Commonmark #39
+.
+    # foo
+.
+<pre><code># foo
+</code></pre>
+.
+
+
+ATX headings: Commonmark #40
+.
+foo
+    # bar
+.
+<p>foo
+# bar</p>
+.
+
+
+ATX headings: Commonmark #41
+.
+## foo ##
+  ###   bar    ###
+.
+<h2>foo</h2>
+<h3>bar</h3>
+.
+
+
+ATX headings: Commonmark #42
+.
+# foo ##################################
+##### foo ##
+.
+<h1>foo</h1>
+<h5>foo</h5>
+.
+
+
+ATX headings: Commonmark #43
+.
+### foo ###     
+.
+<h3>foo</h3>
+.
+
+
+ATX headings: Commonmark #44
+.
+### foo ### b
+.
+<h3>foo ### b</h3>
+.
+
+
+ATX headings: Commonmark #45
+.
+# foo#
+.
+<h1>foo#</h1>
+.
+
+
+ATX headings: Commonmark #46
+.
+### foo \###
+## foo #\##
+# foo \#
+.
+<h3>foo ###</h3>
+<h2>foo ###</h2>
+<h1>foo #</h1>
+.
+
+
+ATX headings: Commonmark #47
+.
+****
+## foo
+****
+.
+<hr />
+<h2>foo</h2>
+<hr />
+.
+
+
+ATX headings: Commonmark #48
+.
+Foo bar
+# baz
+Bar foo
+.
+<p>Foo bar</p>
+<h1>baz</h1>
+<p>Bar foo</p>
+.
+
+
+ATX headings: Commonmark #49
+.
+## 
+#
+### ###
+.
+<h2></h2>
+<h1></h1>
+<h3></h3>
+.
+
+
+Setext headings: Commonmark #50
+.
+Foo *bar*
+=========
+
+Foo *bar*
+---------
+.
+<h1>Foo <em>bar</em></h1>
+<h2>Foo <em>bar</em></h2>
+.
+
+
+Setext headings: Commonmark #51
+.
+Foo *bar
+baz*
+====
+.
+<h1>Foo <em>bar
+baz</em></h1>
+.
+
+
+Setext headings: Commonmark #52
+.
+  Foo *bar
+baz*	
+====
+.
+<h1>Foo <em>bar
+baz</em></h1>
+.
+
+
+Setext headings: Commonmark #53
+.
+Foo
+-------------------------
+
+Foo
+=
+.
+<h2>Foo</h2>
+<h1>Foo</h1>
+.
+
+
+Setext headings: Commonmark #54
+.
+   Foo
+---
+
+  Foo
+-----
+
+  Foo
+  ===
+.
+<h2>Foo</h2>
+<h2>Foo</h2>
+<h1>Foo</h1>
+.
+
+
+Setext headings: Commonmark #55
+.
+    Foo
+    ---
+
+    Foo
+---
+.
+<pre><code>Foo
+---
+
+Foo
+</code></pre>
+<hr />
+.
+
+
+Setext headings: Commonmark #56
+.
+Foo
+   ----      
+.
+<h2>Foo</h2>
+.
+
+
+Setext headings: Commonmark #57
+.
+Foo
+    ---
+.
+<p>Foo
+---</p>
+.
+
+
+Setext headings: Commonmark #58
+.
+Foo
+= =
+
+Foo
+--- -
+.
+<p>Foo
+= =</p>
+<p>Foo</p>
+<hr />
+.
+
+
+Setext headings: Commonmark #59
+.
+Foo  
+-----
+.
+<h2>Foo</h2>
+.
+
+
+Setext headings: Commonmark #60
+.
+Foo\
+----
+.
+<h2>Foo\</h2>
+.
+
+
+Setext headings: Commonmark #61
+.
+`Foo
+----
+`
+
+<a title="a lot
+---
+of dashes"/>
+.
+<h2>`Foo</h2>
+<p>`</p>
+<h2>&lt;a title=&quot;a lot</h2>
+<p>of dashes&quot;/&gt;</p>
+.
+
+
+Setext headings: Commonmark #62
+.
+> Foo
+---
+.
+<blockquote>
+<p>Foo</p>
+</blockquote>
+<hr />
+.
+
+
+Setext headings: Commonmark #63
+.
+> foo
+bar
+===
+.
+<blockquote>
+<p>foo
+bar
+===</p>
+</blockquote>
+.
+
+
+Setext headings: Commonmark #64
+.
+- Foo
+---
+.
+<ul>
+<li>Foo</li>
+</ul>
+<hr />
+.
+
+
+Setext headings: Commonmark #65
+.
+Foo
+Bar
+---
+.
+<h2>Foo
+Bar</h2>
+.
+
+
+Setext headings: Commonmark #66
+.
+---
+Foo
+---
+Bar
+---
+Baz
+.
+<hr />
+<h2>Foo</h2>
+<h2>Bar</h2>
+<p>Baz</p>
+.
+
+
+Setext headings: Commonmark #67
+.
+
+====
+.
+<p>====</p>
+.
+
+
+Setext headings: Commonmark #68
+.
+---
+---
+.
+<hr />
+<hr />
+.
+
+
+Setext headings: Commonmark #69
+.
+- foo
+-----
+.
+<ul>
+<li>foo</li>
+</ul>
+<hr />
+.
+
+
+Setext headings: Commonmark #70
+.
+    foo
+---
+.
+<pre><code>foo
+</code></pre>
+<hr />
+.
+
+
+Setext headings: Commonmark #71
+.
+> foo
+-----
+.
+<blockquote>
+<p>foo</p>
+</blockquote>
+<hr />
+.
+
+
+Setext headings: Commonmark #72
+.
+\> foo
+------
+.
+<h2>&gt; foo</h2>
+.
+
+
+Setext headings: Commonmark #73
+.
+Foo
+
+bar
+---
+baz
+.
+<p>Foo</p>
+<h2>bar</h2>
+<p>baz</p>
+.
+
+
+Setext headings: Commonmark #74
+.
+Foo
+bar
+
+---
+
+baz
+.
+<p>Foo
+bar</p>
+<hr />
+<p>baz</p>
+.
+
+
+Setext headings: Commonmark #75
+.
+Foo
+bar
+* * *
+baz
+.
+<p>Foo
+bar</p>
+<hr />
+<p>baz</p>
+.
+
+
+Setext headings: Commonmark #76
+.
+Foo
+bar
+\---
+baz
+.
+<p>Foo
+bar
+---
+baz</p>
+.
+
+
+Indented code blocks: Commonmark #77
+.
+    a simple
+      indented code block
+.
+<pre><code>a simple
+  indented code block
+</code></pre>
+.
+
+
+Indented code blocks: Commonmark #78
+.
+  - foo
+
+    bar
+.
+<ul>
+<li>
+<p>foo</p>
+<p>bar</p>
+</li>
+</ul>
+.
+
+
+Indented code blocks: Commonmark #79
+.
+1.  foo
+
+    - bar
+.
+<ol>
+<li>
+<p>foo</p>
+<ul>
+<li>bar</li>
+</ul>
+</li>
+</ol>
+.
+
+
+Indented code blocks: Commonmark #80
+.
+    <a/>
+    *hi*
+
+    - one
+.
+<pre><code>&lt;a/&gt;
+*hi*
+
+- one
+</code></pre>
+.
+
+
+Indented code blocks: Commonmark #81
+.
+    chunk1
+
+    chunk2
+  
+ 
+ 
+    chunk3
+.
+<pre><code>chunk1
+
+chunk2
+
+
+
+chunk3
+</code></pre>
+.
+
+
+Indented code blocks: Commonmark #82
+.
+    chunk1
+      
+      chunk2
+.
+<pre><code>chunk1
+  
+  chunk2
+</code></pre>
+.
+
+
+Indented code blocks: Commonmark #83
+.
+Foo
+    bar
+
+.
+<p>Foo
+bar</p>
+.
+
+
+Indented code blocks: Commonmark #84
+.
+    foo
+bar
+.
+<pre><code>foo
+</code></pre>
+<p>bar</p>
+.
+
+
+Indented code blocks: Commonmark #85
+.
+# Heading
+    foo
+Heading
+------
+    foo
+----
+.
+<h1>Heading</h1>
+<pre><code>foo
+</code></pre>
+<h2>Heading</h2>
+<pre><code>foo
+</code></pre>
+<hr />
+.
+
+
+Indented code blocks: Commonmark #86
+.
+        foo
+    bar
+.
+<pre><code>    foo
+bar
+</code></pre>
+.
+
+
+Indented code blocks: Commonmark #87
+.
+
+    
+    foo
+    
+
+.
+<pre><code>foo
+</code></pre>
+.
+
+
+Indented code blocks: Commonmark #88
+.
+    foo  
+.
+<pre><code>foo  
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #89
+.
+```
+<
+ >
+```
+.
+<pre><code>&lt;
+ &gt;
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #90
+.
+~~~
+<
+ >
+~~~
+.
+<pre><code>&lt;
+ &gt;
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #91
+.
+``
+foo
+``
+.
+<p><code>foo</code></p>
+.
+
+
+Fenced code blocks: Commonmark #92
+.
+```
+aaa
+~~~
+```
+.
+<pre><code>aaa
+~~~
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #93
+.
+~~~
+aaa
+```
+~~~
+.
+<pre><code>aaa
+```
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #94
+.
+````
+aaa
+```
+``````
+.
+<pre><code>aaa
+```
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #95
+.
+~~~~
+aaa
+~~~
+~~~~
+.
+<pre><code>aaa
+~~~
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #96
+.
+```
+.
+<pre><code></code></pre>
+.
+
+
+Fenced code blocks: Commonmark #97
+.
+`````
+
+```
+aaa
+.
+<pre><code>
+```
+aaa
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #98
+.
+> ```
+> aaa
+
+bbb
+.
+<blockquote>
+<pre><code>aaa
+</code></pre>
+</blockquote>
+<p>bbb</p>
+.
+
+
+Fenced code blocks: Commonmark #99
+.
+```
+
+  
+```
+.
+<pre><code>
+  
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #100
+.
+```
+```
+.
+<pre><code></code></pre>
+.
+
+
+Fenced code blocks: Commonmark #101
+.
+ ```
+ aaa
+aaa
+```
+.
+<pre><code>aaa
+aaa
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #102
+.
+  ```
+aaa
+  aaa
+aaa
+  ```
+.
+<pre><code>aaa
+aaa
+aaa
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #103
+.
+   ```
+   aaa
+    aaa
+  aaa
+   ```
+.
+<pre><code>aaa
+ aaa
+aaa
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #104
+.
+    ```
+    aaa
+    ```
+.
+<pre><code>```
+aaa
+```
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #105
+.
+```
+aaa
+  ```
+.
+<pre><code>aaa
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #106
+.
+   ```
+aaa
+  ```
+.
+<pre><code>aaa
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #107
+.
+```
+aaa
+    ```
+.
+<pre><code>aaa
+    ```
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #108, Ocean #1
+.
+``` ```
+aaa
+.
+<p><code></code>
+aaa</p>
+.
+
+
+Fenced code blocks: Commonmark #109
+.
+~~~~~~
+aaa
+~~~ ~~
+.
+<pre><code>aaa
+~~~ ~~
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #110
+.
+foo
+```
+bar
+```
+baz
+.
+<p>foo</p>
+<pre><code>bar
+</code></pre>
+<p>baz</p>
+.
+
+
+Fenced code blocks: Commonmark #111
+.
+foo
+---
+~~~
+bar
+~~~
+# baz
+.
+<h2>foo</h2>
+<pre><code>bar
+</code></pre>
+<h1>baz</h1>
+.
+
+
+Fenced code blocks: Commonmark #112
+.
+```ruby
+def foo(x)
+  return 3
+end
+```
+.
+<pre><code class="language-ruby">def foo(x)
+  return 3
+end
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #113
+.
+~~~~    ruby startline=3 $%@#$
+def foo(x)
+  return 3
+end
+~~~~~~~
+.
+<pre><code class="language-ruby">def foo(x)
+  return 3
+end
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #114
+.
+````;
+````
+.
+<pre><code class="language-;"></code></pre>
+.
+
+
+Fenced code blocks: Commonmark #115
+.
+``` aa ```
+foo
+.
+<p><code>aa</code>
+foo</p>
+.
+
+
+Fenced code blocks: Commonmark #116
+.
+~~~ aa ``` ~~~
+foo
+~~~
+.
+<pre><code class="language-aa">foo
+</code></pre>
+.
+
+
+Fenced code blocks: Commonmark #117
+.
+```
+``` aaa
+```
+.
+<pre><code>``` aaa
+</code></pre>
+.
+
+
+HTML blocks: Commonmark #118
+.
+<table><tr><td>
+<pre>
+**Hello**,
+
+_world_.
+</pre>
+</td></tr></table>
+.
+<table><tr><td>
+<pre>
+**Hello**,
+<p><em>world</em>.
+</pre></p>
+</td></tr></table>
+.
+
+
+HTML blocks: Commonmark #119
+.
+<table>
+  <tr>
+    <td>
+           hi
+    </td>
+  </tr>
+</table>
+
+okay.
+.
+<table>
+  <tr>
+    <td>
+           hi
+    </td>
+  </tr>
+</table>
+<p>okay.</p>
+.
+
+
+HTML blocks: Commonmark #120
+.
+ <div>
+  *hello*
+         <foo><a>
+.
+ <div>
+  *hello*
+         <foo><a>
+.
+
+
+HTML blocks: Commonmark #121
+.
+</div>
+*foo*
+.
+</div>
+*foo*
+.
+
+
+HTML blocks: Commonmark #122
+.
+<DIV CLASS="foo">
+
+*Markdown*
+
+</DIV>
+.
+<DIV CLASS="foo">
+<p><em>Markdown</em></p>
+</DIV>
+.
+
+
+HTML blocks: Commonmark #123
+.
+<div id="foo"
+  class="bar">
+</div>
+.
+<div id="foo"
+  class="bar">
+</div>
+.
+
+
+HTML blocks: Commonmark #124
+.
+<div id="foo" class="bar
+  baz">
+</div>
+.
+<div id="foo" class="bar
+  baz">
+</div>
+.
+
+
+HTML blocks: Commonmark #125
+.
+<div>
+*foo*
+
+*bar*
+.
+<div>
+*foo*
+<p><em>bar</em></p>
+.
+
+
+HTML blocks: Commonmark #126
+.
+<div id="foo"
+*hi*
+.
+<div id="foo"
+*hi*
+.
+
+
+HTML blocks: Commonmark #127
+.
+<div class
+foo
+.
+<div class
+foo
+.
+
+
+HTML blocks: Commonmark #128
+.
+<div *???-&&&-<---
+*foo*
+.
+<div *???-&&&-<---
+*foo*
+.
+
+
+HTML blocks: Commonmark #129
+.
+<div><a href="bar">*foo*</a></div>
+.
+<div><a href="bar">*foo*</a></div>
+.
+
+
+HTML blocks: Commonmark #130
+.
+<table><tr><td>
+foo
+</td></tr></table>
+.
+<table><tr><td>
+foo
+</td></tr></table>
+.
+
+
+HTML blocks: Commonmark #131
+.
+<div></div>
+``` c
+int x = 33;
+```
+.
+<div></div>
+``` c
+int x = 33;
+```
+.
+
+
+HTML blocks: Commonmark #132
+.
+<a href="foo">
+*bar*
+</a>
+.
+<a href="foo">
+*bar*
+</a>
+.
+
+
+HTML blocks: Commonmark #133
+.
+<Warning>
+*bar*
+</Warning>
+.
+<Warning>
+*bar*
+</Warning>
+.
+
+
+HTML blocks: Commonmark #134
+.
+<i class="foo">
+*bar*
+</i>
+.
+<i class="foo">
+*bar*
+</i>
+.
+
+
+HTML blocks: Commonmark #135
+.
+</ins>
+*bar*
+.
+</ins>
+*bar*
+.
+
+
+HTML blocks: Commonmark #136
+.
+<del>
+*foo*
+</del>
+.
+<del>
+*foo*
+</del>
+.
+
+
+HTML blocks: Commonmark #137
+.
+<del>
+
+*foo*
+
+</del>
+.
+<del>
+<p><em>foo</em></p>
+</del>
+.
+
+
+HTML blocks: Commonmark #138
+.
+<del>*foo*</del>
+.
+<p><del><em>foo</em></del></p>
+.
+
+
+HTML blocks: Commonmark #139
+.
+<pre language="haskell"><code>
+import Text.HTML.TagSoup
+
+main :: IO ()
+main = print $ parseTags tags
+</code></pre>
+okay
+.
+<pre language="haskell"><code>
+import Text.HTML.TagSoup
+
+main :: IO ()
+main = print $ parseTags tags
+</code></pre>
+<p>okay</p>
+.
+
+
+HTML blocks: Commonmark #140
+.
+<script type="text/javascript">
+// JavaScript example
+
+document.getElementById("demo").innerHTML = "Hello JavaScript!";
+</script>
+okay
+.
+<script type="text/javascript">
+// JavaScript example
+
+document.getElementById("demo").innerHTML = "Hello JavaScript!";
+</script>
+<p>okay</p>
+.
+
+
+HTML blocks: Commonmark #141
+.
+<style
+  type="text/css">
+h1 {color:red;}
+
+p {color:blue;}
+</style>
+okay
+.
+<style
+  type="text/css">
+h1 {color:red;}
+
+p {color:blue;}
+</style>
+<p>okay</p>
+.
+
+
+HTML blocks: Commonmark #142
+.
+<style
+  type="text/css">
+
+foo
+.
+<style
+  type="text/css">
+
+foo
+.
+
+
+HTML blocks: Commonmark #143
+.
+> <div>
+> foo
+
+bar
+.
+<blockquote>
+<div>
+foo
+</blockquote>
+<p>bar</p>
+.
+
+
+HTML blocks: Commonmark #144
+.
+- <div>
+- foo
+.
+<ul>
+<li>
+<div>
+</li>
+<li>foo</li>
+</ul>
+.
+
+
+HTML blocks: Commonmark #145
+.
+<style>p{color:red;}</style>
+*foo*
+.
+<style>p{color:red;}</style>
+<p><em>foo</em></p>
+.
+
+
+HTML blocks: Commonmark #146
+.
+<!-- foo -->*bar*
+*baz*
+.
+<!-- foo -->*bar*
+<p><em>baz</em></p>
+.
+
+
+HTML blocks: Commonmark #147
+.
+<script>
+foo
+</script>1. *bar*
+.
+<script>
+foo
+</script>1. *bar*
+.
+
+
+HTML blocks: Commonmark #148
+.
+<!-- Foo
+
+bar
+   baz -->
+okay
+.
+<!-- Foo
+
+bar
+   baz -->
+<p>okay</p>
+.
+
+
+HTML blocks: Commonmark #149
+.
+<?php
+
+  echo '>';
+
+?>
+okay
+.
+<?php
+
+  echo '>';
+
+?>
+<p>okay</p>
+.
+
+
+HTML blocks: Commonmark #150
+.
+<!DOCTYPE html>
+.
+<!DOCTYPE html>
+.
+
+
+HTML blocks: Commonmark #151
+.
+<![CDATA[
+function matchwo(a,b)
+{
+  if (a < b && a < 0) then {
+    return 1;
+
+  } else {
+
+    return 0;
+  }
+}
+]]>
+okay
+.
+<![CDATA[
+function matchwo(a,b)
+{
+  if (a < b && a < 0) then {
+    return 1;
+
+  } else {
+
+    return 0;
+  }
+}
+]]>
+<p>okay</p>
+.
+
+
+HTML blocks: Commonmark #152
+.
+  <!-- foo -->
+
+    <!-- foo -->
+.
+  <!-- foo -->
+<pre><code>&lt;!-- foo --&gt;
+</code></pre>
+.
+
+
+HTML blocks: Commonmark #153
+.
+  <div>
+
+    <div>
+.
+  <div>
+<pre><code>&lt;div&gt;
+</code></pre>
+.
+
+
+HTML blocks: Commonmark #154
+.
+Foo
+<div>
+bar
+</div>
+.
+<p>Foo</p>
+<div>
+bar
+</div>
+.
+
+
+HTML blocks: Commonmark #155
+.
+<div>
+bar
+</div>
+*foo*
+.
+<div>
+bar
+</div>
+*foo*
+.
+
+
+HTML blocks: Commonmark #156
+.
+Foo
+<a href="bar">
+baz
+.
+<p>Foo
+<a href="bar">
+baz</p>
+.
+
+
+HTML blocks: Commonmark #157
+.
+<div>
+
+*Emphasized* text.
+
+</div>
+.
+<div>
+<p><em>Emphasized</em> text.</p>
+</div>
+.
+
+
+HTML blocks: Commonmark #158
+.
+<div>
+*Emphasized* text.
+</div>
+.
+<div>
+*Emphasized* text.
+</div>
+.
+
+
+HTML blocks: Commonmark #159
+.
+<table>
+
+<tr>
+
+<td>
+Hi
+</td>
+
+</tr>
+
+</table>
+.
+<table>
+<tr>
+<td>
+Hi
+</td>
+</tr>
+</table>
+.
+
+
+HTML blocks: Commonmark #160
+.
+<table>
+
+  <tr>
+
+    <td>
+      Hi
+    </td>
+
+  </tr>
+
+</table>
+.
+<table>
+  <tr>
+<pre><code>&lt;td&gt;
+  Hi
+&lt;/td&gt;
+</code></pre>
+  </tr>
+</table>
+.
+
+
+Link reference definitions: Commonmark #161
+.
+[foo]: /url "title"
+
+[foo]
+.
+<p><a href="/url" title="title">foo</a></p>
+.
+
+
+Link reference definitions: Commonmark #162
+.
+   [foo]: 
+      /url  
+           'the title'  
+
+[foo]
+.
+<p><a href="/url" title="the title">foo</a></p>
+.
+
+
+Link reference definitions: Commonmark #163
+.
+[Foo*bar\]]:my_(url) 'title (with parens)'
+
+[Foo*bar\]]
+.
+<p><a href="my_(url)" title="title (with parens)">Foo*bar]</a></p>
+.
+
+
+Link reference definitions: Commonmark #164
+.
+[Foo bar]:
+<my url>
+'title'
+
+[Foo bar]
+.
+<p><a href="my%20url" title="title">Foo bar</a></p>
+.
+
+
+Link reference definitions: Commonmark #165
+.
+[foo]: /url '
+title
+line1
+line2
+'
+
+[foo]
+.
+<p><a href="/url" title="
+title
+line1
+line2
+">foo</a></p>
+.
+
+
+Link reference definitions: Commonmark #166
+.
+[foo]: /url 'title
+
+with blank line'
+
+[foo]
+.
+<p>[foo]: /url 'title</p>
+<p>with blank line'</p>
+<p>[foo]</p>
+.
+
+
+Link reference definitions: Commonmark #167
+.
+[foo]:
+/url
+
+[foo]
+.
+<p><a href="/url">foo</a></p>
+.
+
+
+Link reference definitions: Commonmark #168
+.
+[foo]:
+
+[foo]
+.
+<p>[foo]:</p>
+<p>[foo]</p>
+.
+
+
+Link reference definitions: Commonmark #169
+.
+[foo]: <>
+
+[foo]
+.
+<p><a href="">foo</a></p>
+.
+
+
+Link reference definitions: Commonmark #170
+.
+[foo]: <bar>(baz)
+
+[foo]
+.
+<p>[foo]: <bar>(baz)</p>
+<p>[foo]</p>
+.
+
+
+Link reference definitions: Commonmark #171
+.
+[foo]: /url\bar\*baz "foo\"bar\baz"
+
+[foo]
+.
+<p><a href="/url%5Cbar*baz" title="foo&quot;bar\baz">foo</a></p>
+.
+
+
+Link reference definitions: Commonmark #172
+.
+[foo]
+
+[foo]: url
+.
+<p><a href="url">foo</a></p>
+.
+
+
+Link reference definitions: Commonmark #173
+.
+[foo]
+
+[foo]: first
+[foo]: second
+.
+<p><a href="first">foo</a></p>
+.
+
+
+Link reference definitions: Commonmark #174
+.
+[FOO]: /url
+
+[Foo]
+.
+<p><a href="/url">Foo</a></p>
+.
+
+
+Link reference definitions: Commonmark #175
+.
+[ΑΓΩ]: /φου
+
+[αγω]
+.
+<p><a href="/%CF%86%CE%BF%CF%85">αγω</a></p>
+.
+
+
+Link reference definitions: Commonmark #176, Commonmark #188
+.
+[foo]: /url
+.
+.
+
+
+Link reference definitions: Commonmark #177
+.
+[
+foo
+]: /url
+bar
+.
+<p>bar</p>
+.
+
+
+Link reference definitions: Commonmark #178
+.
+[foo]: /url "title" ok
+.
+<p>[foo]: /url &quot;title&quot; ok</p>
+.
+
+
+Link reference definitions: Commonmark #179
+.
+[foo]: /url
+"title" ok
+.
+<p>&quot;title&quot; ok</p>
+.
+
+
+Link reference definitions: Commonmark #180
+.
+    [foo]: /url "title"
+
+[foo]
+.
+<pre><code>[foo]: /url &quot;title&quot;
+</code></pre>
+<p>[foo]</p>
+.
+
+
+Link reference definitions: Commonmark #181
+.
+```
+[foo]: /url
+```
+
+[foo]
+.
+<pre><code>[foo]: /url
+</code></pre>
+<p>[foo]</p>
+.
+
+
+Link reference definitions: Commonmark #182
+.
+Foo
+[bar]: /baz
+
+[bar]
+.
+<p>Foo
+[bar]: /baz</p>
+<p>[bar]</p>
+.
+
+
+Link reference definitions: Commonmark #183
+.
+# [Foo]
+[foo]: /url
+> bar
+.
+<h1><a href="/url">Foo</a></h1>
+<blockquote>
+<p>bar</p>
+</blockquote>
+.
+
+
+Link reference definitions: Commonmark #184
+.
+[foo]: /url
+bar
+===
+[foo]
+.
+<h1>bar</h1>
+<p><a href="/url">foo</a></p>
+.
+
+
+Link reference definitions: Commonmark #185
+.
+[foo]: /url
+===
+[foo]
+.
+<p>===
+<a href="/url">foo</a></p>
+.
+
+
+Link reference definitions: Commonmark #186
+.
+[foo]: /foo-url "foo"
+[bar]: /bar-url
+  "bar"
+[baz]: /baz-url
+
+[foo],
+[bar],
+[baz]
+.
+<p><a href="/foo-url" title="foo">foo</a>,
+<a href="/bar-url" title="bar">bar</a>,
+<a href="/baz-url">baz</a></p>
+.
+
+
+Link reference definitions: Commonmark #187
+.
+[foo]
+
+> [foo]: /url
+.
+<p><a href="/url">foo</a></p>
+<blockquote>
+</blockquote>
+.
+
+
+Paragraphs: Commonmark #189
+.
+aaa
+
+bbb
+.
+<p>aaa</p>
+<p>bbb</p>
+.
+
+
+Paragraphs: Commonmark #190
+.
+aaa
+bbb
+
+ccc
+ddd
+.
+<p>aaa
+bbb</p>
+<p>ccc
+ddd</p>
+.
+
+
+Paragraphs: Commonmark #191
+.
+aaa
+
+
+bbb
+.
+<p>aaa</p>
+<p>bbb</p>
+.
+
+
+Paragraphs: Commonmark #192
+.
+  aaa
+ bbb
+.
+<p>aaa
+bbb</p>
+.
+
+
+Paragraphs: Commonmark #193
+.
+aaa
+             bbb
+                                       ccc
+.
+<p>aaa
+bbb
+ccc</p>
+.
+
+
+Paragraphs: Commonmark #194
+.
+   aaa
+bbb
+.
+<p>aaa
+bbb</p>
+.
+
+
+Paragraphs: Commonmark #195
+.
+    aaa
+bbb
+.
+<pre><code>aaa
+</code></pre>
+<p>bbb</p>
+.
+
+
+Paragraphs: Commonmark #196
+.
+aaa     
+bbb     
+.
+<p>aaa<br />
+bbb</p>
+.
+
+
+Blank lines: Commonmark #197
+.
+  
+
+aaa
+  
+
+# aaa
+
+  
+.
+<p>aaa</p>
+<h1>aaa</h1>
+.
+
+
+Block quotes: Commonmark #198
+.
+> # Foo
+> bar
+> baz
+.
+<blockquote>
+<h1>Foo</h1>
+<p>bar
+baz</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #199
+.
+># Foo
+>bar
+> baz
+.
+<blockquote>
+<h1>Foo</h1>
+<p>bar
+baz</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #200
+.
+   > # Foo
+   > bar
+ > baz
+.
+<blockquote>
+<h1>Foo</h1>
+<p>bar
+baz</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #201
+.
+    > # Foo
+    > bar
+    > baz
+.
+<pre><code>&gt; # Foo
+&gt; bar
+&gt; baz
+</code></pre>
+.
+
+
+Block quotes: Commonmark #202
+.
+> # Foo
+> bar
+baz
+.
+<blockquote>
+<h1>Foo</h1>
+<p>bar
+baz</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #203
+.
+> bar
+baz
+> foo
+.
+<blockquote>
+<p>bar
+baz
+foo</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #204
+.
+> foo
+---
+.
+<blockquote>
+<p>foo</p>
+</blockquote>
+<hr />
+.
+
+
+Block quotes: Commonmark #205
+.
+> - foo
+- bar
+.
+<blockquote>
+<ul>
+<li>foo</li>
+</ul>
+</blockquote>
+<ul>
+<li>bar</li>
+</ul>
+.
+
+
+Block quotes: Commonmark #206
+.
+>     foo
+    bar
+.
+<blockquote>
+<pre><code>foo
+</code></pre>
+</blockquote>
+<pre><code>bar
+</code></pre>
+.
+
+
+Block quotes: Commonmark #207
+.
+> ```
+foo
+```
+.
+<blockquote>
+<pre><code></code></pre>
+</blockquote>
+<p>foo</p>
+<pre><code></code></pre>
+.
+
+
+Block quotes: Commonmark #208
+.
+> foo
+    - bar
+.
+<blockquote>
+<p>foo
+- bar</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #209
+.
+>
+.
+<blockquote>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #210
+.
+>
+>  
+> 
+.
+<blockquote>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #211
+.
+>
+> foo
+>  
+.
+<blockquote>
+<p>foo</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #212
+.
+> foo
+
+> bar
+.
+<blockquote>
+<p>foo</p>
+</blockquote>
+<blockquote>
+<p>bar</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #213
+.
+> foo
+> bar
+.
+<blockquote>
+<p>foo
+bar</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #214
+.
+> foo
+>
+> bar
+.
+<blockquote>
+<p>foo</p>
+<p>bar</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #215
+.
+foo
+> bar
+.
+<p>foo</p>
+<blockquote>
+<p>bar</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #216
+.
+> aaa
+***
+> bbb
+.
+<blockquote>
+<p>aaa</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>bbb</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #217
+.
+> bar
+baz
+.
+<blockquote>
+<p>bar
+baz</p>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #218
+.
+> bar
+
+baz
+.
+<blockquote>
+<p>bar</p>
+</blockquote>
+<p>baz</p>
+.
+
+
+Block quotes: Commonmark #219
+.
+> bar
+>
+baz
+.
+<blockquote>
+<p>bar</p>
+</blockquote>
+<p>baz</p>
+.
+
+
+Block quotes: Commonmark #220
+.
+> > > foo
+bar
+.
+<blockquote>
+<blockquote>
+<blockquote>
+<p>foo
+bar</p>
+</blockquote>
+</blockquote>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #221
+.
+>>> foo
+> bar
+>>baz
+.
+<blockquote>
+<blockquote>
+<blockquote>
+<p>foo
+bar
+baz</p>
+</blockquote>
+</blockquote>
+</blockquote>
+.
+
+
+Block quotes: Commonmark #222
+.
+>     code
+
+>    not code
+.
+<blockquote>
+<pre><code>code
+</code></pre>
+</blockquote>
+<blockquote>
+<p>not code</p>
+</blockquote>
+.
+
+
+List items: Commonmark #223
+.
+A paragraph
+with two lines.
+
+    indented code
+
+> A block quote.
+.
+<p>A paragraph
+with two lines.</p>
+<pre><code>indented code
+</code></pre>
+<blockquote>
+<p>A block quote.</p>
+</blockquote>
+.
+
+
+List items: Commonmark #224
+.
+1.  A paragraph
+    with two lines.
+
+        indented code
+
+    > A block quote.
+.
+<ol>
+<li>
+<p>A paragraph
+with two lines.</p>
+<pre><code>indented code
+</code></pre>
+<blockquote>
+<p>A block quote.</p>
+</blockquote>
+</li>
+</ol>
+.
+
+
+List items: Commonmark #225
+.
+- one
+
+ two
+.
+<ul>
+<li>one</li>
+</ul>
+<p>two</p>
+.
+
+
+List items: Commonmark #226
+.
+- one
+
+  two
+.
+<ul>
+<li>
+<p>one</p>
+<p>two</p>
+</li>
+</ul>
+.
+
+
+List items: Commonmark #227
+.
+ -    one
+
+     two
+.
+<ul>
+<li>one</li>
+</ul>
+<pre><code> two
+</code></pre>
+.
+
+
+List items: Commonmark #228
+.
+ -    one
+
+      two
+.
+<ul>
+<li>
+<p>one</p>
+<p>two</p>
+</li>
+</ul>
+.
+
+
+List items: Commonmark #229
+.
+   > > 1.  one
+>>
+>>     two
+.
+<blockquote>
+<blockquote>
+<ol>
+<li>
+<p>one</p>
+<p>two</p>
+</li>
+</ol>
+</blockquote>
+</blockquote>
+.
+
+
+List items: Commonmark #230
+.
+>>- one
+>>
+  >  > two
+.
+<blockquote>
+<blockquote>
+<ul>
+<li>one</li>
+</ul>
+<p>two</p>
+</blockquote>
+</blockquote>
+.
+
+
+List items: Commonmark #231
+.
+-one
+
+2.two
+.
+<p>-one</p>
+<p>2.two</p>
+.
+
+
+List items: Commonmark #232
+.
+- foo
+
+
+  bar
+.
+<ul>
+<li>
+<p>foo</p>
+<p>bar</p>
+</li>
+</ul>
+.
+
+
+List items: Commonmark #233
+.
+1.  foo
+
+    ```
+    bar
+    ```
+
+    baz
+
+    > bam
+.
+<ol>
+<li>
+<p>foo</p>
+<pre><code>bar
+</code></pre>
+<p>baz</p>
+<blockquote>
+<p>bam</p>
+</blockquote>
+</li>
+</ol>
+.
+
+
+List items: Commonmark #234
+.
+- Foo
+
+      bar
+
+
+      baz
+.
+<ul>
+<li>
+<p>Foo</p>
+<pre><code>bar
+
+
+baz
+</code></pre>
+</li>
+</ul>
+.
+
+
+List items: Commonmark #235
+.
+123456789. ok
+.
+<ol start="123456789">
+<li>ok</li>
+</ol>
+.
+
+
+List items: Commonmark #236
+.
+1234567890. not ok
+.
+<p>1234567890. not ok</p>
+.
+
+
+List items: Commonmark #237
+.
+0. ok
+.
+<ol start="0">
+<li>ok</li>
+</ol>
+.
+
+
+List items: Commonmark #238
+.
+003. ok
+.
+<ol start="3">
+<li>ok</li>
+</ol>
+.
+
+
+List items: Commonmark #239
+.
+-1. not ok
+.
+<p>-1. not ok</p>
+.
+
+
+List items: Commonmark #240
+.
+- foo
+
+      bar
+.
+<ul>
+<li>
+<p>foo</p>
+<pre><code>bar
+</code></pre>
+</li>
+</ul>
+.
+
+
+List items: Commonmark #241
+.
+  10.  foo
+
+           bar
+.
+<ol start="10">
+<li>
+<p>foo</p>
+<pre><code>bar
+</code></pre>
+</li>
+</ol>
+.
+
+
+List items: Commonmark #242
+.
+    indented code
+
+paragraph
+
+    more code
+.
+<pre><code>indented code
+</code></pre>
+<p>paragraph</p>
+<pre><code>more code
+</code></pre>
+.
+
+
+List items: Commonmark #243
+.
+1.     indented code
+
+   paragraph
+
+       more code
+.
+<ol>
+<li>
+<pre><code>indented code
+</code></pre>
+<p>paragraph</p>
+<pre><code>more code
+</code></pre>
+</li>
+</ol>
+.
+
+
+List items: Commonmark #244
+.
+1.      indented code
+
+   paragraph
+
+       more code
+.
+<ol>
+<li>
+<pre><code> indented code
+</code></pre>
+<p>paragraph</p>
+<pre><code>more code
+</code></pre>
+</li>
+</ol>
+.
+
+
+List items: Commonmark #245
+.
+   foo
+
+bar
+.
+<p>foo</p>
+<p>bar</p>
+.
+
+
+List items: Commonmark #246
+.
+-    foo
+
+  bar
+.
+<ul>
+<li>foo</li>
+</ul>
+<p>bar</p>
+.
+
+
+List items: Commonmark #247
+.
+-  foo
+
+   bar
+.
+<ul>
+<li>
+<p>foo</p>
+<p>bar</p>
+</li>
+</ul>
+.
+
+
+List items: Commonmark #248
+.
+-
+  foo
+-
+  ```
+  bar
+  ```
+-
+      baz
+.
+<ul>
+<li>foo</li>
+<li>
+<pre><code>bar
+</code></pre>
+</li>
+<li>
+<pre><code>baz
+</code></pre>
+</li>
+</ul>
+.
+
+
+List items: Commonmark #249
+.
+-   
+  foo
+.
+<ul>
+<li>foo</li>
+</ul>
+.
+
+
+List items: Commonmark #250
+.
+-
+
+  foo
+.
+<ul>
+<li></li>
+</ul>
+<p>foo</p>
+.
+
+
+List items: Commonmark #251
+.
+- foo
+-
+- bar
+.
+<ul>
+<li>foo</li>
+<li></li>
+<li>bar</li>
+</ul>
+.
+
+
+List items: Commonmark #252
+.
+- foo
+-   
+- bar
+.
+<ul>
+<li>foo</li>
+<li></li>
+<li>bar</li>
+</ul>
+.
+
+
+List items: Commonmark #253
+.
+1. foo
+2.
+3. bar
+.
+<ol>
+<li>foo</li>
+<li></li>
+<li>bar</li>
+</ol>
+.
+
+
+List items: Commonmark #254
+.
+*
+.
+<ul>
+<li></li>
+</ul>
+.
+
+
+List items: Commonmark #255
+.
+foo
+*
+
+foo
+1.
+.
+<p>foo
+*</p>
+<p>foo
+1.</p>
+.
+
+
+List items: Commonmark #256
+.
+ 1.  A paragraph
+     with two lines.
+
+         indented code
+
+     > A block quote.
+.
+<ol>
+<li>
+<p>A paragraph
+with two lines.</p>
+<pre><code>indented code
+</code></pre>
+<blockquote>
+<p>A block quote.</p>
+</blockquote>
+</li>
+</ol>
+.
+
+
+List items: Commonmark #257
+.
+  1.  A paragraph
+      with two lines.
+
+          indented code
+
+      > A block quote.
+.
+<ol>
+<li>
+<p>A paragraph
+with two lines.</p>
+<pre><code>indented code
+</code></pre>
+<blockquote>
+<p>A block quote.</p>
+</blockquote>
+</li>
+</ol>
+.
+
+
+List items: Commonmark #258
+.
+   1.  A paragraph
+       with two lines.
+
+           indented code
+
+       > A block quote.
+.
+<ol>
+<li>
+<p>A paragraph
+with two lines.</p>
+<pre><code>indented code
+</code></pre>
+<blockquote>
+<p>A block quote.</p>
+</blockquote>
+</li>
+</ol>
+.
+
+
+List items: Commonmark #259
+.
+    1.  A paragraph
+        with two lines.
+
+            indented code
+
+        > A block quote.
+.
+<pre><code>1.  A paragraph
+    with two lines.
+
+        indented code
+
+    &gt; A block quote.
+</code></pre>
+.
+
+
+List items: Commonmark #260
+.
+  1.  A paragraph
+with two lines.
+
+          indented code
+
+      > A block quote.
+.
+<ol>
+<li>
+<p>A paragraph
+with two lines.</p>
+<pre><code>indented code
+</code></pre>
+<blockquote>
+<p>A block quote.</p>
+</blockquote>
+</li>
+</ol>
+.
+
+
+List items: Commonmark #261
+.
+  1.  A paragraph
+    with two lines.
+.
+<ol>
+<li>A paragraph
+with two lines.</li>
+</ol>
+.
+
+
+List items: Commonmark #262
+.
+> 1. > Blockquote
+continued here.
+.
+<blockquote>
+<ol>
+<li>
+<blockquote>
+<p>Blockquote
+continued here.</p>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+.
+
+
+List items: Commonmark #263
+.
+> 1. > Blockquote
+> continued here.
+.
+<blockquote>
+<ol>
+<li>
+<blockquote>
+<p>Blockquote
+continued here.</p>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+.
+
+
+List items: Commonmark #264
+.
+- foo
+  - bar
+    - baz
+      - boo
+.
+<ul>
+<li>foo
+<ul>
+<li>bar
+<ul>
+<li>baz
+<ul>
+<li>boo</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+.
+
+
+List items: Commonmark #265
+.
+- foo
+ - bar
+  - baz
+   - boo
+.
+<ul>
+<li>foo</li>
+<li>bar</li>
+<li>baz</li>
+<li>boo</li>
+</ul>
+.
+
+
+List items: Commonmark #266
+.
+10) foo
+    - bar
+.
+<ol start="10">
+<li>foo
+<ul>
+<li>bar</li>
+</ul>
+</li>
+</ol>
+.
+
+
+List items: Commonmark #267
+.
+10) foo
+   - bar
+.
+<ol start="10">
+<li>foo</li>
+</ol>
+<ul>
+<li>bar</li>
+</ul>
+.
+
+
+List items: Commonmark #268
+.
+- - foo
+.
+<ul>
+<li>
+<ul>
+<li>foo</li>
+</ul>
+</li>
+</ul>
+.
+
+
+List items: Commonmark #269
+.
+1. - 2. foo
+.
+<ol>
+<li>
+<ul>
+<li>
+<ol start="2">
+<li>foo</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+.
+
+
+List items: Commonmark #270
+.
+- # Foo
+- Bar
+  ---
+  baz
+.
+<ul>
+<li>
+<h1>Foo</h1>
+</li>
+<li>
+<h2>Bar</h2>
+baz</li>
+</ul>
+.
+
+
+Lists: Commonmark #271
+.
+- foo
+- bar
++ baz
+.
+<ul>
+<li>foo</li>
+<li>bar</li>
+</ul>
+<ul>
+<li>baz</li>
+</ul>
+.
+
+
+Lists: Commonmark #272
+.
+1. foo
+2. bar
+3) baz
+.
+<ol>
+<li>foo</li>
+<li>bar</li>
+</ol>
+<ol start="3">
+<li>baz</li>
+</ol>
+.
+
+
+Lists: Commonmark #273
+.
+Foo
+- bar
+- baz
+.
+<p>Foo</p>
+<ul>
+<li>bar</li>
+<li>baz</li>
+</ul>
+.
+
+
+Lists: Commonmark #274
+.
+The number of windows in my house is
+14.  The number of doors is 6.
+.
+<p>The number of windows in my house is
+14.  The number of doors is 6.</p>
+.
+
+
+Lists: Commonmark #275
+.
+The number of windows in my house is
+1.  The number of doors is 6.
+.
+<p>The number of windows in my house is</p>
+<ol>
+<li>The number of doors is 6.</li>
+</ol>
+.
+
+
+Lists: Commonmark #276
+.
+- foo
+
+- bar
+
+
+- baz
+.
+<ul>
+<li>
+<p>foo</p>
+</li>
+<li>
+<p>bar</p>
+</li>
+<li>
+<p>baz</p>
+</li>
+</ul>
+.
+
+
+Lists: Commonmark #277
+.
+- foo
+  - bar
+    - baz
+
+
+      bim
+.
+<ul>
+<li>foo
+<ul>
+<li>bar
+<ul>
+<li>
+<p>baz</p>
+<p>bim</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+.
+
+
+Lists: Commonmark #278
+.
+- foo
+- bar
+
+<!-- -->
+
+- baz
+- bim
+.
+<ul>
+<li>foo</li>
+<li>bar</li>
+</ul>
+<!-- -->
+<ul>
+<li>baz</li>
+<li>bim</li>
+</ul>
+.
+
+
+Lists: Commonmark #279
+.
+-   foo
+
+    notcode
+
+-   foo
+
+<!-- -->
+
+    code
+.
+<ul>
+<li>
+<p>foo</p>
+<p>notcode</p>
+</li>
+<li>
+<p>foo</p>
+</li>
+</ul>
+<!-- -->
+<pre><code>code
+</code></pre>
+.
+
+
+Lists: Commonmark #280
+.
+- a
+ - b
+  - c
+   - d
+  - e
+ - f
+- g
+.
+<ul>
+<li>a</li>
+<li>b</li>
+<li>c</li>
+<li>d</li>
+<li>e</li>
+<li>f</li>
+<li>g</li>
+</ul>
+.
+
+
+Lists: Commonmark #281
+.
+1. a
+
+  2. b
+
+   3. c
+.
+<ol>
+<li>
+<p>a</p>
+</li>
+<li>
+<p>b</p>
+</li>
+<li>
+<p>c</p>
+</li>
+</ol>
+.
+
+
+Lists: Commonmark #282
+.
+- a
+ - b
+  - c
+   - d
+    - e
+.
+<ul>
+<li>a</li>
+<li>b</li>
+<li>c</li>
+<li>d
+- e</li>
+</ul>
+.
+
+
+Lists: Commonmark #283
+.
+1. a
+
+  2. b
+
+    3. c
+.
+<ol>
+<li>
+<p>a</p>
+</li>
+<li>
+<p>b</p>
+</li>
+</ol>
+<pre><code>3. c
+</code></pre>
+.
+
+
+Lists: Commonmark #284
+.
+- a
+- b
+
+- c
+.
+<ul>
+<li>
+<p>a</p>
+</li>
+<li>
+<p>b</p>
+</li>
+<li>
+<p>c</p>
+</li>
+</ul>
+.
+
+
+Lists: Commonmark #285
+.
+* a
+*
+
+* c
+.
+<ul>
+<li>
+<p>a</p>
+</li>
+<li></li>
+<li>
+<p>c</p>
+</li>
+</ul>
+.
+
+
+Lists: Commonmark #286
+.
+- a
+- b
+
+  c
+- d
+.
+<ul>
+<li>
+<p>a</p>
+</li>
+<li>
+<p>b</p>
+<p>c</p>
+</li>
+<li>
+<p>d</p>
+</li>
+</ul>
+.
+
+
+Lists: Commonmark #287
+.
+- a
+- b
+
+  [ref]: /url
+- d
+.
+<ul>
+<li>
+<p>a</p>
+</li>
+<li>
+<p>b</p>
+</li>
+<li>
+<p>d</p>
+</li>
+</ul>
+.
+
+
+Lists: Commonmark #288
+.
+- a
+- ```
+  b
+
+
+  ```
+- c
+.
+<ul>
+<li>a</li>
+<li>
+<pre><code>b
+
+
+</code></pre>
+</li>
+<li>c</li>
+</ul>
+.
+
+
+Lists: Commonmark #289
+.
+- a
+  - b
+
+    c
+- d
+.
+<ul>
+<li>a
+<ul>
+<li>
+<p>b</p>
+<p>c</p>
+</li>
+</ul>
+</li>
+<li>d</li>
+</ul>
+.
+
+
+Lists: Commonmark #290
+.
+* a
+  > b
+  >
+* c
+.
+<ul>
+<li>a
+<blockquote>
+<p>b</p>
+</blockquote>
+</li>
+<li>c</li>
+</ul>
+.
+
+
+Lists: Commonmark #291
+.
+- a
+  > b
+  ```
+  c
+  ```
+- d
+.
+<ul>
+<li>a
+<blockquote>
+<p>b</p>
+</blockquote>
+<pre><code>c
+</code></pre>
+</li>
+<li>d</li>
+</ul>
+.
+
+
+Lists: Commonmark #292
+.
+- a
+.
+<ul>
+<li>a</li>
+</ul>
+.
+
+
+Lists: Commonmark #293
+.
+- a
+  - b
+.
+<ul>
+<li>a
+<ul>
+<li>b</li>
+</ul>
+</li>
+</ul>
+.
+
+
+Lists: Commonmark #294
+.
+1. ```
+   foo
+   ```
+
+   bar
+.
+<ol>
+<li>
+<pre><code>foo
+</code></pre>
+<p>bar</p>
+</li>
+</ol>
+.
+
+
+Lists: Commonmark #295
+.
+* foo
+  * bar
+
+  baz
+.
+<ul>
+<li>
+<p>foo</p>
+<ul>
+<li>bar</li>
+</ul>
+<p>baz</p>
+</li>
+</ul>
+.
+
+
+Lists: Commonmark #296
+.
+- a
+  - b
+  - c
+
+- d
+  - e
+  - f
+.
+<ul>
+<li>
+<p>a</p>
+<ul>
+<li>b</li>
+<li>c</li>
+</ul>
+</li>
+<li>
+<p>d</p>
+<ul>
+<li>e</li>
+<li>f</li>
+</ul>
+</li>
+</ul>
+.
+
+
+Inlines: Commonmark #297
+.
+`hi`lo`
+.
+<p><code>hi</code>lo`</p>
+.
+
+
+Backslash escapes: Commonmark #298
+.
+\!\"\#\$\%\&\'\(\)\*\+\,\-\.\/\:\;\<\=\>\?\@\[\\\]\^\_\`\{\|\}\~
+.
+<p>!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</p>
+.
+
+
+Backslash escapes: Commonmark #299
+.
+\	\A\a\ \3\φ\«
+.
+<p>\	\A\a\ \3\φ\«</p>
+.
+
+
+Backslash escapes: Commonmark #300
+.
+\*not emphasized*
+\<br/> not a tag
+\[not a link](/foo)
+\`not code`
+1\. not a list
+\* not a list
+\# not a heading
+\[foo]: /url "not a reference"
+\&ouml; not a character entity
+.
+<p>*not emphasized*
+&lt;br/&gt; not a tag
+[not a link](/foo)
+`not code`
+1. not a list
+* not a list
+# not a heading
+[foo]: /url &quot;not a reference&quot;
+&amp;ouml; not a character entity</p>
+.
+
+
+Backslash escapes: Commonmark #301
+.
+\\*emphasis*
+.
+<p>\<em>emphasis</em></p>
+.
+
+
+Backslash escapes: Commonmark #302
+.
+foo\
+bar
+.
+<p>foo<br />
+bar</p>
+.
+
+
+Backslash escapes: Commonmark #303
+.
+`` \[\` ``
+.
+<p><code>\[\`</code></p>
+.
+
+
+Backslash escapes: Commonmark #304
+.
+    \[\]
+.
+<pre><code>\[\]
+</code></pre>
+.
+
+
+Backslash escapes: Commonmark #305
+.
+~~~
+\[\]
+~~~
+.
+<pre><code>\[\]
+</code></pre>
+.
+
+
+Backslash escapes: Commonmark #306
+.
+<http://example.com?find=\*>
+.
+<p><a href="http://example.com?find=%5C*">http://example.com?find=\*</a></p>
+.
+
+
+Backslash escapes: Commonmark #307
+.
+<a href="/bar\/)">
+.
+<a href="/bar\/)">
+.
+
+
+Backslash escapes: Commonmark #308
+.
+[foo](/bar\* "ti\*tle")
+.
+<p><a href="/bar*" title="ti*tle">foo</a></p>
+.
+
+
+Backslash escapes: Commonmark #309
+.
+[foo]
+
+[foo]: /bar\* "ti\*tle"
+.
+<p><a href="/bar*" title="ti*tle">foo</a></p>
+.
+
+
+Backslash escapes: Commonmark #310
+.
+``` foo\+bar
+foo
+```
+.
+<pre><code class="language-foo+bar">foo
+</code></pre>
+.
+
+
+Entity and numeric character references: Commonmark #311
+.
+&nbsp; &amp; &copy; &AElig; &Dcaron;
+&frac34; &HilbertSpace; &DifferentialD;
+&ClockwiseContourIntegral; &ngE;
+.
+<p>  &amp; © Æ Ď
+¾ ℋ ⅆ
+∲ ≧̸</p>
+.
+
+
+Entity and numeric character references: Commonmark #312
+.
+&#35; &#1234; &#992; &#0;
+.
+<p># Ӓ Ϡ �</p>
+.
+
+
+Entity and numeric character references: Commonmark #313
+.
+&#X22; &#XD06; &#xcab;
+.
+<p>&quot; ആ ಫ</p>
+.
+
+
+Entity and numeric character references: Commonmark #314
+.
+&nbsp &x; &#; &#x;
+&#987654321;
+&#abcdef0;
+&ThisIsNotDefined; &hi?;
+.
+<p>&amp;nbsp &amp;x; &amp;#; &amp;#x;
+&amp;#987654321;
+&amp;#abcdef0;
+&amp;ThisIsNotDefined; &amp;hi?;</p>
+.
+
+
+Entity and numeric character references: Commonmark #315
+.
+&copy
+.
+<p>&amp;copy</p>
+.
+
+
+Entity and numeric character references: Commonmark #316
+.
+&MadeUpEntity;
+.
+<p>&amp;MadeUpEntity;</p>
+.
+
+
+Entity and numeric character references: Commonmark #317
+.
+<a href="&ouml;&ouml;.html">
+.
+<a href="&ouml;&ouml;.html">
+.
+
+
+Entity and numeric character references: Commonmark #318
+.
+[foo](/f&ouml;&ouml; "f&ouml;&ouml;")
+.
+<p><a href="/f%C3%B6%C3%B6" title="föö">foo</a></p>
+.
+
+
+Entity and numeric character references: Commonmark #319
+.
+[foo]
+
+[foo]: /f&ouml;&ouml; "f&ouml;&ouml;"
+.
+<p><a href="/f%C3%B6%C3%B6" title="föö">foo</a></p>
+.
+
+
+Entity and numeric character references: Commonmark #320
+.
+``` f&ouml;&ouml;
+foo
+```
+.
+<pre><code class="language-föö">foo
+</code></pre>
+.
+
+
+Entity and numeric character references: Commonmark #321
+.
+`f&ouml;&ouml;`
+.
+<p><code>f&amp;ouml;&amp;ouml;</code></p>
+.
+
+
+Entity and numeric character references: Commonmark #322
+.
+    f&ouml;f&ouml;
+.
+<pre><code>f&amp;ouml;f&amp;ouml;
+</code></pre>
+.
+
+
+Entity and numeric character references: Commonmark #323
+.
+&#42;foo&#42;
+*foo*
+.
+<p>*foo*
+<em>foo</em></p>
+.
+
+
+Entity and numeric character references: Commonmark #324
+.
+&#42; foo
+
+* foo
+.
+<p>* foo</p>
+<ul>
+<li>foo</li>
+</ul>
+.
+
+
+Entity and numeric character references: Commonmark #325
+.
+foo&#10;&#10;bar
+.
+<p>foo
+
+bar</p>
+.
+
+
+Entity and numeric character references: Commonmark #326
+.
+&#9;foo
+.
+<p>	foo</p>
+.
+
+
+Entity and numeric character references: Commonmark #327
+.
+[a](url &quot;tit&quot;)
+.
+<p>[a](url &quot;tit&quot;)</p>
+.
+
+
+Code spans: Commonmark #328
+.
+`foo`
+.
+<p><code>foo</code></p>
+.
+
+
+Code spans: Commonmark #329
+.
+`` foo ` bar ``
+.
+<p><code>foo ` bar</code></p>
+.
+
+
+Code spans: Commonmark #330
+.
+` `` `
+.
+<p><code>``</code></p>
+.
+
+
+Code spans: Commonmark #331
+.
+`  ``  `
+.
+<p><code> `` </code></p>
+.
+
+
+Code spans: Commonmark #332
+.
+` a`
+.
+<p><code> a</code></p>
+.
+
+
+Code spans: Commonmark #333
+.
+` b `
+.
+<p><code> b </code></p>
+.
+
+
+Code spans: Commonmark #334
+.
+` `
+`  `
+.
+<p><code> </code>
+<code>  </code></p>
+.
+
+
+Code spans: Commonmark #335
+.
+``
+foo
+bar  
+baz
+``
+.
+<p><code>foo bar   baz</code></p>
+.
+
+
+Code spans: Commonmark #336
+.
+``
+foo 
+``
+.
+<p><code>foo </code></p>
+.
+
+
+Code spans: Commonmark #337
+.
+`foo   bar 
+baz`
+.
+<p><code>foo   bar  baz</code></p>
+.
+
+
+Code spans: Commonmark #338
+.
+`foo\`bar`
+.
+<p><code>foo\</code>bar`</p>
+.
+
+
+Code spans: Commonmark #339
+.
+``foo`bar``
+.
+<p><code>foo`bar</code></p>
+.
+
+
+Code spans: Commonmark #340
+.
+` foo `` bar `
+.
+<p><code>foo `` bar</code></p>
+.
+
+
+Code spans: Commonmark #341
+.
+*foo`*`
+.
+<p>*foo<code>*</code></p>
+.
+
+
+Code spans: Commonmark #342
+.
+[not a `link](/foo`)
+.
+<p>[not a <code>link](/foo</code>)</p>
+.
+
+
+Code spans: Commonmark #343
+.
+`<a href="`">`
+.
+<p><code>&lt;a href=&quot;</code>&quot;&gt;`</p>
+.
+
+
+Code spans: Commonmark #344
+.
+<a href="`">`
+.
+<p><a href="`">`</p>
+.
+
+
+Code spans: Commonmark #345
+.
+`<http://foo.bar.`baz>`
+.
+<p><code>&lt;http://foo.bar.</code>baz&gt;`</p>
+.
+
+
+Code spans: Commonmark #346
+.
+<http://foo.bar.`baz>`
+.
+<p><a href="http://foo.bar.%60baz">http://foo.bar.`baz</a>`</p>
+.
+
+
+Code spans: Commonmark #347
+.
+```foo``
+.
+<p>```foo``</p>
+.
+
+
+Code spans: Commonmark #348
+.
+`foo
+.
+<p>`foo</p>
+.
+
+
+Code spans: Commonmark #349
+.
+`foo``bar``
+.
+<p>`foo<code>bar</code></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #350
+.
+*foo bar*
+.
+<p><em>foo bar</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #351
+.
+a * foo bar*
+.
+<p>a * foo bar*</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #352
+.
+a*"foo"*
+.
+<p>a*&quot;foo&quot;*</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #353
+.
+* a *
+.
+<p>* a *</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #354
+.
+foo*bar*
+.
+<p>foo<em>bar</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #355
+.
+5*6*78
+.
+<p>5<em>6</em>78</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #356
+.
+_foo bar_
+.
+<p><em>foo bar</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #357
+.
+_ foo bar_
+.
+<p>_ foo bar_</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #358
+.
+a_"foo"_
+.
+<p>a_&quot;foo&quot;_</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #359
+.
+foo_bar_
+.
+<p>foo_bar_</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #360
+.
+5_6_78
+.
+<p>5_6_78</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #361
+.
+пристаням_стремятся_
+.
+<p>пристаням_стремятся_</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #362
+.
+aa_"bb"_cc
+.
+<p>aa_&quot;bb&quot;_cc</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #363
+.
+foo-_(bar)_
+.
+<p>foo-<em>(bar)</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #364
+.
+_foo*
+.
+<p>_foo*</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #365
+.
+*foo bar *
+.
+<p>*foo bar *</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #366
+.
+*foo bar
+*
+.
+<p>*foo bar
+*</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #367
+.
+*(*foo)
+.
+<p>*(*foo)</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #368
+.
+*(*foo*)*
+.
+<p><em>(<em>foo</em>)</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #369
+.
+*foo*bar
+.
+<p><em>foo</em>bar</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #370
+.
+_foo bar _
+.
+<p>_foo bar _</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #371
+.
+_(_foo)
+.
+<p>_(_foo)</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #372
+.
+_(_foo_)_
+.
+<p><em>(<em>foo</em>)</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #373
+.
+_foo_bar
+.
+<p>_foo_bar</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #374
+.
+_пристаням_стремятся
+.
+<p>_пристаням_стремятся</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #375
+.
+_foo_bar_baz_
+.
+<p><em>foo_bar_baz</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #376
+.
+_(bar)_.
+.
+<p><em>(bar)</em>.</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #377
+.
+**foo bar**
+.
+<p><strong>foo bar</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #378
+.
+** foo bar**
+.
+<p>** foo bar**</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #379
+.
+a**"foo"**
+.
+<p>a**&quot;foo&quot;**</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #380
+.
+foo**bar**
+.
+<p>foo<strong>bar</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #381
+.
+__foo bar__
+.
+<p><strong>foo bar</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #382
+.
+__ foo bar__
+.
+<p>__ foo bar__</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #383
+.
+__
+foo bar__
+.
+<p>__
+foo bar__</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #384
+.
+a__"foo"__
+.
+<p>a__&quot;foo&quot;__</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #385
+.
+foo__bar__
+.
+<p>foo__bar__</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #386
+.
+5__6__78
+.
+<p>5__6__78</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #387
+.
+пристаням__стремятся__
+.
+<p>пристаням__стремятся__</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #388
+.
+__foo, __bar__, baz__
+.
+<p><strong>foo, <strong>bar</strong>, baz</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #389
+.
+foo-__(bar)__
+.
+<p>foo-<strong>(bar)</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #390
+.
+**foo bar **
+.
+<p>**foo bar **</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #391
+.
+**(**foo)
+.
+<p>**(**foo)</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #392
+.
+*(**foo**)*
+.
+<p><em>(<strong>foo</strong>)</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #393
+.
+**Gomphocarpus (*Gomphocarpus physocarpus*, syn.
+*Asclepias physocarpa*)**
+.
+<p><strong>Gomphocarpus (<em>Gomphocarpus physocarpus</em>, syn.
+<em>Asclepias physocarpa</em>)</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #394
+.
+**foo "*bar*" foo**
+.
+<p><strong>foo &quot;<em>bar</em>&quot; foo</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #395
+.
+**foo**bar
+.
+<p><strong>foo</strong>bar</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #396
+.
+__foo bar __
+.
+<p>__foo bar __</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #397
+.
+__(__foo)
+.
+<p>__(__foo)</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #398
+.
+_(__foo__)_
+.
+<p><em>(<strong>foo</strong>)</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #399
+.
+__foo__bar
+.
+<p>__foo__bar</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #400
+.
+__пристаням__стремятся
+.
+<p>__пристаням__стремятся</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #401
+.
+__foo__bar__baz__
+.
+<p><strong>foo__bar__baz</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #402
+.
+__(bar)__.
+.
+<p><strong>(bar)</strong>.</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #403
+.
+*foo [bar](/url)*
+.
+<p><em>foo <a href="/url">bar</a></em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #404
+.
+*foo
+bar*
+.
+<p><em>foo
+bar</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #405
+.
+_foo __bar__ baz_
+.
+<p><em>foo <strong>bar</strong> baz</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #406
+.
+_foo _bar_ baz_
+.
+<p><em>foo <em>bar</em> baz</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #407
+.
+__foo_ bar_
+.
+<p><em><em>foo</em> bar</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #408
+.
+*foo *bar**
+.
+<p><em>foo <em>bar</em></em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #409
+.
+*foo **bar** baz*
+.
+<p><em>foo <strong>bar</strong> baz</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #410
+.
+*foo**bar**baz*
+.
+<p><em>foo<strong>bar</strong>baz</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #411
+.
+*foo**bar*
+.
+<p><em>foo**bar</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #412
+.
+***foo** bar*
+.
+<p><em><strong>foo</strong> bar</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #413
+.
+*foo **bar***
+.
+<p><em>foo <strong>bar</strong></em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #414
+.
+*foo**bar***
+.
+<p><em>foo<strong>bar</strong></em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #415
+.
+foo***bar***baz
+.
+<p>foo<em><strong>bar</strong></em>baz</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #416
+.
+foo******bar*********baz
+.
+<p>foo<strong><strong><strong>bar</strong></strong></strong>***baz</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #417
+.
+*foo **bar *baz* bim** bop*
+.
+<p><em>foo <strong>bar <em>baz</em> bim</strong> bop</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #418
+.
+*foo [*bar*](/url)*
+.
+<p><em>foo <a href="/url"><em>bar</em></a></em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #419
+.
+** is not an empty emphasis
+.
+<p>** is not an empty emphasis</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #420
+.
+**** is not an empty strong emphasis
+.
+<p>**** is not an empty strong emphasis</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #421
+.
+**foo [bar](/url)**
+.
+<p><strong>foo <a href="/url">bar</a></strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #422
+.
+**foo
+bar**
+.
+<p><strong>foo
+bar</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #423
+.
+__foo _bar_ baz__
+.
+<p><strong>foo <em>bar</em> baz</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #424
+.
+__foo __bar__ baz__
+.
+<p><strong>foo <strong>bar</strong> baz</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #425
+.
+____foo__ bar__
+.
+<p><strong><strong>foo</strong> bar</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #426
+.
+**foo **bar****
+.
+<p><strong>foo <strong>bar</strong></strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #427
+.
+**foo *bar* baz**
+.
+<p><strong>foo <em>bar</em> baz</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #428
+.
+**foo*bar*baz**
+.
+<p><strong>foo<em>bar</em>baz</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #429
+.
+***foo* bar**
+.
+<p><strong><em>foo</em> bar</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #430
+.
+**foo *bar***
+.
+<p><strong>foo <em>bar</em></strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #431
+.
+**foo *bar **baz**
+bim* bop**
+.
+<p><strong>foo <em>bar <strong>baz</strong>
+bim</em> bop</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #432
+.
+**foo [*bar*](/url)**
+.
+<p><strong>foo <a href="/url"><em>bar</em></a></strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #433
+.
+__ is not an empty emphasis
+.
+<p>__ is not an empty emphasis</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #434
+.
+____ is not an empty strong emphasis
+.
+<p>____ is not an empty strong emphasis</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #435
+.
+foo ***
+.
+<p>foo ***</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #436
+.
+foo *\**
+.
+<p>foo <em>*</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #437
+.
+foo *_*
+.
+<p>foo <em>_</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #438
+.
+foo *****
+.
+<p>foo *****</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #439
+.
+foo **\***
+.
+<p>foo <strong>*</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #440
+.
+foo **_**
+.
+<p>foo <strong>_</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #441
+.
+**foo*
+.
+<p>*<em>foo</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #442
+.
+*foo**
+.
+<p><em>foo</em>*</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #443
+.
+***foo**
+.
+<p>*<strong>foo</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #444
+.
+****foo*
+.
+<p>***<em>foo</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #445
+.
+**foo***
+.
+<p><strong>foo</strong>*</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #446
+.
+*foo****
+.
+<p><em>foo</em>***</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #447
+.
+foo ___
+.
+<p>foo ___</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #448
+.
+foo _\__
+.
+<p>foo <em>_</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #449
+.
+foo _*_
+.
+<p>foo <em>*</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #450
+.
+foo _____
+.
+<p>foo _____</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #451
+.
+foo __\___
+.
+<p>foo <strong>_</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #452
+.
+foo __*__
+.
+<p>foo <strong>*</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #453
+.
+__foo_
+.
+<p>_<em>foo</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #454
+.
+_foo__
+.
+<p><em>foo</em>_</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #455
+.
+___foo__
+.
+<p>_<strong>foo</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #456
+.
+____foo_
+.
+<p>___<em>foo</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #457
+.
+__foo___
+.
+<p><strong>foo</strong>_</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #458
+.
+_foo____
+.
+<p><em>foo</em>___</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #459
+.
+**foo**
+.
+<p><strong>foo</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #460
+.
+*_foo_*
+.
+<p><em><em>foo</em></em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #461
+.
+__foo__
+.
+<p><strong>foo</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #462
+.
+_*foo*_
+.
+<p><em><em>foo</em></em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #463
+.
+****foo****
+.
+<p><strong><strong>foo</strong></strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #464
+.
+____foo____
+.
+<p><strong><strong>foo</strong></strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #465
+.
+******foo******
+.
+<p><strong><strong><strong>foo</strong></strong></strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #466
+.
+***foo***
+.
+<p><em><strong>foo</strong></em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #467
+.
+_____foo_____
+.
+<p><em><strong><strong>foo</strong></strong></em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #468
+.
+*foo _bar* baz_
+.
+<p><em>foo _bar</em> baz_</p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #469
+.
+*foo __bar *baz bim__ bam*
+.
+<p><em>foo <strong>bar *baz bim</strong> bam</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #470
+.
+**foo **bar baz**
+.
+<p>**foo <strong>bar baz</strong></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #471
+.
+*foo *bar baz*
+.
+<p>*foo <em>bar baz</em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #472
+.
+*[bar*](/url)
+.
+<p>*<a href="/url">bar*</a></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #473
+.
+_foo [bar_](/url)
+.
+<p>_foo <a href="/url">bar_</a></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #474
+.
+*<img src="foo" title="*"/>
+.
+<p>*<img src="foo" title="*"/></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #475
+.
+**<a href="**">
+.
+<p>**<a href="**"></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #476
+.
+__<a href="__">
+.
+<p>__<a href="__"></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #477
+.
+*a `*`*
+.
+<p><em>a <code>*</code></em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #478
+.
+_a `_`_
+.
+<p><em>a <code>_</code></em></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #479
+.
+**a<http://foo.bar/?q=**>
+.
+<p>**a<a href="http://foo.bar/?q=**">http://foo.bar/?q=**</a></p>
+.
+
+
+Emphasis and strong emphasis: Commonmark #480
+.
+__a<http://foo.bar/?q=__>
+.
+<p>__a<a href="http://foo.bar/?q=__">http://foo.bar/?q=__</a></p>
+.
+
+
+Links: Commonmark #481
+.
+[link](/uri "title")
+.
+<p><a href="/uri" title="title">link</a></p>
+.
+
+
+Links: Commonmark #482
+.
+[link](/uri)
+.
+<p><a href="/uri">link</a></p>
+.
+
+
+Links: Commonmark #483
+.
+[link]()
+.
+<p><a href="">link</a></p>
+.
+
+
+Links: Commonmark #484
+.
+[link](<>)
+.
+<p><a href="">link</a></p>
+.
+
+
+Links: Commonmark #485
+.
+[link](/my uri)
+.
+<p>[link](/my uri)</p>
+.
+
+
+Links: Commonmark #486
+.
+[link](</my uri>)
+.
+<p><a href="/my%20uri">link</a></p>
+.
+
+
+Links: Commonmark #487
+.
+[link](foo
+bar)
+.
+<p>[link](foo
+bar)</p>
+.
+
+
+Links: Commonmark #488
+.
+[link](<foo
+bar>)
+.
+<p>[link](<foo
+bar>)</p>
+.
+
+
+Links: Commonmark #489
+.
+[a](<b)c>)
+.
+<p><a href="b)c">a</a></p>
+.
+
+
+Links: Commonmark #490
+.
+[link](<foo\>)
+.
+<p>[link](&lt;foo&gt;)</p>
+.
+
+
+Links: Commonmark #491
+.
+[a](<b)c
+[a](<b)c>
+[a](<b>c)
+.
+<p>[a](&lt;b)c
+[a](&lt;b)c&gt;
+[a](<b>c)</p>
+.
+
+
+Links: Commonmark #492
+.
+[link](\(foo\))
+.
+<p><a href="(foo)">link</a></p>
+.
+
+
+Links: Commonmark #493
+.
+[link](foo(and(bar)))
+.
+<p><a href="foo(and(bar))">link</a></p>
+.
+
+
+Links: Commonmark #494
+.
+[link](foo\(and\(bar\))
+.
+<p><a href="foo(and(bar)">link</a></p>
+.
+
+
+Links: Commonmark #495
+.
+[link](<foo(and(bar)>)
+.
+<p><a href="foo(and(bar)">link</a></p>
+.
+
+
+Links: Commonmark #496
+.
+[link](foo\)\:)
+.
+<p><a href="foo):">link</a></p>
+.
+
+
+Links: Commonmark #497
+.
+[link](#fragment)
+
+[link](http://example.com#fragment)
+
+[link](http://example.com?foo=3#frag)
+.
+<p><a href="#fragment">link</a></p>
+<p><a href="http://example.com#fragment">link</a></p>
+<p><a href="http://example.com?foo=3#frag">link</a></p>
+.
+
+
+Links: Commonmark #498
+.
+[link](foo\bar)
+.
+<p><a href="foo%5Cbar">link</a></p>
+.
+
+
+Links: Commonmark #499
+.
+[link](foo%20b&auml;)
+.
+<p><a href="foo%20b%C3%A4">link</a></p>
+.
+
+
+Links: Commonmark #500
+.
+[link]("title")
+.
+<p><a href="%22title%22">link</a></p>
+.
+
+
+Links: Commonmark #501
+.
+[link](/url "title")
+[link](/url 'title')
+[link](/url (title))
+.
+<p><a href="/url" title="title">link</a>
+<a href="/url" title="title">link</a>
+<a href="/url" title="title">link</a></p>
+.
+
+
+Links: Commonmark #502
+.
+[link](/url "title \"&quot;")
+.
+<p><a href="/url" title="title &quot;&quot;">link</a></p>
+.
+
+
+Links: Commonmark #503
+.
+[link](/url "title")
+.
+<p><a href="/url%C2%A0%22title%22">link</a></p>
+.
+
+
+Links: Commonmark #504
+.
+[link](/url "title "and" title")
+.
+<p>[link](/url &quot;title &quot;and&quot; title&quot;)</p>
+.
+
+
+Links: Commonmark #505
+.
+[link](/url 'title "and" title')
+.
+<p><a href="/url" title="title &quot;and&quot; title">link</a></p>
+.
+
+
+Links: Commonmark #506
+.
+[link](   /uri
+  "title"  )
+.
+<p><a href="/uri" title="title">link</a></p>
+.
+
+
+Links: Commonmark #507
+.
+[link] (/uri)
+.
+<p>[link] (/uri)</p>
+.
+
+
+Links: Commonmark #508
+.
+[link [foo [bar]]](/uri)
+.
+<p><a href="/uri">link [foo [bar]]</a></p>
+.
+
+
+Links: Commonmark #509
+.
+[link] bar](/uri)
+.
+<p>[link] bar](/uri)</p>
+.
+
+
+Links: Commonmark #510
+.
+[link [bar](/uri)
+.
+<p>[link <a href="/uri">bar</a></p>
+.
+
+
+Links: Commonmark #511
+.
+[link \[bar](/uri)
+.
+<p><a href="/uri">link [bar</a></p>
+.
+
+
+Links: Commonmark #512
+.
+[link *foo **bar** `#`*](/uri)
+.
+<p><a href="/uri">link <em>foo <strong>bar</strong> <code>#</code></em></a></p>
+.
+
+
+Links: Commonmark #513
+.
+[![moon](moon.jpg)](/uri)
+.
+<p><a href="/uri"><img src="moon.jpg" alt="moon" /></a></p>
+.
+
+
+Links: Commonmark #514
+.
+[foo [bar](/uri)](/uri)
+.
+<p>[foo <a href="/uri">bar</a>](/uri)</p>
+.
+
+
+Links: Commonmark #515
+.
+[foo *[bar [baz](/uri)](/uri)*](/uri)
+.
+<p>[foo <em>[bar <a href="/uri">baz</a>](/uri)</em>](/uri)</p>
+.
+
+
+Links: Commonmark #516
+.
+![[[foo](uri1)](uri2)](uri3)
+.
+<p><img src="uri3" alt="[foo](uri2)" /></p>
+.
+
+
+Links: Commonmark #517
+.
+*[foo*](/uri)
+.
+<p>*<a href="/uri">foo*</a></p>
+.
+
+
+Links: Commonmark #518
+.
+[foo *bar](baz*)
+.
+<p><a href="baz*">foo *bar</a></p>
+.
+
+
+Links: Commonmark #519
+.
+*foo [bar* baz]
+.
+<p><em>foo [bar</em> baz]</p>
+.
+
+
+Links: Commonmark #520
+.
+[foo <bar attr="](baz)">
+.
+<p>[foo <bar attr="](baz)"></p>
+.
+
+
+Links: Commonmark #521
+.
+[foo`](/uri)`
+.
+<p>[foo<code>](/uri)</code></p>
+.
+
+
+Links: Commonmark #522
+.
+[foo<http://example.com/?search=](uri)>
+.
+<p>[foo<a href="http://example.com/?search=%5D(uri)">http://example.com/?search=](uri)</a></p>
+.
+
+
+Links: Commonmark #523
+.
+[foo][bar]
+
+[bar]: /url "title"
+.
+<p><a href="/url" title="title">foo</a></p>
+.
+
+
+Links: Commonmark #524
+.
+[link [foo [bar]]][ref]
+
+[ref]: /uri
+.
+<p><a href="/uri">link [foo [bar]]</a></p>
+.
+
+
+Links: Commonmark #525
+.
+[link \[bar][ref]
+
+[ref]: /uri
+.
+<p><a href="/uri">link [bar</a></p>
+.
+
+
+Links: Commonmark #526
+.
+[link *foo **bar** `#`*][ref]
+
+[ref]: /uri
+.
+<p><a href="/uri">link <em>foo <strong>bar</strong> <code>#</code></em></a></p>
+.
+
+
+Links: Commonmark #527
+.
+[![moon](moon.jpg)][ref]
+
+[ref]: /uri
+.
+<p><a href="/uri"><img src="moon.jpg" alt="moon" /></a></p>
+.
+
+
+Links: Commonmark #528
+.
+[foo [bar](/uri)][ref]
+
+[ref]: /uri
+.
+<p>[foo <a href="/uri">bar</a>]<a href="/uri">ref</a></p>
+.
+
+
+Links: Commonmark #529
+.
+[foo *bar [baz][ref]*][ref]
+
+[ref]: /uri
+.
+<p>[foo <em>bar <a href="/uri">baz</a></em>]<a href="/uri">ref</a></p>
+.
+
+
+Links: Commonmark #530
+.
+*[foo*][ref]
+
+[ref]: /uri
+.
+<p>*<a href="/uri">foo*</a></p>
+.
+
+
+Links: Commonmark #531
+.
+[foo *bar][ref]
+
+[ref]: /uri
+.
+<p><a href="/uri">foo *bar</a></p>
+.
+
+
+Links: Commonmark #532
+.
+[foo <bar attr="][ref]">
+
+[ref]: /uri
+.
+<p>[foo <bar attr="][ref]"></p>
+.
+
+
+Links: Commonmark #533
+.
+[foo`][ref]`
+
+[ref]: /uri
+.
+<p>[foo<code>][ref]</code></p>
+.
+
+
+Links: Commonmark #534
+.
+[foo<http://example.com/?search=][ref]>
+
+[ref]: /uri
+.
+<p>[foo<a href="http://example.com/?search=%5D%5Bref%5D">http://example.com/?search=][ref]</a></p>
+.
+
+
+Links: Commonmark #535
+.
+[foo][BaR]
+
+[bar]: /url "title"
+.
+<p><a href="/url" title="title">foo</a></p>
+.
+
+
+Links: Commonmark #536
+.
+[Толпой][Толпой] is a Russian word.
+
+[ТОЛПОЙ]: /url
+.
+<p><a href="/url">Толпой</a> is a Russian word.</p>
+.
+
+
+Links: Commonmark #537
+.
+[Foo
+  bar]: /url
+
+[Baz][Foo bar]
+.
+<p><a href="/url">Baz</a></p>
+.
+
+
+Links: Commonmark #538
+.
+[foo] [bar]
+
+[bar]: /url "title"
+.
+<p>[foo] <a href="/url" title="title">bar</a></p>
+.
+
+
+Links: Commonmark #539
+.
+[foo]
+[bar]
+
+[bar]: /url "title"
+.
+<p>[foo]
+<a href="/url" title="title">bar</a></p>
+.
+
+
+Links: Commonmark #540
+.
+[foo]: /url1
+
+[foo]: /url2
+
+[bar][foo]
+.
+<p><a href="/url1">bar</a></p>
+.
+
+
+Links: Commonmark #541
+.
+[bar][foo\!]
+
+[foo!]: /url
+.
+<p>[bar][foo!]</p>
+.
+
+
+Links: Commonmark #542
+.
+[foo][ref[]
+
+[ref[]: /uri
+.
+<p>[foo][ref[]</p>
+<p>[ref[]: /uri</p>
+.
+
+
+Links: Commonmark #543
+.
+[foo][ref[bar]]
+
+[ref[bar]]: /uri
+.
+<p>[foo][ref[bar]]</p>
+<p>[ref[bar]]: /uri</p>
+.
+
+
+Links: Commonmark #544
+.
+[[[foo]]]
+
+[[[foo]]]: /url
+.
+<p>[[[foo]]]</p>
+<p>[[[foo]]]: /url</p>
+.
+
+
+Links: Commonmark #545
+.
+[foo][ref\[]
+
+[ref\[]: /uri
+.
+<p><a href="/uri">foo</a></p>
+.
+
+
+Links: Commonmark #546
+.
+[bar\\]: /uri
+
+[bar\\]
+.
+<p><a href="/uri">bar\</a></p>
+.
+
+
+Links: Commonmark #547
+.
+[]
+
+[]: /uri
+.
+<p>[]</p>
+<p>[]: /uri</p>
+.
+
+
+Links: Commonmark #548
+.
+[
+ ]
+
+[
+ ]: /uri
+.
+<p>[
+]</p>
+<p>[
+]: /uri</p>
+.
+
+
+Links: Commonmark #549
+.
+[foo][]
+
+[foo]: /url "title"
+.
+<p><a href="/url" title="title">foo</a></p>
+.
+
+
+Links: Commonmark #550
+.
+[*foo* bar][]
+
+[*foo* bar]: /url "title"
+.
+<p><a href="/url" title="title"><em>foo</em> bar</a></p>
+.
+
+
+Links: Commonmark #551
+.
+[Foo][]
+
+[foo]: /url "title"
+.
+<p><a href="/url" title="title">Foo</a></p>
+.
+
+
+Links: Commonmark #552
+.
+[foo] 
+[]
+
+[foo]: /url "title"
+.
+<p><a href="/url" title="title">foo</a>
+[]</p>
+.
+
+
+Links: Commonmark #553
+.
+[foo]
+
+[foo]: /url "title"
+.
+<p><a href="/url" title="title">foo</a></p>
+.
+
+
+Links: Commonmark #554
+.
+[*foo* bar]
+
+[*foo* bar]: /url "title"
+.
+<p><a href="/url" title="title"><em>foo</em> bar</a></p>
+.
+
+
+Links: Commonmark #555
+.
+[[*foo* bar]]
+
+[*foo* bar]: /url "title"
+.
+<p>[<a href="/url" title="title"><em>foo</em> bar</a>]</p>
+.
+
+
+Links: Commonmark #556
+.
+[[bar [foo]
+
+[foo]: /url
+.
+<p>[[bar <a href="/url">foo</a></p>
+.
+
+
+Links: Commonmark #557
+.
+[Foo]
+
+[foo]: /url "title"
+.
+<p><a href="/url" title="title">Foo</a></p>
+.
+
+
+Links: Commonmark #558
+.
+[foo] bar
+
+[foo]: /url
+.
+<p><a href="/url">foo</a> bar</p>
+.
+
+
+Links: Commonmark #559
+.
+\[foo]
+
+[foo]: /url "title"
+.
+<p>[foo]</p>
+.
+
+
+Links: Commonmark #560
+.
+[foo*]: /url
+
+*[foo*]
+.
+<p>*<a href="/url">foo*</a></p>
+.
+
+
+Links: Commonmark #561
+.
+[foo][bar]
+
+[foo]: /url1
+[bar]: /url2
+.
+<p><a href="/url2">foo</a></p>
+.
+
+
+Links: Commonmark #562
+.
+[foo][]
+
+[foo]: /url1
+.
+<p><a href="/url1">foo</a></p>
+.
+
+
+Links: Commonmark #563
+.
+[foo]()
+
+[foo]: /url1
+.
+<p><a href="">foo</a></p>
+.
+
+
+Links: Commonmark #564
+.
+[foo](not a link)
+
+[foo]: /url1
+.
+<p><a href="/url1">foo</a>(not a link)</p>
+.
+
+
+Links: Commonmark #565
+.
+[foo][bar][baz]
+
+[baz]: /url
+.
+<p>[foo]<a href="/url">bar</a></p>
+.
+
+
+Links: Commonmark #566
+.
+[foo][bar][baz]
+
+[baz]: /url1
+[bar]: /url2
+.
+<p><a href="/url2">foo</a><a href="/url1">baz</a></p>
+.
+
+
+Links: Commonmark #567
+.
+[foo][bar][baz]
+
+[baz]: /url1
+[foo]: /url2
+.
+<p>[foo]<a href="/url1">bar</a></p>
+.
+
+
+Images: Commonmark #568
+.
+![foo](/url "title")
+.
+<p><img src="/url" alt="foo" title="title" /></p>
+.
+
+
+Images: Commonmark #569
+.
+![foo *bar*]
+
+[foo *bar*]: train.jpg "train & tracks"
+.
+<p><img src="train.jpg" alt="foo bar" title="train &amp; tracks" /></p>
+.
+
+
+Images: Commonmark #570
+.
+![foo ![bar](/url)](/url2)
+.
+<p><img src="/url2" alt="foo bar" /></p>
+.
+
+
+Images: Commonmark #571
+.
+![foo [bar](/url)](/url2)
+.
+<p><img src="/url2" alt="foo bar" /></p>
+.
+
+
+Images: Commonmark #572
+.
+![foo *bar*][]
+
+[foo *bar*]: train.jpg "train & tracks"
+.
+<p><img src="train.jpg" alt="foo bar" title="train &amp; tracks" /></p>
+.
+
+
+Images: Commonmark #573
+.
+![foo *bar*][foobar]
+
+[FOOBAR]: train.jpg "train & tracks"
+.
+<p><img src="train.jpg" alt="foo bar" title="train &amp; tracks" /></p>
+.
+
+
+Images: Commonmark #574
+.
+![foo](train.jpg)
+.
+<p><img src="train.jpg" alt="foo" /></p>
+.
+
+
+Images: Commonmark #575
+.
+My ![foo bar](/path/to/train.jpg  "title"   )
+.
+<p>My <img src="/path/to/train.jpg" alt="foo bar" title="title" /></p>
+.
+
+
+Images: Commonmark #576
+.
+![foo](<url>)
+.
+<p><img src="url" alt="foo" /></p>
+.
+
+
+Images: Commonmark #577
+.
+![](/url)
+.
+<p><img src="/url" alt="" /></p>
+.
+
+
+Images: Commonmark #578
+.
+![foo][bar]
+
+[bar]: /url
+.
+<p><img src="/url" alt="foo" /></p>
+.
+
+
+Images: Commonmark #579
+.
+![foo][bar]
+
+[BAR]: /url
+.
+<p><img src="/url" alt="foo" /></p>
+.
+
+
+Images: Commonmark #580
+.
+![foo][]
+
+[foo]: /url "title"
+.
+<p><img src="/url" alt="foo" title="title" /></p>
+.
+
+
+Images: Commonmark #581
+.
+![*foo* bar][]
+
+[*foo* bar]: /url "title"
+.
+<p><img src="/url" alt="foo bar" title="title" /></p>
+.
+
+
+Images: Commonmark #582
+.
+![Foo][]
+
+[foo]: /url "title"
+.
+<p><img src="/url" alt="Foo" title="title" /></p>
+.
+
+
+Images: Commonmark #583
+.
+![foo] 
+[]
+
+[foo]: /url "title"
+.
+<p><img src="/url" alt="foo" title="title" />
+[]</p>
+.
+
+
+Images: Commonmark #584
+.
+![foo]
+
+[foo]: /url "title"
+.
+<p><img src="/url" alt="foo" title="title" /></p>
+.
+
+
+Images: Commonmark #585
+.
+![*foo* bar]
+
+[*foo* bar]: /url "title"
+.
+<p><img src="/url" alt="foo bar" title="title" /></p>
+.
+
+
+Images: Commonmark #586
+.
+![[foo]]
+
+[[foo]]: /url "title"
+.
+<p>![[foo]]</p>
+<p>[[foo]]: /url &quot;title&quot;</p>
+.
+
+
+Images: Commonmark #587
+.
+![Foo]
+
+[foo]: /url "title"
+.
+<p><img src="/url" alt="Foo" title="title" /></p>
+.
+
+
+Images: Commonmark #588
+.
+!\[foo]
+
+[foo]: /url "title"
+.
+<p>![foo]</p>
+.
+
+
+Images: Commonmark #589
+.
+\![foo]
+
+[foo]: /url "title"
+.
+<p>!<a href="/url" title="title">foo</a></p>
+.
+
+
+Autolinks: Commonmark #590
+.
+<http://foo.bar.baz>
+.
+<p><a href="http://foo.bar.baz">http://foo.bar.baz</a></p>
+.
+
+
+Autolinks: Commonmark #591
+.
+<http://foo.bar.baz/test?q=hello&id=22&boolean>
+.
+<p><a href="http://foo.bar.baz/test?q=hello&amp;id=22&amp;boolean">http://foo.bar.baz/test?q=hello&amp;id=22&amp;boolean</a></p>
+.
+
+
+Autolinks: Commonmark #592
+.
+<irc://foo.bar:2233/baz>
+.
+<p><a href="irc://foo.bar:2233/baz">irc://foo.bar:2233/baz</a></p>
+.
+
+
+Autolinks: Commonmark #593
+.
+<MAILTO:FOO@BAR.BAZ>
+.
+<p><a href="MAILTO:FOO@BAR.BAZ">MAILTO:FOO@BAR.BAZ</a></p>
+.
+
+
+Autolinks: Commonmark #594
+.
+<a+b+c:d>
+.
+<p><a href="a+b+c:d">a+b+c:d</a></p>
+.
+
+
+Autolinks: Commonmark #595
+.
+<made-up-scheme://foo,bar>
+.
+<p><a href="made-up-scheme://foo,bar">made-up-scheme://foo,bar</a></p>
+.
+
+
+Autolinks: Commonmark #596
+.
+<http://../>
+.
+<p><a href="http://../">http://../</a></p>
+.
+
+
+Autolinks: Commonmark #597
+.
+<localhost:5001/foo>
+.
+<p><a href="localhost:5001/foo">localhost:5001/foo</a></p>
+.
+
+
+Autolinks: Commonmark #598
+.
+<http://foo.bar/baz bim>
+.
+<p>&lt;http://foo.bar/baz bim&gt;</p>
+.
+
+
+Autolinks: Commonmark #599
+.
+<http://example.com/\[\>
+.
+<p><a href="http://example.com/%5C%5B%5C">http://example.com/\[\</a></p>
+.
+
+
+Autolinks: Commonmark #600
+.
+<foo@bar.example.com>
+.
+<p><a href="mailto:foo@bar.example.com">foo@bar.example.com</a></p>
+.
+
+
+Autolinks: Commonmark #601
+.
+<foo+special@Bar.baz-bar0.com>
+.
+<p><a href="mailto:foo+special@Bar.baz-bar0.com">foo+special@Bar.baz-bar0.com</a></p>
+.
+
+
+Autolinks: Commonmark #602
+.
+<foo\+@bar.example.com>
+.
+<p>&lt;foo+@bar.example.com&gt;</p>
+.
+
+
+Autolinks: Commonmark #603
+.
+<>
+.
+<p>&lt;&gt;</p>
+.
+
+
+Autolinks: Commonmark #604
+.
+< http://foo.bar >
+.
+<p>&lt; http://foo.bar &gt;</p>
+.
+
+
+Autolinks: Commonmark #605
+.
+<m:abc>
+.
+<p>&lt;m:abc&gt;</p>
+.
+
+
+Autolinks: Commonmark #606
+.
+<foo.bar.baz>
+.
+<p>&lt;foo.bar.baz&gt;</p>
+.
+
+
+Autolinks: Commonmark #607
+.
+http://example.com
+.
+<p>http://example.com</p>
+.
+
+
+Autolinks: Commonmark #608
+.
+foo@bar.example.com
+.
+<p>foo@bar.example.com</p>
+.
+
+
+Raw HTML: Commonmark #609
+.
+<a><bab><c2c>
+.
+<p><a><bab><c2c></p>
+.
+
+
+Raw HTML: Commonmark #610
+.
+<a/><b2/>
+.
+<p><a/><b2/></p>
+.
+
+
+Raw HTML: Commonmark #611
+.
+<a  /><b2
+data="foo" >
+.
+<p><a  /><b2
+data="foo" ></p>
+.
+
+
+Raw HTML: Commonmark #612
+.
+<a foo="bar" bam = 'baz <em>"</em>'
+_boolean zoop:33=zoop:33 />
+.
+<p><a foo="bar" bam = 'baz <em>"</em>'
+_boolean zoop:33=zoop:33 /></p>
+.
+
+
+Raw HTML: Commonmark #613
+.
+Foo <responsive-image src="foo.jpg" />
+.
+<p>Foo <responsive-image src="foo.jpg" /></p>
+.
+
+
+Raw HTML: Commonmark #614
+.
+<33> <__>
+.
+<p>&lt;33&gt; &lt;__&gt;</p>
+.
+
+
+Raw HTML: Commonmark #615
+.
+<a h*#ref="hi">
+.
+<p>&lt;a h*#ref=&quot;hi&quot;&gt;</p>
+.
+
+
+Raw HTML: Commonmark #616
+.
+<a href="hi'> <a href=hi'>
+.
+<p>&lt;a href=&quot;hi'&gt; &lt;a href=hi'&gt;</p>
+.
+
+
+Raw HTML: Commonmark #617
+.
+< a><
+foo><bar/ >
+<foo bar=baz
+bim!bop />
+.
+<p>&lt; a&gt;&lt;
+foo&gt;&lt;bar/ &gt;
+&lt;foo bar=baz
+bim!bop /&gt;</p>
+.
+
+
+Raw HTML: Commonmark #618
+.
+<a href='bar'title=title>
+.
+<p>&lt;a href='bar'title=title&gt;</p>
+.
+
+
+Raw HTML: Commonmark #619
+.
+</a></foo >
+.
+<p></a></foo ></p>
+.
+
+
+Raw HTML: Commonmark #620
+.
+</a href="foo">
+.
+<p>&lt;/a href=&quot;foo&quot;&gt;</p>
+.
+
+
+Raw HTML: Commonmark #621
+.
+foo <!-- this is a
+comment - with hyphen -->
+.
+<p>foo <!-- this is a
+comment - with hyphen --></p>
+.
+
+
+Raw HTML: Commonmark #622
+.
+foo <!-- not a comment -- two hyphens -->
+.
+<p>foo &lt;!-- not a comment -- two hyphens --&gt;</p>
+.
+
+
+Raw HTML: Commonmark #623
+.
+foo <!--> foo -->
+
+foo <!-- foo--->
+.
+<p>foo &lt;!--&gt; foo --&gt;</p>
+<p>foo &lt;!-- foo---&gt;</p>
+.
+
+
+Raw HTML: Commonmark #624
+.
+foo <?php echo $a; ?>
+.
+<p>foo <?php echo $a; ?></p>
+.
+
+
+Raw HTML: Commonmark #625
+.
+foo <!ELEMENT br EMPTY>
+.
+<p>foo <!ELEMENT br EMPTY></p>
+.
+
+
+Raw HTML: Commonmark #626
+.
+foo <![CDATA[>&<]]>
+.
+<p>foo <![CDATA[>&<]]></p>
+.
+
+
+Raw HTML: Commonmark #627
+.
+foo <a href="&ouml;">
+.
+<p>foo <a href="&ouml;"></p>
+.
+
+
+Raw HTML: Commonmark #628
+.
+foo <a href="\*">
+.
+<p>foo <a href="\*"></p>
+.
+
+
+Raw HTML: Commonmark #629
+.
+<a href="\"">
+.
+<p>&lt;a href=&quot;&quot;&quot;&gt;</p>
+.
+
+
+Hard line breaks: Commonmark #630
+.
+foo  
+baz
+.
+<p>foo<br />
+baz</p>
+.
+
+
+Hard line breaks: Commonmark #631
+.
+foo\
+baz
+.
+<p>foo<br />
+baz</p>
+.
+
+
+Hard line breaks: Commonmark #632
+.
+foo       
+baz
+.
+<p>foo<br />
+baz</p>
+.
+
+
+Hard line breaks: Commonmark #633
+.
+foo  
+     bar
+.
+<p>foo<br />
+bar</p>
+.
+
+
+Hard line breaks: Commonmark #634
+.
+foo\
+     bar
+.
+<p>foo<br />
+bar</p>
+.
+
+
+Hard line breaks: Commonmark #635
+.
+*foo  
+bar*
+.
+<p><em>foo<br />
+bar</em></p>
+.
+
+
+Hard line breaks: Commonmark #636
+.
+*foo\
+bar*
+.
+<p><em>foo<br />
+bar</em></p>
+.
+
+
+Hard line breaks: Commonmark #637
+.
+`code 
+span`
+.
+<p><code>code  span</code></p>
+.
+
+
+Hard line breaks: Commonmark #638
+.
+`code\
+span`
+.
+<p><code>code\ span</code></p>
+.
+
+
+Hard line breaks: Commonmark #639
+.
+<a href="foo  
+bar">
+.
+<p><a href="foo  
+bar"></p>
+.
+
+
+Hard line breaks: Commonmark #640
+.
+<a href="foo\
+bar">
+.
+<p><a href="foo\
+bar"></p>
+.
+
+
+Hard line breaks: Commonmark #641
+.
+foo\
+.
+<p>foo\</p>
+.
+
+
+Hard line breaks: Commonmark #642
+.
+foo  
+.
+<p>foo</p>
+.
+
+
+Hard line breaks: Commonmark #643
+.
+### foo\
+.
+<h3>foo\</h3>
+.
+
+
+Hard line breaks: Commonmark #644
+.
+### foo  
+.
+<h3>foo</h3>
+.
+
+
+Soft line breaks: Commonmark #645
+.
+foo
+baz
+.
+<p>foo
+baz</p>
+.
+
+
+Soft line breaks: Commonmark #646
+.
+foo 
+ baz
+.
+<p>foo
+baz</p>
+.
+
+
+Textual content: Commonmark #647
+.
+hello $.;'there
+.
+<p>hello $.;'there</p>
+.
+
+
+Textual content: Commonmark #648
+.
+Foo χρῆν
+.
+<p>Foo χρῆν</p>
+.
+
+
+Textual content: Commonmark #649
+.
+Multiple     spaces
+.
+<p>Multiple     spaces</p>
 .

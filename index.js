@@ -1,5 +1,5 @@
 'use strict'
-const md = require('markdown-it')({
+const md = require('markdown-it')('commonmark', {
   typographer: true,
 })
 

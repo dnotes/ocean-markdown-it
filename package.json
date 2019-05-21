@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
+    "make-tests": "./support/spec-to-tests.js",
     "test": "mocha --colors"
   },
   "keywords": [],
   "author": "David Hunt <git@dnotes.net> (https://dnotes.net/)",
   "license": "MIT",
   "dependencies": {
+    "commonmark-spec": "^0.29.0",
     "markdown-it": "^8.4.2"
   },
   "devDependencies": {

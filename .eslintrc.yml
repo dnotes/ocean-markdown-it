@@ -10,5 +10,8 @@ globals:
 parserOptions:
   ecmaVersion: 2018
 rules:
-  semi:                   [ 2, never ]
-  comma-dangle:           [ 2, always-multiline ]
+  semi:                         [ 2, never ]
+  comma-dangle:                 [ 2, always-multiline ]
+  space-before-function-paren:  [ 2, never ]
+  quotes:                       0
+  comma-spacing:                0

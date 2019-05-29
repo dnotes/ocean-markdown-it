@@ -7135,3 +7135,148 @@ Multiple     spaces
 .
 <p>Multiple     spaces</p>
 .
+
+
+Footnotes: Ocean #2
+.
+Paragraph with footnote reference[^1].
+
+[^1]: Footnote text.
+.
+<p>Paragraph with footnote reference<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Footnote text. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+.
+
+
+Footnotes: Ocean #3
+.
+Paragraph with footnote reference[^1].
+
+Intermediate paragraph.
+
+[^1]: Footnote text.
+.
+<p>Paragraph with footnote reference<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<p>Intermediate paragraph.</p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Footnote text. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+.
+
+
+Footnotes: Ocean #4
+.
+[^1]: Footnote text.
+
+Paragraph with footnote reference[^1].
+.
+<p>Paragraph with footnote reference<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Footnote text. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+.
+
+
+Footnotes: Ocean #5
+.
+[^2]: Footnote text.
+
+Paragraph with footnote reference[^2].
+.
+<p>Paragraph with footnote reference<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Footnote text. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+.
+
+
+Footnotes: Ocean #6
+.
+[^fn_2-aáж§:]: Footnote text.
+
+Paragraph with footnote reference[^fn_2-aáж§:].
+.
+<p>Paragraph with footnote reference<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Footnote text. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+.
+
+
+Footnotes: Ocean #7
+.
+[^howdy doody]: Footnote text.
+
+Paragraph with footnote reference[^howdy doody].
+.
+<p>[^howdy doody]: Footnote text.</p>
+<p>Paragraph with footnote reference[^howdy doody].</p>
+.
+
+
+Footnotes: Ocean #8
+.
+[^]: Footnote text
+
+Paragraph with footnote reference[^].
+.
+<p>[^]: Footnote text</p>
+<p>Paragraph with footnote reference[^].</p>
+.
+
+
+Footnotes: Ocean #9
+.
+Paragraph with footnote reference^[Footnote text.].
+.
+<p>Paragraph with footnote reference<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Footnote text. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+.
+
+
+Footnotes: Ocean #10
+.
+Paragraph with footnote reference[^1].
+
+[^1]: Footnote text.
+
+    This footnote has multiple paragraphs.
+.
+<p>Paragraph with footnote reference<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Footnote text.</p>
+<p>This footnote has multiple paragraphs. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+.

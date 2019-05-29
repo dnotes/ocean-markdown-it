@@ -6,14 +6,15 @@
   "scripts": {
     "lint": "eslint .",
     "make-tests": "./support/spec-to-tests.js",
-    "test": "mocha --colors"
+    "test": "./support/spec-to-tests.js && mocha --colors"
   },
   "keywords": [],
   "author": "David Hunt <git@dnotes.net> (https://dnotes.net/)",
   "license": "MIT",
   "dependencies": {
     "commonmark-spec": "^0.29.0",
-    "markdown-it": "^8.4.2"
+    "markdown-it": "^8.4.2",
+    "markdown-it-footnote": "^3.0.1"
   },
   "devDependencies": {
     "browserify": "^16.2.3",

@@ -6,6 +6,7 @@ const fs = require('fs')
 const path = require('path')
 const oceanSpec = fs.readFileSync(path.join(__dirname, '../spec.md'), 'utf8')
 const commonmarkSpec = require('commonmark-spec').text
+const markdownItSpec = fs.readFileSync(path.join(__dirname, '../spec-markdown-it.md'), 'utf8')
 const examples = {}
 const tests = []
 
@@ -22,11 +23,14 @@ const extractSpecTests = function(data, spec) {
         currentSection = sectionSubmatch
       } else {
         exampleNumber++
+        markdownSubmatch = markdownSubmatch.replace(/→/gm, "\t")
+        htmlSubmatch = htmlSubmatch.replace(/→/gm, "\t")
+        let lineNumber = data.split(_)[0].split("\n").length
         examples[markdownSubmatch] = {
-          markdown: markdownSubmatch.replace(/→/gm, "\t"),
-          html: htmlSubmatch.replace(/→/gm, "\t"),
+          markdown: markdownSubmatch,
+          html: htmlSubmatch,
           section: currentSection,
-          specs: [...(examples[markdownSubmatch] || {})['specs'] || [], `${spec} #${exampleNumber}`],
+          specs: [...(examples[markdownSubmatch] || {})['specs'] || [], `${spec} #${exampleNumber} (${lineNumber})`],
         }
       }
     }
@@ -34,6 +38,7 @@ const extractSpecTests = function(data, spec) {
 }
 
 extractSpecTests(commonmarkSpec, 'Commonmark')
+extractSpecTests(markdownItSpec, 'markdown-it')
 extractSpecTests(oceanSpec, 'Ocean')
 
 Object.keys(examples).forEach((k) => {

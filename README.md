@@ -17,6 +17,19 @@ html = md.render('# This is Ocean-flavored markdown {.title}')
 console.log(html) // <h1 class="title">This is Ocean-flavored markdown</h1>
 ```
 
+## Supported divergences from Commonmark
+
+- [ ] indented blocks become block quotes
+- [ ] list items become paragraphs with .list-item
+- [ ] nested list items have depth indicator
+- [ ] backslash escapes work in indented blocks
+- [ ] code spans are disabled
+- [x] footnotes
+- [ ] block attributes
+- [ ] page numbers
+- [ ] typography
+- [ ] automated paragraph numbers
+
 # Ocean-flavored Markdown (OFM)
 
 Markdown is a widely-used convention for writing for the web, useful because it is easy and quick to write and creates a readable text document that converts well to HTML. The [Markdown] website has a good introduction for people who may find it unfamiliar. Ocean-flavored Markdown is an extension of this syntax designed to support literature. The specification is detailed at [spec.md].

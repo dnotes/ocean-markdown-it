@@ -337,7 +337,30 @@ A limited list of typographic replacements are required by OFM, and these are ob
 - Registered trademark
 - Em-dashes
 
+```````````````````````````````` example
+(c), (C)
+
+(tm), (TM)
+
+(r), (R)
+
+--these -- are--all---em-dashes --and these-- and this--
+.
+<p>©, ©</p>
+<p>™, ™</p>
+<p>®, ®</p>
+<p>—these—are—all—em-dashes —and these— and this—</p>
+````````````````````````````````
+
 Automated conversion of quotation marks to smart quotes, e.g. as implemented by markdown-it smart quotes, are not part of the OFM spec, but may be used provided that they do not change smart quotes that are explicitly written in the Markdown.
+
+```````````````````````````````` example
+'normal' "quotes" are replaced
+’smart‘ ”quotes“ stay the same even if they are the wrong way
+.
+<p>‘normal’ “quotes” are replaced
+’smart‘ ”quotes“ stay the same even if they are the wrong way</p>
+````````````````````````````````
 
 ### Underlined characters
 [markdown-it-macron-underline]: https://github.com/dnotes/markdown-it-macron-underlines

@@ -7139,7 +7139,7 @@ Multiple     spaces
 .
 
 
-Footnotes: Ocean #1 (180)
+Footnotes: Ocean #1 (174)
 .
 Paragraph with footnote reference[^1].
 
@@ -7156,7 +7156,7 @@ Paragraph with footnote reference[^1].
 .
 
 
-Footnotes: Ocean #2 (197)
+Footnotes: Ocean #2 (191)
 .
 Paragraph with footnote reference[^1].
 
@@ -7176,7 +7176,7 @@ Intermediate paragraph.
 .
 
 
-Footnotes: Ocean #3 (217)
+Footnotes: Ocean #3 (211)
 .
 [^1]: Footnote text.
 
@@ -7193,7 +7193,7 @@ Paragraph with footnote reference[^1].
 .
 
 
-Footnotes: Ocean #4 (234)
+Footnotes: Ocean #4 (228)
 .
 [^2]: Footnote text.
 
@@ -7210,7 +7210,7 @@ Paragraph with footnote reference[^2].
 .
 
 
-Footnotes: Ocean #5 (252)
+Footnotes: Ocean #5 (246)
 .
 [^fn_2-aáж§:]: Footnote text.
 
@@ -7227,7 +7227,7 @@ Paragraph with footnote reference[^fn_2-aáж§:].
 .
 
 
-Footnotes: Ocean #6 (269)
+Footnotes: Ocean #6 (263)
 .
 [^howdy doody]: Footnote text.
 
@@ -7238,7 +7238,7 @@ Paragraph with footnote reference[^howdy doody].
 .
 
 
-Footnotes: Ocean #7 (280)
+Footnotes: Ocean #7 (274)
 .
 [^]: Footnote text
 
@@ -7249,7 +7249,7 @@ Paragraph with footnote reference[^].
 .
 
 
-Footnotes: Ocean #8 (292)
+Footnotes: Ocean #8 (286)
 .
 Paragraph with footnote reference^[Footnote text.].
 .
@@ -7264,7 +7264,7 @@ Paragraph with footnote reference^[Footnote text.].
 .
 
 
-Footnotes: Ocean #9 (307)
+Footnotes: Ocean #9 (301)
 .
 Paragraph with footnote reference[^1].
 
@@ -7281,4 +7281,31 @@ Paragraph with footnote reference[^1].
 </li>
 </ol>
 </section>
+.
+
+
+Typographic elements: Ocean #10 (340)
+.
+(c), (C)
+
+(tm), (TM)
+
+(r), (R)
+
+--these -- are--all---em-dashes --and these-- and this--
+.
+<p>©, ©</p>
+<p>™, ™</p>
+<p>®, ®</p>
+<p>—these—are—all—em-dashes —and these— and this—</p>
+.
+
+
+Typographic elements: Ocean #11 (357)
+.
+'normal' "quotes" are replaced
+’smart‘ ”quotes“ stay the same even if they are the wrong way
+.
+<p>‘normal’ “quotes” are replaced
+’smart‘ ”quotes“ stay the same even if they are the wrong way</p>
 .

@@ -109,7 +109,7 @@ The sections below follow the [Commonmark spec], detailing any ways in which OFM
 
 
 
-# Divergence from Commonmark
+## Divergence from Commonmark
 
 The following elements in Ocean-flavored Markdown differ from their counterparts in Commonmark: 
 
@@ -162,7 +162,7 @@ The use of raw HTML is discouraged in OFM, and may be limited or deprecated in f
 
 
 
-# Additions to Commonmark
+## Additions to Commonmark
 
 ### Footnotes
 [markdown-it-footnote]: https://github.com/markdown-it/markdown-it-footnote

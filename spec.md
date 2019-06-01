@@ -10,7 +10,7 @@ Ocean-flavored Markdown (OFM) is an extended subset of the [Commonmark spec] opt
 
 ## OFM Principles
 
-Development of the OFM specification is guided by four principles: [support literature], maintain [existing rules], prefer a [flat structure], and follow [existing implementations].
+Development of the OFM specification is guided by four principles: support [literature], maintain [existing functionality], prefer a [flat structure], and follow [existing implementation].
 
 ### Support literature
 [literature]: #support-literature
@@ -32,8 +32,8 @@ In contrast to modern writing styles which often employ a semantic and nested st
 - lazy loading of blocks within large documents
 - better support for audio mapping
 
-### Follow existing implmentations
-[existing implementations]: #follow-existing-implementations
+### Follow existing implementation
+[existing implementation]: #follow-existing-implementation
 
 For ease of developing tools, the OFM spec may follow implementations of Markdown parsers that differ from Commonmark spec in the following cases:
 

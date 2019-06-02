@@ -7139,7 +7139,7 @@ Multiple     spaces
 .
 
 
-Footnotes: Ocean #1 (180)
+Footnotes: Ocean #1 (174)
 .
 Paragraph with footnote reference[^1].
 
@@ -7156,7 +7156,7 @@ Paragraph with footnote reference[^1].
 .
 
 
-Footnotes: Ocean #2 (197)
+Footnotes: Ocean #2 (191)
 .
 Paragraph with footnote reference[^1].
 
@@ -7176,7 +7176,7 @@ Intermediate paragraph.
 .
 
 
-Footnotes: Ocean #3 (217)
+Footnotes: Ocean #3 (211)
 .
 [^1]: Footnote text.
 
@@ -7193,7 +7193,7 @@ Paragraph with footnote reference[^1].
 .
 
 
-Footnotes: Ocean #4 (234)
+Footnotes: Ocean #4 (228)
 .
 [^2]: Footnote text.
 
@@ -7210,7 +7210,7 @@ Paragraph with footnote reference[^2].
 .
 
 
-Footnotes: Ocean #5 (252)
+Footnotes: Ocean #5 (246)
 .
 [^fn_2-aáж§:]: Footnote text.
 
@@ -7227,7 +7227,7 @@ Paragraph with footnote reference[^fn_2-aáж§:].
 .
 
 
-Footnotes: Ocean #6 (269)
+Footnotes: Ocean #6 (263)
 .
 [^howdy doody]: Footnote text.
 
@@ -7238,7 +7238,7 @@ Paragraph with footnote reference[^howdy doody].
 .
 
 
-Footnotes: Ocean #7 (280)
+Footnotes: Ocean #7 (274)
 .
 [^]: Footnote text
 
@@ -7249,7 +7249,7 @@ Paragraph with footnote reference[^].
 .
 
 
-Footnotes: Ocean #8 (292)
+Footnotes: Ocean #8 (286)
 .
 Paragraph with footnote reference^[Footnote text.].
 .
@@ -7264,7 +7264,7 @@ Paragraph with footnote reference^[Footnote text.].
 .
 
 
-Footnotes: Ocean #9 (307)
+Footnotes: Ocean #9 (301)
 .
 Paragraph with footnote reference[^1].
 
@@ -7281,4 +7281,202 @@ Paragraph with footnote reference[^1].
 </li>
 </ol>
 </section>
+.
+
+
+HTML attributes: Ocean #10 (329)
+.
+Markdown paragraph. {#test .test ¶=1.1 data-attr="test" bad-data-attr="test"}
+.
+<p id="test" class="test" ¶="1.1" data-attr="test">Markdown paragraph.</p>
+.
+
+
+HTML attributes: Ocean #11 (335)
+.
+Markdown paragraph. {id=test class=test}
+.
+<p id="test" class="test">Markdown paragraph.</p>
+.
+
+
+HTML attributes: Ocean #12 (343)
+.
+Markdown paragraph. {data-good="asdf lkj" data-bad=asdf lkj}
+.
+<p data-good="asdf lkj" data-bad="asdf">Markdown paragraph.</p>
+.
+
+
+HTML attributes: Ocean #13 (351)
+.
+Markdown paragraph.
+{#test .test ¶=1.1 data-attr="test" bad-attr="test"}
+.
+<p id="test" class="test" ¶="1.1" data-attr="test">Markdown paragraph.</p>
+.
+
+
+HTML attributes: Ocean #14 (358)
+.
+> Markdown blockquote. {.test}
+.
+<blockquote class="test">
+<p>Markdown blockquote.</p>
+</blockquote>
+.
+
+
+HTML attributes: Ocean #15 (366)
+.
+> Markdown blockquote.
+> {.test}
+.
+<blockquote class="test">
+<p>Markdown blockquote.</p>
+</blockquote>
+.
+
+
+HTML attributes: Ocean #16 (377)
+.
+    OMD blockquote. {#test}
+.
+<pre><code>OMD blockquote. {#test}
+</code></pre>
+.
+
+
+HTML attributes: Ocean #17 (384)
+.
+    OMD blockquote.
+    {#test}
+.
+<pre><code>OMD blockquote.
+{#test}
+</code></pre>
+.
+
+
+HTML attributes: Ocean #18 (395)
+.
+- Markdown list item. {#test .test ¶=1.1}
+.
+<ul>
+<li id="test" class="test" ¶="1.1">Markdown list item.</li>
+</ul>
+.
+
+
+HTML attributes: Ocean #19 (403)
+.
+- Markdown list item.
+{#test .test ¶=1.1}
+.
+<ul id="test" class="test" ¶="1.1">
+<li>Markdown list item.</li>
+</ul>
+.
+
+
+HTML attributes: Ocean #20 (414)
+.
+# Markdown header. {.title}
+.
+<h1 class="title">Markdown header.</h1>
+.
+
+
+HTML attributes: Ocean #21 (420)
+.
+Markdown header. {.title}
+----------------
+.
+<h2 class="title">Markdown header.</h2>
+.
+
+
+HTML attributes: Ocean #22 (427)
+.
+--- {.large}
+.
+<hr class="large" />
+.
+
+
+HTML attributes: Ocean #23 (435)
+.
+# Markdown header.
+{.test}
+
+Markdown header.
+----------------
+{.test}
+
+---
+{.test}
+.
+<h1>Markdown header.</h1>
+<p class="test"></p>
+<h2>Markdown header.</h2>
+<p class="test"></p>
+<hr />
+<p class="test"></p>
+.
+
+
+HTML attributes: Ocean #24 (456)
+.
+**Markdown**{.test} 
+[![image](image.png){.image-test}](https://example.com){.link-test}
+.
+<p><strong class="test">Markdown</strong>
+<a href="https://example.com" class="link-test"><img src="image.png" alt="image" class="image-test" /></a></p>
+.
+
+
+HTML attributes: Ocean #25 (466)
+.
+Markdown [link]{.test}.
+
+Markdown [link][link]{.test}.
+
+Markdown ![image][image]{#test .test}.
+
+Markdown [badlink].
+
+[link]: https://example.com
+[image]: image.png
+[badlink]: https://example.com {.badlink}
+.
+<p>Markdown <a href="https://example.com" class="test">link</a>.</p>
+<p>Markdown <a href="https://example.com" class="test">link</a>.</p>
+<p>Markdown <img src="image.png" alt="image" id="test" class="test" />.</p>
+<p>Markdown [badlink].</p>
+<p class="badlink">[badlink]: https://example.com</p>
+.
+
+
+HTML attributes: Ocean #26 (488)
+.
+![insecure](img.png){#test .test ¶=1.1 onload="alert(1)"}
+.
+<p><img src="img.png" alt="insecure" id="test" class="test" ¶="1.1" /></p>
+.
+
+
+HTML attributes: Ocean #27 (494)
+.
+Insecure paragraph. {#test .test ¶=1.1 oninput=alert(1) onfocus=alert(1)}
+.
+<p id="test" class="test" ¶="1.1">Insecure paragraph.</p>
+.
+
+
+HTML attributes: Ocean #28 (500)
+.
+Insecure paragraph. 
+{#test .test ¶=1.1 oninput="alert(1)" onfocus="alert(1)"}
+.
+<p id="test" class="test" ¶="1.1">Insecure paragraph.</p>
 .

@@ -316,10 +316,193 @@ Paragraph with footnote reference[^1].
 </section>
 ````````````````````````````````
 
-### Block attributes
+### HTML attributes
 [markdown-it-attrs]: https://github.com/markdown-it/markdown-it-attrs
 
-Block attributes are an extension to block elements classes and html attributes, and are defined exactly as implemented by the [markdown-it-attrs] plugin.
+HTML attributes are an extension to block elements classes and html attributes, and are defined exactly as implemented by the [markdown-it-attrs] plugin. Only certain attributes are permitted, namely:
+
+- id (or #*)
+- class (or .*)
+- ¶
+- data-*
+
+```````````````````````````````` example
+Markdown paragraph. {#test .test ¶=1.1 data-attr="test" bad-data-attr="test"}
+.
+<p id="test" class="test" ¶="1.1" data-attr="test">Markdown paragraph.</p>
+````````````````````````````````
+
+```````````````````````````````` example
+Markdown paragraph. {id=test class=test}
+.
+<p id="test" class="test">Markdown paragraph.</p>
+````````````````````````````````
+
+Attribute values with a space must be enclosed in quotes:
+
+```````````````````````````````` example
+Markdown paragraph. {data-good="asdf lkj" data-bad=asdf lkj}
+.
+<p data-good="asdf lkj" data-bad="asdf">Markdown paragraph.</p>
+````````````````````````````````
+
+Attributes may also be written on the line following a block element:
+
+```````````````````````````````` example
+Markdown paragraph.
+{#test .test ¶=1.1 data-attr="test" bad-attr="test"}
+.
+<p id="test" class="test" ¶="1.1" data-attr="test">Markdown paragraph.</p>
+````````````````````````````````
+
+```````````````````````````````` example
+> Markdown blockquote. {.test}
+.
+<blockquote class="test">
+<p>Markdown blockquote.</p>
+</blockquote>
+````````````````````````````````
+
+```````````````````````````````` example
+> Markdown blockquote.
+> {.test}
+.
+<blockquote class="test">
+<p>Markdown blockquote.</p>
+</blockquote>
+````````````````````````````````
+
+OMD indented block quotes are not implemented yet, but attributes must work on them after they are implemented.
+
+```````````````````````````````` example
+    OMD blockquote. {#test}
+.
+<pre><code>OMD blockquote. {#test}
+</code></pre>
+````````````````````````````````
+
+```````````````````````````````` example
+    OMD blockquote.
+    {#test}
+.
+<pre><code>OMD blockquote.
+{#test}
+</code></pre>
+````````````````````````````````
+
+OMD lists are not implemented yet, but attributes must work on them after they are implemented.
+
+```````````````````````````````` example
+- Markdown list item. {#test .test ¶=1.1}
+.
+<ul>
+<li id="test" class="test" ¶="1.1">Markdown list item.</li>
+</ul>
+````````````````````````````````
+
+```````````````````````````````` example
+- Markdown list item.
+{#test .test ¶=1.1}
+.
+<ul id="test" class="test" ¶="1.1">
+<li>Markdown list item.</li>
+</ul>
+````````````````````````````````
+
+For single-line block elements including headings and thematic breaks, attributes must be on the same line as the elements.
+
+```````````````````````````````` example
+# Markdown header. {.title}
+.
+<h1 class="title">Markdown header.</h1>
+````````````````````````````````
+
+```````````````````````````````` example
+Markdown header. {.title}
+----------------
+.
+<h2 class="title">Markdown header.</h2>
+````````````````````````````````
+
+```````````````````````````````` example
+--- {.large}
+.
+<hr class="large" />
+````````````````````````````````
+
+Attributes **do not** work on the line **following** headers or thematic breaks.
+
+```````````````````````````````` example
+# Markdown header.
+{.test}
+
+Markdown header.
+----------------
+{.test}
+
+---
+{.test}
+.
+<h1>Markdown header.</h1>
+<p class="test"></p>
+<h2>Markdown header.</h2>
+<p class="test"></p>
+<hr />
+<p class="test"></p>
+````````````````````````````````
+
+HTML attributes can follow inline elements:
+
+```````````````````````````````` example
+**Markdown**{.test} 
+[![image](image.png){.image-test}](https://example.com){.link-test}
+.
+<p><strong class="test">Markdown</strong>
+<a href="https://example.com" class="link-test"><img src="image.png" alt="image" class="image-test" /></a></p>
+````````````````````````````````
+
+Attributes for defined links or images must be placed directly after the inline element, not in relation to the definition.
+
+```````````````````````````````` example
+Markdown [link]{.test}.
+
+Markdown [link][link]{.test}.
+
+Markdown ![image][image]{#test .test}.
+
+Markdown [badlink].
+
+[link]: https://example.com
+[image]: image.png
+[badlink]: https://example.com {.badlink}
+.
+<p>Markdown <a href="https://example.com" class="test">link</a>.</p>
+<p>Markdown <a href="https://example.com" class="test">link</a>.</p>
+<p>Markdown <img src="image.png" alt="image" id="test" class="test" />.</p>
+<p>Markdown [badlink].</p>
+<p class="badlink">[badlink]: https://example.com</p>
+````````````````````````````````
+
+Potentially insecure HTML attributes are not rendered:
+
+```````````````````````````````` example
+![insecure](img.png){#test .test ¶=1.1 onload="alert(1)"}
+.
+<p><img src="img.png" alt="insecure" id="test" class="test" ¶="1.1" /></p>
+````````````````````````````````
+
+```````````````````````````````` example
+Insecure paragraph. {#test .test ¶=1.1 oninput=alert(1) onfocus=alert(1)}
+.
+<p id="test" class="test" ¶="1.1">Insecure paragraph.</p>
+````````````````````````````````
+
+```````````````````````````````` example
+Insecure paragraph. 
+{#test .test ¶=1.1 oninput="alert(1)" onfocus="alert(1)"}
+.
+<p id="test" class="test" ¶="1.1">Insecure paragraph.</p>
+````````````````````````````````
 
 
 ### Page numbers

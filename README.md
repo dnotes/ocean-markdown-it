@@ -25,7 +25,7 @@ console.log(html) // <h1 class="title">This is Ocean-flavored markdown</h1>
 - [ ] backslash escapes work in indented blocks
 - [ ] code spans are disabled
 - [x] footnotes
-- [ ] block attributes
+- [x] HTML attributes
 - [ ] page numbers
 - [ ] typography
 - [ ] automated paragraph numbers

@@ -545,6 +545,182 @@ Automated conversion of quotation marks to smart quotes, e.g. as implemented by 
 ’smart‘ ”quotes“ stay the same even if they are the wrong way</p>
 ````````````````````````````````
 
+Typography replacement creates a number of divergences from Commonmark spec tests
+which use dashes or quotation marks, including tests for
+malformed thematic breaks,
+escaped characters,
+malformed emphasis,
+malformed link definitions,
+and malformed HTML tags and comments:
+
+```````````````````````````````` example
+_ _ _ _ a
+
+a------
+
+---a---
+.
+<p>_ _ _ _ a</p>
+<p>a------</p>
+<p>—a—</p>
+````````````````````````````````
+
+```````````````````````````````` example
+[Foo bar]:
+<my url>
+'title'
+
+[Foo bar]
+.
+<p>[Foo bar]:
+<my url>
+‘title’</p>
+<p>[Foo bar]</p>
+````````````````````````````````
+
+```````````````````````````````` example
+[foo]: /url 'title
+
+with blank line'
+
+[foo]
+.
+<p>[foo]: /url 'title</p>
+<p>with blank line’</p>
+<p>[foo]</p>
+````````````````````````````````
+
+```````````````````````````````` example
+[foo]: /url "title" ok
+.
+<p>[foo]: /url “title” ok</p>
+````````````````````````````````
+
+```````````````````````````````` example
+[foo]: /url
+"title" ok
+.
+<p>“title” ok</p>
+````````````````````````````````
+
+```````````````````````````````` example
+\!\"\#\$\%\&\'\(\)\*\+\,\-\.\/\:\;\<\=\>\?\@\[\\\]\^\_\`\{\|\}\~
+.
+<p>!&quot;#$%&amp;’()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</p>
+````````````````````````````````
+
+```````````````````````````````` example
+\*not emphasized*
+\<br/> not a tag
+\[not a link](/foo)
+\`not code`
+1\. not a list
+\* not a list
+\# not a heading
+\[foo]: /url "not a reference"
+\&ouml; not a character entity
+.
+<p>*not emphasized*
+&lt;br/&gt; not a tag
+[not a link](/foo)
+`not code`
+1. not a list
+* not a list
+# not a heading
+[foo]: /url “not a reference”
+&amp;ouml; not a character entity</p>
+````````````````````````````````
+
+```````````````````````````````` example
+a*"foo"*
+.
+<p>a*“foo”*</p>
+````````````````````````````````
+
+```````````````````````````````` example
+a_"foo"_
+.
+<p>a_“foo”_</p>
+````````````````````````````````
+
+```````````````````````````````` example
+aa_"bb"_cc
+.
+<p>aa_“bb”_cc</p>
+````````````````````````````````
+
+```````````````````````````````` example
+a**"foo"**
+.
+<p>a**“foo”**</p>
+````````````````````````````````
+
+```````````````````````````````` example
+a__"foo"__
+.
+<p>a__“foo”__</p>
+````````````````````````````````
+
+```````````````````````````````` example
+**foo "*bar*" foo**
+.
+<p><strong>foo “<em>bar</em>” foo</strong></p>
+````````````````````````````````
+
+```````````````````````````````` example
+[link](/url "title "and" title")
+.
+<p>[link](/url “title “and” title”)</p>
+````````````````````````````````
+
+```````````````````````````````` example
+![[foo]]
+
+[[foo]]: /url "title"
+.
+<p>![[foo]]</p>
+<p>[[foo]]: /url “title”</p>
+````````````````````````````````
+
+```````````````````````````````` example
+<a h*#ref="hi">
+.
+<p>&lt;a h*#ref=“hi”&gt;</p>
+````````````````````````````````
+
+```````````````````````````````` example
+<a href="hi'> <a href=hi'>
+.
+<p>&lt;a href=&quot;hi’&gt; &lt;a href=hi’&gt;</p>
+````````````````````````````````
+
+```````````````````````````````` example
+<a href='bar'title=title>
+.
+<p>&lt;a href='bar’title=title&gt;</p>
+````````````````````````````````
+
+```````````````````````````````` example
+</a href="foo">
+.
+<p>&lt;/a href=“foo”&gt;</p>
+````````````````````````````````
+
+```````````````````````````````` example
+foo <!-- not a comment -- two hyphens -->
+.
+<p>foo &lt;!— not a comment—two hyphens —&gt;</p>
+````````````````````````````````
+
+```````````````````````````````` example
+foo <!--> foo -->
+
+foo <!-- foo--->
+.
+<p>foo &lt;!—&gt; foo —&gt;</p>
+<p>foo &lt;!— foo—&gt;</p>
+````````````````````````````````
+
 ### Underlined characters
 [markdown-it-macron-underline]: https://github.com/dnotes/markdown-it-macron-underlines
 

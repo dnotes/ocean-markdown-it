@@ -23,20 +23,32 @@ typography.replacements.push({
   default: true,
 })
 typography.replacements.push({
-  name: 'mdash',
-  re: /(^|[^-])--([^-]|$)/mg,
+  name: 'mdash2',
+  re: /(^|[^-])---?([^-])/mg,
   sub: '$1\u2014$2',
   default: true,
 })
 typography.replacements.push({
-  name: 'mdash',
-  re: /(^|[^-\s])--([^-\s]|$)/mg,
+  name: 'mdash2',
+  re: /([^-])---?([^-]|$)/mg,
+  sub: '$1\u2014$2',
+  default: true,
+})
+typography.replacements.push({
+  name: 'mdash2',
+  re: /(^|[^-\s])---?([^-\s])/mg,
+  sub: '$1\u2014$2',
+  default: true,
+})
+typography.replacements.push({
+  name: 'mdash2',
+  re: /([^-\s])---?([^-\s]|$)/mg,
   sub: '$1\u2014$2',
   default: true,
 })
 // Catch em-dashes surrounded by spaces
 typography.replacements.push({
-  name: 'mdash',
+  name: 'mdash2',
   re: /(^|[^-]) (?:--|—) ([^-]|$)/mg,
   sub: '$1\u2014$2',
   default: true,
@@ -55,6 +67,7 @@ const md = require('markdown-it')('commonmark', {
     plusminus: false,
     ellipsis: false,
     ndash: false,
+    mdash: false,
   })
 
 module.exports = md

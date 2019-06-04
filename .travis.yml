@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- '6'
+- node
+script: yarn lint && yarn coverage
+sudo: false
+deploy:
+  provider: npm
+  email: git@dnotes.net
+  api_key:
+    secure: Nwhpsu/MeZ6kU0wGUHzwT8V8S++rtUtzE9sy7z3L+A03DO7J+178Hbm5H2Z538R7qA5IkpPWFHlx5k2GitFFba3iMQWzmPTFRGqQgo1wKIWNrmwpHWvRprhmjPV7C/UNbqH+hZtEEccroPJBtuv3Jma035dqgwGQTnngaDwmI/R0v3LldClbYmxg7xDyu+VbOFvqShO+HCxZ+uEXR8XuyXOiJ0/oMfx1shoxkL3kRNK91WW8UAemTxY7nMV4FzszXgf2xmD/J+v17/oXesPDiOK58W7amL+cSwVB7wlqpRpk8gJdeJt42raYQ3ihjfjBaNvQ32OtC1GE7QYErX16WPo8RuhRQMwrQsZVi3+nlfCsQbUl/f1nzfwklcZYBQn2BCfUYlRXjYBXEtg/Uo9PEJ2kJE2/IKQIDR/jurW2CqIANo8QuxKNnOFD1U+gBVEh+Y1oJm9YjgD0p+QwLplzfdBfn7oBzqS4dJ6eKxyF+P3NzBXAqbEWEBAK+U18cnRVuAOvKzbdqAkXWrOoq9IbBjmoLBKZ6UNq70+7l6LATXEyrKLNOx6wWZQE62fuwy1QDYCnWZvKoLLvLkeA0Qy29iZvYRI8bMVeEyt2QpjglUEpeXn+Fq8xMlINqEHa/LMG+7Tv/HWDvzQieLSEjLXzDmSqzItl324XGPZntyLbCQU=
+  on:
+    tags: true
+    repo: dnotes/ocean-markdown-it

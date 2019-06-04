@@ -1,12 +1,15 @@
 {
   "name": "ocean-markdown-it",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "make build",
+    "coverage": "yarn test && nyc report -r text-lcov | coveralls",
     "lint": "eslint .",
     "failing": "yarn testgen && mocha --reporter ./support/failing-tests.js",
-    "test": "yarn testgen && mocha --colors",
+    "pub": "yarn lint && yarn coverage && make build && make publish",
+    "test": "yarn testgen && nyc --check-coverage --lines 100 mocha",
     "testgen": "./support/spec-to-tests.js"
   },
   "keywords": [],
@@ -30,6 +33,8 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
     "markdown-it-testgen": "^0.1.5",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "terser": "^4.0.0"
   }
 }

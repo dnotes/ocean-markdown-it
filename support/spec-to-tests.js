@@ -38,7 +38,7 @@ const extractSpecTests = function(data, spec) {
 }
 
 extractSpecTests(commonmarkSpec, 'Commonmark')
-extractSpecTests(markdownItSpec, 'markdown-it')
+extractSpecTests(markdownItSpec, 'MarkdownIT')
 extractSpecTests(oceanSpec, 'Ocean')
 
 Object.keys(examples).forEach((k) => {

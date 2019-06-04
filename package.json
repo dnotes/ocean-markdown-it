@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "make-tests": "./support/spec-to-tests.js",
-    "test": "./support/spec-to-tests.js && mocha --colors"
+    "failing": "yarn testgen && mocha --reporter ./support/failing-tests.js",
+    "test": "yarn testgen && mocha --colors",
+    "testgen": "./support/spec-to-tests.js"
   },
   "keywords": [],
   "author": "David Hunt <git@dnotes.net> (https://dnotes.net/)",

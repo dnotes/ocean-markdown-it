@@ -120,6 +120,26 @@ Indented blocks in OFM are to be treated as block quotes, not as code.
 
 **Justification**: In [literature] it is a standard convention that long quotations are written as indented free-standing text blocks, and such quotations are common while code is almost nonexistent.
 
+### [Fenced code blocks]
+
+Fenced code blocks work just as in Commonmark, but since inline codeblocks (backticks) are disabled, code fences must be on a line by themselves:
+```````````````````````````````` example
+```echo "doesn't work"```
+.
+<p>```echo “doesn’t work”```</p>
+````````````````````````````````
+
+Fenced code blocks: Commonmark #108 (1885), MarkdownIT #1 (14)
+> Code fences (opening and closing) cannot contain internal spaces:
+```````````````````````````````` example
+``` ```
+aaa
+.
+<p>``` ```
+aaa</p>
+````````````````````````````````
+
+
 ### [HTML blocks]
 
 The use of HTML blocks is discouraged in OFM, and may be limited or deprecated in future.
@@ -155,6 +175,334 @@ In Ocean-flavored markdown, backslash escapes work as usual inside indented bloc
 Inline code spans are not supported in Ocean-flavored Markdown. Markdown that would ordinarily be rendered as code spans should be rendered as plain text.
 
 **Justification**: The backtick character occasionally occurs in [literature], but code is rare; if code is needed it must be fenced by three backticks.
+
+Fenced code blocks: Commonmark #91 (1666)
+> Fewer than three backticks is not enough [to be treated as a fenced code block]:
+```````````````````````````````` example
+``
+foo
+``
+.
+<p>``
+foo
+``</p>
+````````````````````````````````
+
+Fenced code blocks: Commonmark #108 (1885)
+> Code fences (opening and closing) cannot contain internal spaces:
+```````````````````````````````` example
+``` ```
+aaa
+.
+<p>``` ```
+aaa</p>
+````````````````````````````````
+
+Fenced code blocks: Commonmark #115 (1985)
+> [Info strings] for backtick code blocks cannot contain backticks:
+```````````````````````````````` example
+``` aa ```
+foo
+.
+<p>``` aa ```
+foo</p>
+````````````````````````````````
+
+
+Inlines: Commonmark #297 (5499)
+> Inlines are parsed sequentially from the beginning of the character
+> stream to the end (left to right, in left-to-right languages).
+> Thus, for example, in
+```````````````````````````````` example
+`hi`lo`
+.
+<p>`hi`lo`</p>
+````````````````````````````````
+
+
+Backslash escapes: Commonmark #303 (5579)
+> Backslash escapes do not work in code blocks, code spans, autolinks, or
+> raw HTML:
+```````````````````````````````` example
+`` \[\` ``
+.
+<p>`` [` ``</p>
+````````````````````````````````
+
+
+Entity and numeric character references: Commonmark #321 (5789)
+> Entity and numeric character references are treated as literal
+> text in code spans and code blocks:
+```````````````````````````````` example
+`f&ouml;&ouml;`
+.
+<p>`föö`</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #328 (5870)
+> This is a simple code span:
+```````````````````````````````` example
+`foo`
+.
+<p>`foo`</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #329 (5881)
+> Here two backticks are used, because the code contains a backtick.
+> This example also illustrates stripping of a single leading and
+> trailing space:
+```````````````````````````````` example
+`` foo ` bar ``
+.
+<p>`` foo ` bar ``</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #330 (5891)
+> This example shows the motivation for stripping leading and trailing
+> spaces:
+```````````````````````````````` example
+` `` `
+.
+<p>` `` `</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #331 (5899), MarkdownIT #9 (168)
+> Note that only *one* space is stripped:
+```````````````````````````````` example
+`  ``  `
+.
+<p>`  ``  `</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #332 (5908), MarkdownIT #10 (179)
+> The stripping only happens if the space is on both
+> sides of the string:
+```````````````````````````````` example
+` a`
+.
+<p>` a`</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #333 (5917), MarkdownIT #11 (190)
+> Only [spaces], and not [unicode whitespace] in general, are
+> stripped in this way:
+```````````````````````````````` example
+` b `
+.
+<p>` b `</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #334 (5925), MarkdownIT #12 (200)
+> No stripping occurs if the code span contains only spaces:
+```````````````````````````````` example
+` `
+`  `
+.
+<p>` `
+`  `</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #335 (5936), MarkdownIT #13 (212)
+> [Line endings] are treated like spaces:
+```````````````````````````````` example
+``
+foo
+bar  
+baz
+``
+.
+<p>``
+foo
+bar<br />
+baz
+``</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #336 (5946), MarkdownIT #14 (222)
+```````````````````````````````` example
+``
+foo 
+``
+.
+<p>``
+foo
+``</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #337 (5957), MarkdownIT #15 (234)
+> Interior spaces are not collapsed:
+```````````````````````````````` example
+`foo   bar 
+baz`
+.
+<p>`foo   bar
+baz`</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #338 (5974)
+> Note that backslash escapes do not work in code spans. All backslashes
+> are treated literally:
+```````````````````````````````` example
+`foo\`bar`
+.
+<p>`foo`bar`</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #339 (5985)
+> Backslash escapes are never needed, because one can always choose a
+> string of *n* backtick characters as delimiters, where the code does
+> not contain any strings of exactly *n* backtick characters.
+```````````````````````````````` example
+``foo`bar``
+.
+<p>``foo`bar``</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #340 (5991)
+```````````````````````````````` example
+` foo `` bar `
+.
+<p>` foo `` bar `</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #341 (6003)
+> Code span backticks have higher precedence than any other inline
+> constructs except HTML tags and autolinks.  Thus, for example, this is
+> not parsed as emphasized text, since the second `*` is part of a code
+> span:
+```````````````````````````````` example
+*foo`*`
+.
+<p><em>foo`</em>`</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #342 (6012)
+> And this is not parsed as a link:
+```````````````````````````````` example
+[not a `link](/foo`)
+.
+<p><a href="/foo%60">not a `link</a></p>
+````````````````````````````````
+
+
+Code spans: Commonmark #343 (6022)
+> Code spans, HTML tags, and autolinks have the same precedence.
+> Thus, this is code:
+```````````````````````````````` example
+`<a href="`">`
+.
+<p>`<a href="`">`</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #345 (6040)
+> And this is code:
+```````````````````````````````` example
+`<http://foo.bar.`baz>`
+.
+<p>`<a href="http://foo.bar.%60baz">http://foo.bar.`baz</a>`</p>
+````````````````````````````````
+
+
+Code spans: Commonmark #349 (6075)
+> The following case also illustrates the need for opening and
+> closing backtick strings to be equal in length:
+```````````````````````````````` example
+`foo``bar``
+.
+<p>`foo``bar``</p>
+````````````````````````````````
+
+
+Emphasis and strong emphasis: Commonmark #477 (7399)
+```````````````````````````````` example
+*a `*`*
+.
+<p><em>a `</em>`*</p>
+````````````````````````````````
+
+
+Emphasis and strong emphasis: Commonmark #478 (7406)
+```````````````````````````````` example
+_a `_`_
+.
+<p><em>a `</em>`_</p>
+````````````````````````````````
+
+
+Links: Commonmark #512 (7813)
+> The link text may contain inline content:
+```````````````````````````````` example
+[link *foo **bar** `#`*](/uri)
+.
+<p><a href="/uri">link <em>foo <strong>bar</strong> `#`</em></a></p>
+````````````````````````````````
+
+
+Links: Commonmark #521 (7887)
+```````````````````````````````` example
+[foo`](/uri)`
+.
+<p><a href="/uri">foo`</a>`</p>
+````````````````````````````````
+
+
+Links: Commonmark #526 (7967)
+> The link text may contain inline content:
+```````````````````````````````` example
+[link *foo **bar** `#`*][ref]
+
+[ref]: /uri
+.
+<p><a href="/uri">link <em>foo <strong>bar</strong> `#`</em></a></p>
+````````````````````````````````
+
+
+Links: Commonmark #533 (8041)
+```````````````````````````````` example
+[foo`][ref]`
+
+[ref]: /uri
+.
+<p><a href="/uri">foo`</a>`</p>
+````````````````````````````````
+
+
+Hard line breaks: Commonmark #637 (9241), MarkdownIT #19 (288)
+> Line breaks do not occur inside code spans
+```````````````````````````````` example
+`code 
+span`
+.
+<p>`code
+span`</p>
+````````````````````````````````
+
+
+Hard line breaks: Commonmark #638 (9249)
+```````````````````````````````` example
+`code\
+span`
+.
+<p>`code<br />
+span`</p>
+````````````````````````````````
+
 
 ### [Raw HTML]
 

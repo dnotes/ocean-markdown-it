@@ -1950,6 +1950,11 @@ markdown-it-footnote@^3.0.1:
   resolved "https://registry.yarnpkg.com/markdown-it-footnote/-/markdown-it-footnote-3.0.1.tgz#7f3730747cacc86e2fe0bf8a17a710f34791517a"
   integrity sha1-fzcwdHysyG4v4L+KF6cQ80eRUXo=
 
+markdown-it-macron-underline@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/markdown-it-macron-underline/-/markdown-it-macron-underline-1.0.1.tgz#8c44b22bd274b476fbf18ab05eed3f59bbccbcce"
+  integrity sha512-p89j97REeucdejyu5E5LEHbwhvA5GVbnlNTXqhRGN7/DJSyIbtwQTb7X8ic1i7m9rXwF2eoTd7uDA2zFc9Notw==
+
 markdown-it-replacements@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/markdown-it-replacements/-/markdown-it-replacements-1.0.1.tgz#0599ea382324e26a93a70164376ccd6ddf19e9ce"

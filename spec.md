@@ -1077,7 +1077,14 @@ Unicode combining macron below characters should be rendered as underline tags. 
 - Double macron (U+035F): `s_h` should be rendered as `<u>sh</u>`
 - Single macron (U+0331): `h_` should be rendered as `<u>h</u>`
 
+```````````````````````````````` example
+The S͟hayk͟h and the Mu’ad͟hd͟hin
 
+U̱nde̱rli̱ne̱d vo̱we̱ls
+.
+<p>The <u>Sh</u>ay<u>kh</u> and the Mu’a<u>dh</u><u>dh</u>in</p>
+<p><u>U</u>nd<u>e</u>rl<u>i</u>n<u>e</u>d v<u>o</u>w<u>e</u>ls</p>
+````````````````````````````````
 
 ## Right-To-Left Language Support
 

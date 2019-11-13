@@ -61,6 +61,7 @@ const md = require('markdown-it')('commonmark', {
   .enable(['linkify', 'smartquotes', 'replacements'])
   .disable(['backticks'])
   .use(require('markdown-it-footnote'))
+  .use(require('markdown-it-macron-underline'))
   .use(require('markdown-it-attrs'), {
     allowedAttributes: ['id', 'class', /^(¶|data)/],
   })

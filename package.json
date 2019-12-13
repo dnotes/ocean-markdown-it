@@ -21,7 +21,7 @@
     "markdown-it-attrs": "^3",
     "markdown-it-flat-lists": "^2",
     "markdown-it-footnote": "^3",
-    "markdown-it-indented-quotes": "^2",
+    "markdown-it-indented-quotes": "^3",
     "markdown-it-macron-underline": "^1",
     "markdown-it-replacements": "^1"
   },

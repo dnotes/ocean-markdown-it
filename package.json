@@ -19,7 +19,9 @@
     "commonmark-spec": "^0.29.0",
     "markdown-it": "^8.4.2",
     "markdown-it-attrs": "^2.4.1",
+    "markdown-it-flat-lists": "^2.0.0",
     "markdown-it-footnote": "^3.0.1",
+    "markdown-it-indented-quotes": "^2.0.0",
     "markdown-it-macron-underline": "^1.0.1",
     "markdown-it-replacements": "^1.0.1"
   },

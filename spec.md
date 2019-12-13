@@ -914,19 +914,6 @@ a------
 ````````````````````````````````
 
 ```````````````````````````````` example
-[Foo bar]:
-<my url>
-'title'
-
-[Foo bar]
-.
-<p>[Foo bar]:
-<my url>
-‘title’</p>
-<p>[Foo bar]</p>
-````````````````````````````````
-
-```````````````````````````````` example
 [foo]: /url 'title
 
 with blank line'

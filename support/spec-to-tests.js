@@ -21,7 +21,8 @@ const extractSpecTests = function(data, spec) {
     (_, markdownSubmatch, htmlSubmatch, sectionSubmatch) => {
       if (sectionSubmatch) {
         currentSection = sectionSubmatch
-      } else {
+      }
+      else {
         exampleNumber++
         markdownSubmatch = markdownSubmatch.replace(/→/gm, "\t")
         htmlSubmatch = htmlSubmatch.replace(/→/gm, "\t")

@@ -19,10 +19,10 @@ console.log(html) // <h1 class="title">This is Ocean-flavored markdown</h1>
 
 ## Supported divergences from Commonmark
 
-- [ ] indented blocks become block quotes
-- [ ] list items become paragraphs with .list-item
-- [ ] nested list items have depth indicator
-- [ ] backslash escapes work in indented blocks
+- [x] indented blocks become block quotes
+- [x] list items become paragraphs with .li
+- [x] nested list items have depth indicator
+- [x] backslash escapes work in indented blocks
 - [x] code spans are disabled
 - [x] footnotes
 - [x] HTML attributes

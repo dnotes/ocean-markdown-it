@@ -114,11 +114,320 @@ The sections below follow the [Commonmark spec], detailing any ways in which OFM
 The following elements in Ocean-flavored Markdown differ from their counterparts in Commonmark: 
 
 <!-- Leaf blocks -->
+### [Thematic breaks]
+
+Thematic breaks work just as in Commonmark, with a few exceptions owing to the changes related to indented code blocks and list items:
+
+Thematic breaks: Commonmark #18 (590)
+> Four spaces is too many:
+```````````````````````````````` example
+    ***
+.
+<hr />
+````````````````````````````````
+
+Thematic breaks: Commonmark #27 (675)
+> Thematic breaks do not need blank lines before or after:
+```````````````````````````````` example
+- foo
+***
+- bar
+.
+<p class="li indent-1">- foo</p>
+
+<hr />
+<p class="li indent-1">- bar</p>
+````````````````````````````````
+
+**Thematic breaks: Commonmark #30 (722)**
+> When both a thematic break and a list item are possible
+> interpretations of a line, the thematic break takes precedence:
+```````````````````````````````` example
+* Foo
+* * *
+* Bar
+.
+<p class="indent-1">
+<span class="li">* Foo</span>
+</p>
+<hr />
+<p class="li indent-1">* Bar</p>
+````````````````````````````````
+
+Thematic breaks: Commonmark #31 (739)
+> If you want a thematic break in a list item, use a different bullet:
+```````````````````````````````` example
+- Foo
+- * * *
+.
+<p class="indent-1">
+<span class="li">- Foo</span>
+<span class="li li4">- * * *</span>
+</p>
+````````````````````````````````
+
+
 ### [Indented code blocks]
 
-Indented blocks in OFM are to be treated as block quotes, not as code.
+Indented blocks in OFM are treated as block quotes, not as code. The first line of a multi-line paragraph of text may be indented without becoming a block quote.
 
 **Justification**: In [literature] it is a standard convention that long quotations are written as indented free-standing text blocks, and such quotations are common while code is almost nonexistent.
+
+Tabs: Commonmark #1 (352)
+```````````````````````````````` example
+→foo→baz→→bim
+.
+<p class="blockquote bq-1 indent-1">foo	baz		bim</p>
+````````````````````````````````
+
+Tabs: Commonmark #2 (359)
+```````````````````````````````` example
+  →foo→baz→→bim
+.
+<p class="blockquote bq-1 indent-1">foo	baz		bim</p>
+````````````````````````````````
+
+Tabs: Commonmark #3 (366)
+```````````````````````````````` example
+    a→a
+    ὐ→a
+.
+<p class="blockquote bq-1 indent-1">a	a
+ὐ	a</p>
+````````````````````````````````
+
+Tabs: Commonmark #5 (392)
+```````````````````````````````` example
+- foo
+
+→→bar
+.
+<p class="li indent-1">- foo</p>
+<p class="li blockquote bq-1 indent-2">bar</p>
+````````````````````````````````
+
+Tabs: Commonmark #6 (415)
+```````````````````````````````` example
+>→→foo
+.
+<p class="blockquote bq-2 indent-2">foo</p>
+````````````````````````````````
+
+Tabs: Commonmark #7 (424)
+```````````````````````````````` example
+-→→foo
+.
+<p class="li blockquote bq-1 indent-2">- foo</p>
+````````````````````````````````
+
+Tabs: Commonmark #8 (436)
+```````````````````````````````` example
+    foo
+→bar
+.
+<p class="blockquote bq-1 indent-1">foo
+bar</p>
+````````````````````````````````
+
+ATX headings: Commonmark #39 (854)
+> Four spaces are too much:
+```````````````````````````````` example
+    # foo
+.
+<h1>foo</h1>
+````````````````````````````````
+
+Setext headings: Commonmark #55 (1079)
+> Four spaces indent is too much:
+```````````````````````````````` example
+    Foo
+    ---
+
+    Foo
+---
+.
+<h2>Foo</h2>
+<p>Foo</p>
+<hr />
+````````````````````````````````
+
+Setext headings: Commonmark #70 (1276)
+```````````````````````````````` example
+    foo
+---
+.
+<p>foo</p>
+<hr />
+````````````````````````````````
+
+Indented code blocks: Commonmark #77 (1408)
+```````````````````````````````` example
+    a simple
+      indented code block
+.
+<p class="blockquote bq-1 indent-1">a simple
+indented code block</p>
+````````````````````````````````
+
+Indented code blocks: Commonmark #78 (1422)
+> If there is any ambiguity between an interpretation of indentation
+> as a code block and as indicating that material belongs to a [list
+> item][list items], the list item interpretation takes precedence:
+```````````````````````````````` example
+  - foo
+
+    bar
+.
+<p class="li indent-1">- foo</p>
+<p class="li indent-1">bar</p>
+````````````````````````````````
+
+Indented code blocks: Commonmark #79 (1436)
+```````````````````````````````` example
+1.  foo
+
+    - bar
+.
+<p class="li indent-1">1. foo</p>
+<p class="li li2 indent-2">- bar</p>
+````````````````````````````````
+
+Indented code blocks: Commonmark #80 (1456)
+> The contents of a code block are literal text, and do not get parsed
+> as Markdown:
+```````````````````````````````` example
+    <a/>
+    *hi*
+
+    - one
+.
+<a/>
+*hi*
+<p class="li blockquote bq-1 indent-2">- one</p>
+````````````````````````````````
+
+Indented code blocks: Commonmark #81 (1472)
+> Here we have three chunks separated by blank lines:
+```````````````````````````````` example
+    chunk1
+
+    chunk2
+  
+ 
+ 
+    chunk3
+.
+<p class="blockquote bq-1 indent-1">chunk1</p>
+<p class="blockquote bq-1 indent-1">chunk2</p>
+<p class="blockquote bq-1 indent-1">chunk3</p>
+````````````````````````````````
+
+Indented code blocks: Commonmark #82 (1495)
+> Any initial spaces beyond four will be included in the content, even
+> in interior blank lines:
+```````````````````````````````` example
+    chunk1
+      
+      chunk2
+.
+<p class="blockquote bq-1 indent-1">chunk1</p>
+<p class="blockquote bq-1 indent-1">chunk2</p>
+````````````````````````````````
+
+Indented code blocks: Commonmark #84 (1524)
+> However, any non-blank line with fewer than four leading spaces ends
+> the code block immediately.  So a paragraph may occur immediately
+> after indented code:
+```````````````````````````````` example
+    foo
+bar
+.
+<p>foo
+bar</p>
+````````````````````````````````
+
+**Indented code blocks: Commonmark #85 (1537)**
+> And indented code can occur immediately before and after other kinds of
+> blocks:
+```````````````````````````````` example
+# Heading
+    foo
+Heading
+------
+    foo
+----
+.
+<h1>Heading</h1>
+<p>foo
+Heading</p>
+<hr />
+<p>foo</p>
+<hr />
+````````````````````````````````
+
+Indented code blocks: Commonmark #86 (1557)
+> The first line can be indented more than four spaces:
+```````````````````````````````` example
+        foo
+    bar
+.
+<p class="blockquote bq-1 indent-1">foo
+bar</p>
+````````````````````````````````
+
+Indented code blocks: Commonmark #87 (1570)
+> Blank lines preceding or following an indented code block
+> are not included in it:
+```````````````````````````````` example
+
+    
+    foo
+    
+
+.
+<p class="blockquote bq-1 indent-1">foo</p>
+````````````````````````````````
+
+Indented code blocks: Commonmark #88 (1584)
+> Trailing spaces are included in the code block's content:
+```````````````````````````````` example
+    foo  
+.
+<p class="blockquote bq-1 indent-1">foo</p>
+````````````````````````````````
+
+Fenced code blocks: Commonmark #98 (1750)
+```````````````````````````````` example
+> ```
+> aaa
+
+bbb
+.
+<pre class="indent-1"><code>aaa
+</code></pre>
+<p>bbb</p>
+````````````````````````````````
+
+Fenced code blocks: Commonmark #104 (1834)
+> Four spaces indentation produces an indented code block:
+```````````````````````````````` example
+    ```
+    aaa
+    ```
+.
+<pre class="indent-1"><code>aaa
+</code></pre>
+````````````````````````````````
+
+Paragraphs: Commonmark #195 (3247)
+```````````````````````````````` example
+    aaa
+bbb
+.
+<p>aaa
+bbb</p>
+````````````````````````````````
+
 
 ### [Fenced code blocks]
 
@@ -142,26 +451,1470 @@ aaa</p>
 
 ### [HTML blocks]
 
-The use of HTML blocks is discouraged in OFM, and may be limited or deprecated in future.
+The use of HTML blocks is discouraged in OFM, and may be limited or deprecated in future. In some cases, when HTML blocks are combined with blockquotes or list items, the results differ from Commonmark spec.
+
+HTML blocks: Commonmark #143 (2466)
+```````````````````````````````` example
+> <div>
+> foo
+
+bar
+.
+<div>
+foo
+<p>bar</p>
+````````````````````````````````
+
+HTML blocks: Commonmark #144 (2480)
+```````````````````````````````` example
+- <div>
+- foo
+.
+<p class="indent-1">
+<span class="li">- <div></span>
+<span class="li">- foo</span>
+</p>
+````````````````````````````````
+
+HTML blocks: Commonmark #152 (2608)
+> The opening tag can be indented 1-3 spaces, but not 4:
+```````````````````````````````` example
+  <!-- foo -->
+
+    <!-- foo -->
+.
+  <!-- foo -->
+<!-- foo -->
+````````````````````````````````
+
+HTML blocks: Commonmark #153 (2619)
+```````````````````````````````` example
+  <div>
+
+    <div>
+.
+  <div>
+<div>
+````````````````````````````````
+
+HTML blocks: Commonmark #160 (2768)
+> There are problems, however, if the inner tags are indented
+> *and* separated by spaces, as then they will be interpreted as
+> an indented code block:
+```````````````````````````````` example
+<table>
+
+  <tr>
+
+    <td>
+      Hi
+    </td>
+
+  </tr>
+
+</table>
+.
+<table>
+  <tr>
+<td>
+  Hi
+</td>
+  </tr>
+</table>
+````````````````````````````````
+
+### [Link reference definitions]
+
+Link reference definitions work exactly as in Commonmark, except in some edge cases as when combined with indented quotes.
+
+Link reference definitions: Commonmark #180 (3038)
+> This is not a link reference definition, because it is indented
+> four spaces:
+```````````````````````````````` example
+    [foo]: /url "title"
+
+[foo]
+.
+<p><a href="/url" title="title">foo</a></p>
+````````````````````````````````
+
+Link reference definitions: Commonmark #183 (3082)
+> However, it can directly follow other block elements, such as headings
+> and thematic breaks, and it need not be followed by a blank line.
+```````````````````````````````` example
+# [Foo]
+[foo]: /url
+> bar
+.
+<h1><a href="/url">Foo</a></h1>
+<p class="blockquote bq-1 indent-1">bar</p>
+````````````````````````````````
+
+Empty blockquotes: Commonmark #187 (3137), MarkdownIT #1 (18)
+> Link reference definitions: Commonmark #187 (3137)
+> [Link reference definitions] can occur
+> inside block containers, like lists and block quotations.  They
+> affect the entire document, not just the container in which they
+> are defined:
+```````````````````````````````` example
+[foo]
+
+> [foo]: /url
+.
+<p><a href="/url">foo</a></p>
+````````````````````````````````
+
 
 <!-- Container blocks -->
 ### [Block quotes]
 
-Block quotes in OFM are indicated by indentation; however, the Commonmark block quote syntax is also supported.
+Block quotes in OFM are indicated by indentation. The Commonmark block quote syntax is also supported, though all blockquotes in OFM are rendered as flat paragraphs, e.g. `<p class="blockquote bq1 indent-1">`.
 
-While OFM continues to support block quotes as [container blocks] that may hold multiple other block elements, this use is discouraged and may be deprecated in the future.
+OFM also indicates the indent level of blockquote paragraphs with a class, e.g. `<p class="blockquote bq1 indent-1">`. The indent level increases with each nested list item or blockquote.
 
-**Justification**: Commonmark block quotes use a syntax that is never used in [literature], so it does no harm to [maintain functionality]. Commonmark block quotes also allow a nested structure, but a [flat structure] can be encouraged by convention in this case.
+**Justification**: Commonmark block quotes use a syntax that is never used in [literature], so it does no harm to [maintain functionality] by allowing the syntax. However, where Commonmark block quotes are rendered as block elements which may contain headings and thematic breaks, in [literature] such structures are not used, and OFM renders all blockquotes as paragraphs to obtain a [flat structure].
+
+Block quotes: Commonmark #198 (3344)
+```````````````````````````````` example
+> # Foo
+> bar
+> baz
+.
+<h1>Foo</h1>
+<p class="blockquote bq-1 indent-1">bar
+baz</p>
+````````````````````````````````
+
+Block quotes: Commonmark #199 (3359)
+> The spaces after the `>` characters can be omitted:
+```````````````````````````````` example
+># Foo
+>bar
+> baz
+.
+<h1>Foo</h1>
+<p class="blockquote bq-1 indent-1">bar
+baz</p>
+````````````````````````````````
+
+Block quotes: Commonmark #200 (3374)
+> The `>` characters can be indented 1-3 spaces:
+```````````````````````````````` example
+   > # Foo
+   > bar
+ > baz
+.
+<h1>Foo</h1>
+<p class="blockquote bq-1 indent-1">bar
+baz</p>
+````````````````````````````````
+
+Block quotes: Commonmark #201 (3389)
+> Four spaces gives us a code block:
+```````````````````````````````` example
+    > # Foo
+    > bar
+    > baz
+.
+<h1>Foo</h1>
+<p class="blockquote bq-2 indent-2">bar
+baz</p>
+````````````````````````````````
+
+Block quotes: Commonmark #202 (3404)
+> The Laziness clause allows us to omit the `>` before
+> [paragraph continuation text]:
+```````````````````````````````` example
+> # Foo
+> bar
+baz
+.
+<h1>Foo</h1>
+<p class="blockquote bq-1 indent-1">bar
+baz</p>
+````````````````````````````````
+
+Block quotes: Commonmark #203 (3420)
+> A block quote can contain some lazy and some non-lazy
+> continuation lines:
+```````````````````````````````` example
+> bar
+baz
+> foo
+.
+<p class="blockquote bq-1 indent-1">bar
+baz
+foo</p>
+````````````````````````````````
+
+Block quotes: Commonmark #204 (3444)
+> without changing the meaning:
+```````````````````````````````` example
+> foo
+---
+.
+<p class="blockquote bq-1 indent-1">foo</p>
+<hr />
+````````````````````````````````
+
+Block quotes: Commonmark #205 (3464)
+> then the block quote ends after the first line:
+```````````````````````````````` example
+> - foo
+- bar
+.
+<p class="blockquote bq-1 indent-2">
+<span class="li">- foo</span>
+</p>
+<p class="li indent-1">- bar</p>
+````````````````````````````````
+
+Block quotes: Commonmark #206 (3482)
+> For the same reason, we can't omit the `> ` in front of
+> subsequent lines of an indented or fenced code block:
+```````````````````````````````` example
+>     foo
+    bar
+.
+<p class="blockquote bq-1 indent-1">foo
+bar</p>
+````````````````````````````````
+
+Block quotes: Commonmark #207 (3495)
+```````````````````````````````` example
+> ```
+foo
+```
+.
+<pre><code></code></pre>
+<p>foo</p>
+<pre><code></code></pre>
+````````````````````````````````
+
+Block quotes: Commonmark #208 (3511)
+> Note that in the following case, we have a [lazy
+> continuation line]:
+```````````````````````````````` example
+> foo
+    - bar
+.
+<p class="blockquote bq-1 indent-1">foo
+- bar</p>
+````````````````````````````````
+
+Empty blockquotes: Commonmark #209 (3535), MarkdownIT #2 (29)
+> Block quotes: Commonmark #209-210 (3535)
+> A block quote can be empty:
+```````````````````````````````` example
+>
+.
+````````````````````````````````
+
+Empty blockquotes: Commonmark #210 (3543), MarkdownIT #3 (35)
+```````````````````````````````` example
+>
+>  
+> 
+.
+````````````````````````````````
+
+Block quotes: Commonmark #211 (3555)
+> A block quote can have initial or final blank lines:
+```````````````````````````````` example
+>
+> foo
+>  
+.
+<p class="blockquote bq-1 indent-1">foo</p>
+````````````````````````````````
+
+Block quotes: Commonmark #212 (3568)
+> A blank line always separates block quotes:
+```````````````````````````````` example
+> foo
+
+> bar
+.
+<p class="blockquote bq-1 indent-1">foo</p>
+<p class="blockquote bq-1 indent-1">bar</p>
+````````````````````````````````
+
+Block quotes: Commonmark #213 (3590)
+> Consecutiveness means that if we put these block quotes together,
+> we get a single block quote:
+```````````````````````````````` example
+> foo
+> bar
+.
+<p class="blockquote bq-1 indent-1">foo
+bar</p>
+````````````````````````````````
+
+Block quotes: Commonmark #214 (3603)
+> To get a block quote with two paragraphs, use:
+```````````````````````````````` example
+> foo
+>
+> bar
+.
+<p class="blockquote bq-1 indent-1">foo</p>
+<p class="blockquote bq-1 indent-1">bar</p>
+````````````````````````````````
+
+Block quotes: Commonmark #215 (3617)
+> Block quotes can interrupt paragraphs:
+```````````````````````````````` example
+foo
+> bar
+.
+<p>foo</p>
+<p class="blockquote bq-1 indent-1">bar</p>
+````````````````````````````````
+
+Block quotes: Commonmark #216 (3631)
+> In general, blank lines are not needed before or after block
+> quotes:
+```````````````````````````````` example
+> aaa
+***
+> bbb
+.
+<p class="blockquote bq-1 indent-1">aaa</p>
+<hr />
+<p class="blockquote bq-1 indent-1">bbb</p>
+````````````````````````````````
+
+Block quotes: Commonmark #217 (3649)
+> However, because of laziness, a blank line is needed between
+> a block quote and a following paragraph:
+```````````````````````````````` example
+> bar
+baz
+.
+<p class="blockquote bq-1 indent-1">bar
+baz</p>
+````````````````````````````````
+
+Block quotes: Commonmark #218 (3660)
+```````````````````````````````` example
+> bar
+
+baz
+.
+<p class="blockquote bq-1 indent-1">bar</p>
+<p>baz</p>
+````````````````````````````````
+
+Block quotes: Commonmark #219 (3672)
+```````````````````````````````` example
+> bar
+>
+baz
+.
+<p class="blockquote bq-1 indent-1">bar</p>
+<p>baz</p>
+````````````````````````````````
+
+Block quotes: Commonmark #220 (3688)
+> It is a consequence of the Laziness rule that any number
+> of initial `>`s may be omitted on a continuation line of a
+> nested block quote:
+```````````````````````````````` example
+> > > foo
+bar
+.
+<p class="blockquote bq-3 indent-3">foo
+bar</p>
+````````````````````````````````
+
+Block quotes: Commonmark #221 (3703)
+```````````````````````````````` example
+>>> foo
+> bar
+>>baz
+.
+<p class="blockquote bq-3 indent-3">foo
+bar
+baz</p>
+````````````````````````````````
+
+**Block quotes: Commonmark #222 (3725)**
+```````````````````````````````` example
+>     code
+
+>    not code
+.
+<p class="blockquote bq-2 indent-2">code</p>
+<p class="blockquote bq-1 indent-1">not code</p>
+````````````````````````````````
+
+Setext headings: Commonmark #62 (1175)
+> The setext heading underline cannot be a [lazy continuation
+> line] in a list item or block quote:
+```````````````````````````````` example
+> Foo
+---
+.
+<p class="blockquote bq-1 indent-1">Foo</p>
+<hr />
+````````````````````````````````
+
+Setext headings: Commonmark #63 (1186)
+```````````````````````````````` example
+> foo
+bar
+===
+.
+<p class="blockquote bq-1 indent-1">foo
+bar
+===</p>
+````````````````````````````````
+
+Setext headings: Commonmark #71 (1286)
+```````````````````````````````` example
+> foo
+-----
+.
+<p class="blockquote bq-1 indent-1">foo</p>
+<hr />
+````````````````````````````````
+
 
 ### [List items] and [Lists]
 
-List items in OFM are rendered as regular paragraphs with a class of "list-item". Lists and list items are thus treated as [leaf blocks] instead of [container blocks].
+OFM does not support rendering HTML lists. Instead, list items in OFM are treated as [leaf blocks] instead of [container blocks], and are defined exactly as in [markdown-it-flat-lists], viz.:
 
-Nested list items, beyond the first level, are indicated by a level class, e.g. `<p class="list-item l2">`.
+- list items are rendered as paragraphs or spans with a class of "li", e.g. `<p class="li">`
+- nested list items are indicated by a level class, e.g. `<p class="li li2">`
+- list items in general cannot contain block-level elements
+- list items can contain multiple paragraphs
+- "tight" lists (such as this one) are rendered as a single paragraph with items as `<span class="li">`
 
-Lists are not supported.
+OFM also indicates the indent level of list item paragraphs with a class, e.g. `<p class="li indent-1">`. The indent level increases with each nested list item or blockquote.
 
-**Justification**: While [literature] does contain lists, the item identifiers--bullets, numbers, or letters--are considered part of the content, and support a much wider range of values than html bullets or automated numbering. In almost no case is there any advantage in maintaining the semantic nature of an html list, and collapsing list items into regular paragraphs affords a [flat structure].
+**Justification**: Lists within [literature] perform a very different function from HTML lists, and are generally intended to be understood by human readers based on the structure of the document instead of semantic tags. They almost never contain nested control elements (headings or thematic breaks). In almost no case is there any advantage in maintaining the semantic nature of an html list, and collapsing list items into regular paragraphs affords a [flat structure].
+
+List items: Commonmark #223 (3779)
+```````````````````````````````` example
+A paragraph
+with two lines.
+
+    indented code
+
+> A block quote.
+.
+<p>A paragraph
+with two lines.</p>
+<p class="blockquote bq-1 indent-1">indented code</p>
+<p class="blockquote bq-1 indent-1">A block quote.</p>
+````````````````````````````````
+
+List items: Commonmark #224 (3801)
+```````````````````````````````` example
+1.  A paragraph
+    with two lines.
+
+        indented code
+
+    > A block quote.
+.
+<p class="li indent-1">1. A paragraph
+with two lines.</p>
+<p class="li blockquote bq-1 indent-2">indented code</p>
+<p class="li blockquote bq-1 indent-2">A block quote.</p>
+````````````````````````````````
+
+Tabs: Commonmark #4 (379)
+> In the following example, a continuation paragraph of a list
+> item is indented with a tab; this has exactly the same effect
+> as indentation with four spaces would:
+```````````````````````````````` example
+  - foo
+
+→bar
+.
+<p class="li indent-1">- foo</p>
+<p class="li indent-1">bar</p>
+````````````````````````````````
+
+Tabs: Commonmark #9 (445)
+```````````````````````````````` example
+ - foo
+   - bar
+→ - baz
+.
+<p class="indent-1">
+<span class="li">- foo</span>
+<span class="li li2">- bar</span>
+<span class="li li3">- baz baz</span>
+</p>
+````````````````````````````````
+
+Precedence: Commonmark #12 (496)
+> Indicators of block structure always take precedence over indicators
+> of inline structure.  So, for example, the following is a list with
+> two items, not a list with one item containing a code span:
+```````````````````````````````` example
+- `one
+- two`
+.
+<p class="indent-1">
+<span class="li">- `one</span>
+<span class="li">- two`</span>
+</p>
+````````````````````````````````
+
+List items: Commonmark #225 (3834)
+```````````````````````````````` example
+- one
+
+ two
+.
+<p class="li indent-1">- one</p>
+
+<p>two</p>
+````````````````````````````````
+
+List items: Commonmark #226 (3846)
+```````````````````````````````` example
+- one
+
+  two
+.
+<p class="li indent-1">- one</p>
+<p class="li indent-1">two</p>
+````````````````````````````````
+
+List items: Commonmark #227 (3860)
+```````````````````````````````` example
+ -    one
+
+     two
+.
+<p class="li indent-1">- one</p>
+<p class="blockquote bq-1 indent-1">two</p>
+````````````````````````````````
+
+List items: Commonmark #228 (3873)
+```````````````````````````````` example
+ -    one
+
+      two
+.
+<p class="li indent-1">- one</p>
+<p class="li indent-1">two</p>
+````````````````````````````````
+
+List items: Commonmark #229 (3895)
+> It is tempting to think of this in terms of columns:  the continuation
+> blocks must be indented at least to the column of the first
+> [non-whitespace character] after the list marker. However, that is not quite right.
+> The spaces after the list marker determine how much relative indentation
+> is needed.  Which column this indentation reaches will depend on
+> how the list item is embedded in other constructions, as shown by
+> this example:
+```````````````````````````````` example
+   > > 1.  one
+>>
+>>     two
+.
+<p class="li blockquote bq-2 indent-3">1. one</p>
+<p class="li blockquote bq-2 indent-3">two</p>
+````````````````````````````````
+
+List items: Commonmark #230 (3922)
+> The converse is also possible.  In the following example, the word `two`
+> occurs far to the right of the initial text of the list item, `one`, but
+> it is not considered part of the list item, because it is not indented
+> far enough past the blockquote marker:
+```````````````````````````````` example
+>>- one
+>>
+  >  > two
+.
+<p class="li blockquote bq-2 indent-3">- one</p>
+
+<p class="blockquote bq-2 indent-2">two</p>
+````````````````````````````````
+
+List items: Commonmark #232 (3954)
+> A list item may contain blocks that are separated by more than
+> one blank line.
+```````````````````````````````` example
+- foo
+
+
+  bar
+.
+<p class="li indent-1">- foo</p>
+<p class="li indent-1">bar</p>
+````````````````````````````````
+
+List items: Commonmark #233 (3971)
+> A list item may contain any kind of block:
+```````````````````````````````` example
+1.  foo
+
+    ```
+    bar
+    ```
+
+    baz
+
+    > bam
+.
+<p class="li indent-1">1. foo</p>
+<pre class="indent-1"><code>bar
+</code></pre>
+<p class="li indent-1">baz</p>
+<p class="li blockquote bq-1 indent-2">bam</p>
+````````````````````````````````
+
+List items: Commonmark #234 (3999)
+> A list item that contains an indented code block will preserve
+> empty lines within the code block verbatim.
+```````````````````````````````` example
+- Foo
+
+      bar
+
+
+      baz
+.
+<p class="li indent-1">- Foo</p>
+<p class="li blockquote bq-1 indent-2">bar</p>
+<p class="li blockquote bq-1 indent-2">baz</p>
+````````````````````````````````
+
+List items: Commonmark #235 (4021)
+> Note that ordered list start numbers must be nine digits or less:
+```````````````````````````````` example
+123456789. ok
+.
+<p class="li indent-1">123456789. ok</p>
+````````````````````````````````
+
+List items: Commonmark #237 (4039)
+> A start number may begin with 0s:
+```````````````````````````````` example
+0. ok
+.
+<p class="li indent-1">0. ok</p>
+````````````````````````````````
+
+List items: Commonmark #238 (4048)
+```````````````````````````````` example
+003. ok
+.
+<p class="li indent-1">003. ok</p>
+````````````````````````````````
+
+List items: Commonmark #240 (4082)
+> An indented code block will have to be indented four spaces beyond
+> the edge of the region where text will be included in the list item.
+> In the following case that is 6 spaces:
+```````````````````````````````` example
+- foo
+
+      bar
+.
+<p class="li indent-1">- foo</p>
+<p class="li blockquote bq-1 indent-2">bar</p>
+````````````````````````````````
+
+List items: Commonmark #241 (4099)
+> And in this case it is 11 spaces:
+```````````````````````````````` example
+  10.  foo
+
+           bar
+.
+<p class="li indent-1">10. foo</p>
+<p class="li blockquote bq-1 indent-2">bar</p>
+````````````````````````````````
+
+List items: Commonmark #242 (4118)
+> If the *first* block in the list item is an indented code block,
+> then by rule #2, the contents must be indented *one* space after the
+> list marker:
+```````````````````````````````` example
+    indented code
+
+paragraph
+
+    more code
+.
+<p class="blockquote bq-1 indent-1">indented code</p>
+<p>paragraph</p>
+<p class="blockquote bq-1 indent-1">more code</p>
+````````````````````````````````
+
+List items: Commonmark #243 (4133)
+```````````````````````````````` example
+1.     indented code
+
+   paragraph
+
+       more code
+.
+<p class="li blockquote bq-1 indent-2">1. indented code</p>
+<p class="li indent-1">paragraph</p>
+<p class="li blockquote bq-1 indent-2">more code</p>
+````````````````````````````````
+
+List items: Commonmark #244 (4155)
+> Note that an additional space indent is interpreted as space
+> inside the code block:
+```````````````````````````````` example
+1.      indented code
+
+   paragraph
+
+       more code
+.
+<p class="li blockquote bq-1 indent-2">1. indented code</p>
+<p class="li indent-1">paragraph</p>
+<p class="li blockquote bq-1 indent-2">more code</p>
+````````````````````````````````
+
+List items: Commonmark #246 (4192)
+```````````````````````````````` example
+-    foo
+
+  bar
+.
+<p class="li indent-1">- foo</p>
+
+<p>bar</p>
+````````````````````````````````
+
+List items: Commonmark #247 (4209)
+> This is not a significant restriction, because when a block begins
+> with 1-3 spaces indent, the indentation can always be removed without
+> a change in interpretation, allowing rule #1 to be applied.  So, in
+> the above case:
+```````````````````````````````` example
+-  foo
+
+   bar
+.
+<p class="li indent-1">- foo</p>
+<p class="li indent-1">bar</p>
+````````````````````````````````
+
+List items: Commonmark #248 (4237)
+> Here are some list items that start with a blank line but are not empty:
+```````````````````````````````` example
+-
+  foo
+-
+  ```
+  bar
+  ```
+-
+      baz
+.
+<p class="li indent-1">- foo</p>
+<pre class="indent-1"><code>bar
+</code></pre>
+<p class="li blockquote bq-1 indent-2">- baz</p>
+````````````````````````````````
+
+List items: Commonmark #249 (4263)
+> When the list item starts with a blank line, the number of spaces
+> following the list marker doesn't change the required indentation:
+```````````````````````````````` example
+-   
+  foo
+.
+<p class="li indent-1">- foo</p>
+````````````````````````````````
+
+List items: Commonmark #250 (4277)
+> A list item can begin with at most one blank line.
+> In the following example, `foo` is not part of the list
+> item:
+```````````````````````````````` example
+-
+
+  foo
+.
+<p class="li indent-1">-</p>
+
+<p>foo</p>
+````````````````````````````````
+
+**List items: Commonmark #251 (4291)**
+> Here is an empty bullet list item:
+```````````````````````````````` example
+- foo
+-
+- bar
+.
+<p class="indent-1">
+<span class="li">- foo</span>
+<span class="li">- bar</span>
+</p>
+````````````````````````````````
+
+**List items: Commonmark #252 (4306)**
+> It does not matter whether there are spaces following the [list marker]:
+```````````````````````````````` example
+- foo
+-   
+- bar
+.
+<p class="indent-1">
+<span class="li">- foo</span>
+<span class="li">- bar</span>
+</p>
+````````````````````````````````
+
+**List items: Commonmark #253 (4321)**
+> Here is an empty ordered list item:
+```````````````````````````````` example
+1. foo
+2.
+3. bar
+.
+<p class="indent-1">
+<span class="li">1. foo</span>
+<span class="li">3. bar</span>
+</p>
+````````````````````````````````
+
+List items: Commonmark #254 (4336)
+> A list may start or end with an empty list item:
+```````````````````````````````` example
+*
+.
+<p class="li indent-1">*</p>
+````````````````````````````````
+
+List items: Commonmark #256 (4368)
+> Indented one space:
+```````````````````````````````` example
+ 1.  A paragraph
+     with two lines.
+
+         indented code
+
+     > A block quote.
+.
+<p class="li indent-1">1. A paragraph
+with two lines.</p>
+<p class="li blockquote bq-1 indent-2">indented code</p>
+<p class="li blockquote bq-1 indent-2">A block quote.</p>
+````````````````````````````````
+
+List items: Commonmark #257 (4392)
+> Indented two spaces:
+```````````````````````````````` example
+  1.  A paragraph
+      with two lines.
+
+          indented code
+
+      > A block quote.
+.
+<p class="li indent-1">1. A paragraph
+with two lines.</p>
+<p class="li blockquote bq-1 indent-2">indented code</p>
+<p class="li blockquote bq-1 indent-2">A block quote.</p>
+````````````````````````````````
+
+List items: Commonmark #258 (4416)
+> Indented three spaces:
+```````````````````````````````` example
+   1.  A paragraph
+       with two lines.
+
+           indented code
+
+       > A block quote.
+.
+<p class="li indent-1">1. A paragraph
+with two lines.</p>
+<p class="li blockquote bq-1 indent-2">indented code</p>
+<p class="li blockquote bq-1 indent-2">A block quote.</p>
+````````````````````````````````
+
+List items: Commonmark #259 (4440)
+> Four spaces indent gives a code block:
+```````````````````````````````` example
+    1.  A paragraph
+        with two lines.
+
+            indented code
+
+        > A block quote.
+.
+<p class="li blockquote bq-1 indent-2">1. A paragraph
+with two lines.</p>
+<p class="li blockquote bq-2 indent-3">indented code</p>
+<p class="li blockquote bq-2 indent-3">A block quote.</p>
+````````````````````````````````
+
+List items: Commonmark #260 (4470)
+> Here is an example with [lazy continuation lines]:
+```````````````````````````````` example
+  1.  A paragraph
+with two lines.
+
+          indented code
+
+      > A block quote.
+.
+<p class="li indent-1">1. A paragraph
+with two lines.</p>
+<p class="li blockquote bq-1 indent-2">indented code</p>
+<p class="li blockquote bq-1 indent-2">A block quote.</p>
+````````````````````````````````
+
+List items: Commonmark #261 (4494)
+> Indentation can be partially deleted:
+```````````````````````````````` example
+  1.  A paragraph
+    with two lines.
+.
+<p class="li indent-1">1. A paragraph
+with two lines.</p>
+````````````````````````````````
+
+List items: Commonmark #262 (4507)
+> These examples show how laziness can work in nested structures:
+```````````````````````````````` example
+> 1. > Blockquote
+continued here.
+.
+<p class="li blockquote bq-2 indent-3">1. Blockquote
+continued here.</p>
+````````````````````````````````
+
+List items: Commonmark #263 (4524)
+```````````````````````````````` example
+> 1. > Blockquote
+> continued here.
+.
+<p class="li blockquote bq-2 indent-3">1. Blockquote
+continued here.</p>
+````````````````````````````````
+
+List items: Commonmark #264 (4552)
+> So, in this case we need two spaces indent:
+```````````````````````````````` example
+- foo
+  - bar
+    - baz
+      - boo
+.
+<p class="indent-1">
+<span class="li">- foo</span>
+<span class="li li2">- bar</span>
+<span class="li li3">- baz</span>
+<span class="li li4">- boo</span>
+</p>
+````````````````````````````````
+
+List items: Commonmark #265 (4578)
+> One is not enough:
+```````````````````````````````` example
+- foo
+ - bar
+  - baz
+   - boo
+.
+<p class="indent-1">
+<span class="li">- foo</span>
+<span class="li">- bar</span>
+<span class="li">- baz</span>
+<span class="li">- boo</span>
+</p>
+````````````````````````````````
+
+**List items: Commonmark #266 (4595)**
+> Here we need four, because the list marker is wider:
+```````````````````````````````` example
+10) foo
+    - bar
+.
+<p class="li indent-1">10) foo
+- bar</p>
+````````````````````````````````
+
+**List items: Commonmark #267 (4611)**
+> Three is not enough:
+```````````````````````````````` example
+10) foo
+   - bar
+.
+<p class="indent-1">
+<span class="li">10) foo</span>
+</p>
+<p class="li indent-1">- bar</p>
+````````````````````````````````
+
+List items: Commonmark #268 (4626)
+> A list may be the first block in a list item:
+```````````````````````````````` example
+- - foo
+.
+<p class="li li2 indent-2">- - foo</p>
+````````````````````````````````
+
+List items: Commonmark #269 (4639)
+```````````````````````````````` example
+1. - 2. foo
+.
+<p class="li li3 indent-3">1. - 2. foo</p>
+````````````````````````````````
+
+**List items: Commonmark #270 (4658)**
+> A list item can contain a heading:
+```````````````````````````````` example
+- # Foo
+- Bar
+  ---
+  baz
+.
+<p class="indent-1">
+<span class="li">- # Foo</span>
+<span class="li">- Bar</span>
+<span class="li">---
+baz</span>
+</p>
+````````````````````````````````
+
+Lists: Commonmark #271 (4894)
+> Changing the bullet or ordered list delimiter starts a new list:
+```````````````````````````````` example
+- foo
+- bar
++ baz
+.
+<p class="indent-1">
+<span class="li">- foo</span>
+<span class="li">- bar</span>
+</p>
+<p class="li indent-1">+ baz</p>
+````````````````````````````````
+
+Lists: Commonmark #272 (4909)
+```````````````````````````````` example
+1. foo
+2. bar
+3) baz
+.
+<p class="indent-1">
+<span class="li">1. foo</span>
+<span class="li">2. bar</span>
+</p>
+<p class="li indent-1">3) baz</p>
+````````````````````````````````
+
+Lists: Commonmark #273 (4928)
+> In CommonMark, a list can interrupt a paragraph. That is,
+> no blank line is needed to separate a paragraph from a following
+> list:
+```````````````````````````````` example
+Foo
+- bar
+- baz
+.
+<p>Foo</p>
+<p class="indent-1">
+<span class="li">- bar</span>
+<span class="li">- baz</span>
+</p>
+````````````````````````````````
+
+Lists: Commonmark #275 (5015)
+> We may still get an unintended result in cases like
+```````````````````````````````` example
+The number of windows in my house is
+1.  The number of doors is 6.
+.
+<p>The number of windows in my house is
+1.  The number of doors is 6.</p>
+````````````````````````````````
+
+Lists: Commonmark #276 (5029)
+> There can be any number of blank lines between items:
+```````````````````````````````` example
+- foo
+
+- bar
+
+
+- baz
+.
+<p class="li indent-1">- foo</p>
+<p class="li indent-1">- bar</p>
+<p class="li indent-1">- baz</p>
+````````````````````````````````
+
+Lists: Commonmark #277 (5050)
+```````````````````````````````` example
+- foo
+  - bar
+    - baz
+
+
+      bim
+.
+<p class="indent-1">
+<span class="li">- foo</span>
+<span class="li li2">- bar</span>
+<span class="li li3">- baz</span>
+</p>
+<p class="blockquote bq-1 indent-1">bim</p>
+````````````````````````````````
+
+Lists: Commonmark #278 (5080)
+> To separate consecutive lists of the same type, or to separate a
+> list from an indented code block that would otherwise be parsed
+> as a subparagraph of the final list item, you can insert a blank HTML
+> comment:
+```````````````````````````````` example
+- foo
+- bar
+
+<!-- -->
+
+- baz
+- bim
+.
+<p class="indent-1">
+<span class="li">- foo</span>
+<span class="li">- bar</span>
+</p>
+<!-- -->
+<p class="indent-1">
+<span class="li">- baz</span>
+<span class="li">- bim</span>
+</p>
+````````````````````````````````
+
+Lists: Commonmark #279 (5101)
+```````````````````````````````` example
+-   foo
+
+    notcode
+
+-   foo
+
+<!-- -->
+
+    code
+.
+<p class="li indent-1">- foo</p>
+<p class="li indent-1">notcode</p>
+<p class="li indent-1">- foo</p>
+<!-- -->
+<p class="blockquote bq-1 indent-1">code</p>
+````````````````````````````````
+
+Lists: Commonmark #280 (5132)
+> List items need not be indented to the same level.  The following
+> list items will be treated as items at the same list level,
+> since none is indented enough to belong to the previous list
+> item:
+```````````````````````````````` example
+- a
+ - b
+  - c
+   - d
+  - e
+ - f
+- g
+.
+<p class="indent-1">
+<span class="li">- a</span>
+<span class="li">- b</span>
+<span class="li">- c</span>
+<span class="li">- d</span>
+<span class="li">- e</span>
+<span class="li">- f</span>
+<span class="li">- g</span>
+</p>
+````````````````````````````````
+
+Lists: Commonmark #281 (5153)
+```````````````````````````````` example
+1. a
+
+  2. b
+
+   3. c
+.
+<p class="li indent-1">1. a</p>
+<p class="li indent-1">2. b</p>
+<p class="li indent-1">3. c</p>
+````````````````````````````````
+
+Lists: Commonmark #282 (5177)
+> Note, however, that list items may not be indented more than
+> three spaces.  Here `- e` is treated as a paragraph continuation
+> line, because it is indented more than three spaces:
+```````````````````````````````` example
+- a
+ - b
+  - c
+   - d
+    - e
+.
+<p class="indent-1">
+<span class="li">- a</span>
+<span class="li">- b</span>
+<span class="li">- c</span>
+<span class="li">- d
+- e</span>
+</p>
+````````````````````````````````
+
+Lists: Commonmark #283 (5197)
+> And here, `3. c` is treated as in indented code block,
+> because it is indented four spaces and preceded by a
+> blank line.
+```````````````````````````````` example
+1. a
+
+  2. b
+
+    3. c
+.
+<p class="li indent-1">1. a</p>
+<p class="li indent-1">2. b</p>
+<p class="li blockquote bq-1 indent-2">3. c</p>
+````````````````````````````````
+
+Lists: Commonmark #284 (5220)
+> This is a loose list, because there is a blank line between
+> two of the list items:
+```````````````````````````````` example
+- a
+- b
+
+- c
+.
+<p class="indent-1">
+<span class="li">- a</span>
+<span class="li">- b</span>
+</p>
+<p class="li indent-1">- c</p>
+````````````````````````````````
+
+**Lists: Commonmark #285 (5242)**
+> So is this, with a empty second item:
+```````````````````````````````` example
+* a
+*
+
+* c
+.
+<p class="indent-1">
+<span class="li">* a</span>
+<span class="li">*</span>
+<span class="li">* c</span>
+</p>
+````````````````````````````````
+
+Lists: Commonmark #286 (5264)
+> These are loose lists, even though there is no space between the items,
+> because one of the items directly contains two block-level elements
+> with a blank line between them:
+```````````````````````````````` example
+- a
+- b
+
+  c
+- d
+.
+<p class="indent-1">
+<span class="li">- a</span>
+<span class="li">- b</span>
+</p>
+<p>c
+- d</p>
+````````````````````````````````
+
+Lists: Commonmark #287 (5286)
+```````````````````````````````` example
+- a
+- b
+
+  [ref]: /url
+- d
+.
+<p class="indent-1">
+<span class="li">- a</span>
+<span class="li">- b</span>
+</p>
+<p class="li indent-1">- d</p>
+````````````````````````````````
+
+**Lists: Commonmark #288 (5309)**
+> This is a tight list, because the blank lines are in a code block:
+```````````````````````````````` example
+- a
+- ```
+  b
+
+
+  ```
+- c
+.
+<p class="indent-1">
+<span class="li">- a</span>
+<span class="li">- ```
+b</span>
+</p>
+<pre><code>- c
+</code></pre>
+````````````````````````````````
+
+Lists: Commonmark #289 (5335)
+> This is a tight list, because the blank line is between two
+> paragraphs of a sublist.  So the sublist is loose while
+> the outer list is tight:
+```````````````````````````````` example
+- a
+  - b
+
+    c
+- d
+.
+<p class="indent-1">
+<span class="li">- a</span>
+<span class="li li2">- b</span>
+</p>
+<p>c
+- d</p>
+````````````````````````````````
+
+Lists: Commonmark #290 (5359)
+> This is a tight list, because the blank line is inside the
+> block quote:
+```````````````````````````````` example
+* a
+  > b
+  >
+* c
+.
+<p class="li indent-1">* a</p>
+<p class="li blockquote bq-1 indent-2">b</p>
+<p class="li indent-1">* c</p>
+````````````````````````````````
+
+**Lists: Commonmark #291 (5379)**
+> This list is tight, because the consecutive block elements
+> are not separated by blank lines:
+```````````````````````````````` example
+- a
+  > b
+  ```
+  c
+  ```
+- d
+.
+<p class="li indent-1">- a</p>
+<p class="li blockquote bq-1 indent-2">b</p>
+<pre class="indent-1"><code>c
+</code></pre>
+<p class="li indent-1">- d</p>
+````````````````````````````````
+
+Lists: Commonmark #292 (5402)
+> A single-paragraph list is tight:
+```````````````````````````````` example
+- a
+.
+<p class="li indent-1">- a</p>
+````````````````````````````````
+
+Lists: Commonmark #293 (5411)
+```````````````````````````````` example
+- a
+  - b
+.
+<p class="indent-1">
+<span class="li">- a</span>
+<span class="li li2">- b</span>
+</p>
+````````````````````````````````
+
+Lists: Commonmark #294 (5428)
+> This list is loose, because of the blank line between the
+> two block elements in the list item:
+```````````````````````````````` example
+1. ```
+   foo
+   ```
+
+   bar
+.
+<pre class="indent-1"><code>foo
+</code></pre>
+<p class="li indent-1">1. bar</p>
+````````````````````````````````
+
+Lists: Commonmark #295 (5447)
+> Here the outer list is loose, the inner list tight:
+```````````````````````````````` example
+* foo
+  * bar
+
+  baz
+.
+<p class="indent-1">
+<span class="li">* foo</span>
+<span class="li li2">* bar</span>
+</p>
+<p>baz</p>
+````````````````````````````````
+
+Lists: Commonmark #296 (5465)
+```````````````````````````````` example
+- a
+  - b
+  - c
+
+- d
+  - e
+  - f
+.
+<p class="indent-1">
+<span class="li">- a</span>
+<span class="li li2">- b</span>
+<span class="li li2">- c</span>
+</p>
+<p class="indent-1">
+<span class="li">- d</span>
+<span class="li li2">- e</span>
+<span class="li li2">- f</span>
+</p>
+````````````````````````````````
+
+Setext headings: Commonmark #64 (1199)
+```````````````````````````````` example
+- Foo
+---
+.
+<p class="li indent-1">- Foo</p>
+
+<hr />
+````````````````````````````````
+
+Setext headings: Commonmark #69 (1265)
+```````````````````````````````` example
+- foo
+-----
+.
+<p class="li indent-1">- foo</p>
+
+<hr />
+````````````````````````````````
+
 
 <!-- Inlines -->
 ### [Backslash escapes]
@@ -169,6 +1922,36 @@ Lists are not supported.
 In Ocean-flavored markdown, backslash escapes work as usual inside indented blocks.
 
 **Justification**: This is a consequence of rendering indented text blocks as block quotes instead of code. In this instance backslash escapes are still needed.
+
+Backslash escapes: Commonmark #304 (5586)
+```````````````````````````````` example
+    \[\]
+.
+<p class="blockquote bq-1 indent-1">[]</p>
+````````````````````````````````
+
+### [Entity and numeric character references]
+
+In Ocean-flavored markdown, entity and numeric character references work as usual inside indented blocks.
+
+**Justification**: This is a consequence of rendering indented text blocks as block quotes instead of code. In this instance character references are still needed.
+
+Entity and numeric character references: Commonmark #322 (5796)
+```````````````````````````````` example
+    f&ouml;f&ouml;
+.
+<p class="blockquote bq-1 indent-1">föfö</p>
+````````````````````````````````
+
+Entity and numeric character references: Commonmark #324 (5816)
+```````````````````````````````` example
+&#42; foo
+
+* foo
+.
+<p>* foo</p>
+<p class="li indent-1">* foo</p>
+````````````````````````````````
 
 ### [Code spans]
 
@@ -706,18 +2489,14 @@ Markdown paragraph.
 ```````````````````````````````` example
 > Markdown blockquote. {.test}
 .
-<blockquote class="test">
-<p>Markdown blockquote.</p>
-</blockquote>
+<p class="blockquote bq-1 indent-1 test">Markdown blockquote.</p>
 ````````````````````````````````
 
 ```````````````````````````````` example
 > Markdown blockquote.
 > {.test}
 .
-<blockquote class="test">
-<p>Markdown blockquote.</p>
-</blockquote>
+<p class="blockquote bq-1 indent-1 test">Markdown blockquote.</p>
 ````````````````````````````````
 
 OMD indented block quotes are not implemented yet, but attributes must work on them after they are implemented.
@@ -725,17 +2504,14 @@ OMD indented block quotes are not implemented yet, but attributes must work on t
 ```````````````````````````````` example
     OMD blockquote. {#test}
 .
-<pre><code>OMD blockquote. {#test}
-</code></pre>
+<p class="blockquote bq-1 indent-1" id="test">OMD blockquote.</p>
 ````````````````````````````````
 
 ```````````````````````````````` example
     OMD blockquote.
     {#test}
 .
-<pre><code>OMD blockquote.
-{#test}
-</code></pre>
+<p class="blockquote bq-1 indent-1" id="test">OMD blockquote.</p>
 ````````````````````````````````
 
 OMD lists are not implemented yet, but attributes must work on them after they are implemented.
@@ -743,18 +2519,14 @@ OMD lists are not implemented yet, but attributes must work on them after they a
 ```````````````````````````````` example
 - Markdown list item. {#test .test ¶=1.1}
 .
-<ul>
-<li id="test" class="test" ¶="1.1">Markdown list item.</li>
-</ul>
+<p class="li indent-1 test" id="test" ¶="1.1">- Markdown list item.</p>
 ````````````````````````````````
 
 ```````````````````````````````` example
 - Markdown list item.
 {#test .test ¶=1.1}
 .
-<ul id="test" class="test" ¶="1.1">
-<li>Markdown list item.</li>
-</ul>
+<p class="li indent-1 test" id="test" ¶="1.1">- Markdown list item.</p>
 ````````````````````````````````
 
 For single-line block elements including headings and thematic breaks, attributes must be on the same line as the elements.

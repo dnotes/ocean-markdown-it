@@ -2487,34 +2487,34 @@ Markdown paragraph.
 ````````````````````````````````
 
 ```````````````````````````````` example
-> Markdown blockquote. {.test}
+> Markdown blockquote. {.test #test}
 .
-<p class="blockquote bq-1 indent-1 test">Markdown blockquote.</p>
+<p class="blockquote bq-1 indent-1 test" id="test">Markdown blockquote.</p>
 ````````````````````````````````
 
 ```````````````````````````````` example
 > Markdown blockquote.
-> {.test}
+> {.test #test}
 .
-<p class="blockquote bq-1 indent-1 test">Markdown blockquote.</p>
+<p class="blockquote bq-1 indent-1 test" id="test">Markdown blockquote.</p>
 ````````````````````````````````
 
-OMD indented block quotes are not implemented yet, but attributes must work on them after they are implemented.
+OMD indented block quotes with attributes.
 
 ```````````````````````````````` example
-    OMD blockquote. {#test}
-.
-<p class="blockquote bq-1 indent-1" id="test">OMD blockquote.</p>
-````````````````````````````````
+    OMD blockquote {.test1 #test1 ¶=1.1}
 
-```````````````````````````````` example
+        OMD nested blockquote {.test2 #test2 ¶=none}
+
     OMD blockquote.
-    {#test}
+    {.test3 #test3 ¶=1.2}
 .
-<p class="blockquote bq-1 indent-1" id="test">OMD blockquote.</p>
+<p class="test1 blockquote bq-1 indent-1" id="test1" ¶="1.1">OMD blockquote</p>
+<p class="blockquote bq-2 indent-2 test2" id="test2" ¶="none">OMD nested blockquote</p>
+<p class="blockquote bq-1 indent-1 test3" id="test3" ¶="1.2">OMD blockquote.</p>
 ````````````````````````````````
 
-OMD lists are not implemented yet, but attributes must work on them after they are implemented.
+OMD lists with attributes.
 
 ```````````````````````````````` example
 - Markdown list item. {#test .test ¶=1.1}

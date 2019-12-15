@@ -80,12 +80,29 @@ function flatten(state) {
   let classes = []
   let blockquoteLevel = 0
   let listLevel = 0
+  let stubs = {}
+  let lastParagraph = {}
 
   for (; i < state.tokens.length; i++) {
     token = state.tokens[i]
 
     // Capture level information from blockquote and list tokens
-    if (token.type.indexOf('blockquote') === 0) blockquoteLevel += token.nesting
+    if (token.type === 'blockquote_open') {
+      blockquoteLevel += token.nesting
+      if (token.attrs && token.attrs.length) {
+        stubs[blockquoteLevel] = new state.Token()
+        stubs[blockquoteLevel].attrs = token.attrs
+      }
+    }
+    else if (token.type === 'blockquote_close') {
+      if (lastParagraph[blockquoteLevel] && stubs[blockquoteLevel]) {
+        for (let x = 0; x < stubs[blockquoteLevel].attrs.length; x++) {
+          state.tokens[lastParagraph[blockquoteLevel]].attrJoin(stubs[blockquoteLevel].attrs[x][0], stubs[blockquoteLevel].attrs[x][1])
+        }
+        stubs[blockquoteLevel + 1] = null
+      }
+      blockquoteLevel += token.nesting
+    }
     else if (token.type.indexOf('_list_') > -1) listLevel += token.nesting
 
     // Add proper classes to content tokens
@@ -107,6 +124,9 @@ function flatten(state) {
 
         // Add classes to token
         if (classes.length) state.tokens[i].attrJoin('class', classes.join(' '))
+
+        // Remember last paragraph for possible blockquote attributes
+        if (blockquoteLevel) lastParagraph[blockquoteLevel] = i
       }
 
       // do not hide content tokens

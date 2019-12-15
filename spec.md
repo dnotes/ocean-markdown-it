@@ -403,7 +403,7 @@ Fenced code blocks: Commonmark #98 (1750)
 
 bbb
 .
-<pre class="indent-1"><code>aaa
+<pre><code class="blockquote bq-1 indent-1">aaa
 </code></pre>
 <p>bbb</p>
 ````````````````````````````````
@@ -415,7 +415,7 @@ Fenced code blocks: Commonmark #104 (1834)
     aaa
     ```
 .
-<pre class="indent-1"><code>aaa
+<pre><code class="blockquote bq-1 indent-1">aaa
 </code></pre>
 ````````````````````````````````
 
@@ -686,7 +686,7 @@ Block quotes: Commonmark #207 (3495)
 foo
 ```
 .
-<pre><code></code></pre>
+<pre><code class="blockquote bq-1 indent-1"></code></pre>
 <p>foo</p>
 <pre><code></code></pre>
 ````````````````````````````````
@@ -1064,7 +1064,7 @@ List items: Commonmark #233 (3971)
     > bam
 .
 <p class="li indent-1">1. foo</p>
-<pre class="indent-1"><code>bar
+<pre><code class="indent-1">bar
 </code></pre>
 <p class="li indent-1">baz</p>
 <p class="li blockquote bq-1 indent-2">bam</p>
@@ -1215,7 +1215,7 @@ List items: Commonmark #248 (4237)
       baz
 .
 <p class="li indent-1">- foo</p>
-<pre class="indent-1"><code>bar
+<pre><code class="indent-1">bar
 </code></pre>
 <p class="li blockquote bq-1 indent-2">- baz</p>
 ````````````````````````````````
@@ -1819,7 +1819,7 @@ Lists: Commonmark #290 (5359)
 .
 <p class="li indent-1">- a</p>
 <p class="li blockquote bq-1 indent-2">b</p>
-<pre class="indent-1"><code>c
+<pre><code class="indent-1">c
 </code></pre>
 <p class="li indent-1">- d</p>
 ````````````````````````````````
@@ -1853,7 +1853,7 @@ Lists: Commonmark #294 (5428)
 
    bar
 .
-<pre class="indent-1"><code>foo
+<pre><code class="indent-1">foo
 </code></pre>
 <p class="li indent-1">1. bar</p>
 ````````````````````````````````

@@ -91,6 +91,7 @@ function flatten(state) {
     // Add proper classes to content tokens
     if (token.tag === 'p' ||
         token.tag === 'div' ||
+        token.type === 'fence' ||
         token.tag === 'pre') {
       if (token.type.indexOf('_close') === -1) {
         classes = []

@@ -2630,6 +2630,151 @@ Insecure paragraph.
 
 Page numbers are [inline elements] defined exactly as implemented by the [markdown-it-pagenumbers] plugin.
 
+Page numbers appear in the middle of text
+```````````````````````````````` example
+This is some text [pg 123] with a page number in the middle.
+.
+<p>This is some text <a data-pg="123">123</a> with a page number in the middle.</p>
+````````````````````````````````
+
+Page numbers appear in the middle of a multiline paragraph
+```````````````````````````````` example
+This is some text
+[pg 123]
+with a page number in the middle.
+.
+<p>This is some text
+<a data-pg="123">123</a>
+with a page number in the middle.</p>
+````````````````````````````````
+
+Page numbers appear between paragraphs
+```````````````````````````````` example
+This is one paragraph.
+
+[pg 123]
+
+This is another.
+.
+<p>This is one paragraph.</p>
+<a data-pg="123">123</a>
+<p>This is another.</p>
+````````````````````````````````
+
+Page numbers appear between single-line block elements
+```````````````````````````````` example
+# Heading
+[pg 1]
+
+* * *
+
+[pg 2]
+
+---
+
+[pg 3]
+
+This is a paragraph.
+
+Another paragraph.
+.
+<h1>Heading</h1>
+<a data-pg="1">1</a>
+<hr />
+<a data-pg="2">2</a>
+<hr />
+<a data-pg="3">3</a>
+<p>This is a paragraph.</p>
+<p>Another paragraph.</p>
+````````````````````````````````
+
+Page numbers can appear within ATX header text
+```````````````````````````````` example
+# [pg 1] Header text [pg 2]
+.
+<h1><a data-pg="1">1</a> Header text <a data-pg="2">2</a></h1>
+````````````````````````````````
+
+Page numbers can include roman numerals
+```````````````````````````````` example
+This is some text [pg mdclxviii] with a page number in the middle.
+.
+<p>This is some text <a data-pg="mdclxviii">mdclxviii</a> with a page number in the middle.</p>
+````````````````````````````````
+
+Page numbers can include uppercase roman numerals
+```````````````````````````````` example
+This is some text [pg MDCLXVIII] with a page number in the middle.
+.
+<p>This is some text <a data-pg="MDCLXVIII">MDCLXVIII</a> with a page number in the middle.</p>
+````````````````````````````````
+
+Page numbers can include a period
+```````````````````````````````` example
+This is some text [pg 1.2] with a page number in the middle.
+.
+<p>This is some text <a data-pg="1.2">1.2</a> with a page number in the middle.</p>
+````````````````````````````````
+
+Page numbers can include a colon
+```````````````````````````````` example
+This is some text [pg 1:2] with a page number in the middle.
+.
+<p>This is some text <a data-pg="1:2">1:2</a> with a page number in the middle.</p>
+````````````````````````````````
+
+Page numbers can include a dash
+```````````````````````````````` example
+This is some text [pg 1-2] with a page number in the middle.
+.
+<p>This is some text <a data-pg="1-2">1-2</a> with a page number in the middle.</p>
+````````````````````````````````
+
+Page numbers do not require a space
+```````````````````````````````` example
+This is some text [pg12] with a page number in the middle.
+.
+<p>This is some text <a data-pg="12">12</a> with a page number in the middle.</p>
+````````````````````````````````
+
+Inline links remain unaffected by page numbers
+```````````````````````````````` example
+In the United States, some movies are rated [pg 13](https://filmratings.com).
+.
+<p>In the United States, some movies are rated <a href="https://filmratings.com">pg 13</a>.</p>
+````````````````````````````````
+
+Inline links with no url remain unaffected by page numbers
+```````````````````````````````` example
+In the United States, some movies are rated [pg 13]().
+.
+<p>In the United States, some movies are rated <a href="">pg 13</a>.</p>
+````````````````````````````````
+
+Defined links remain unaffected by page numbers
+```````````````````````````````` example
+In the United States, some movies are rated [pg 13].
+
+[pg 13]: https://filmratings.com
+.
+<p>In the United States, some movies are rated <a href="https://filmratings.com">pg 13</a>.</p>
+````````````````````````````````
+
+Page numbers are not permitted within link text or titles
+```````````````````````````````` example
+[link [pg 1] text **with [pg 2] page numbers** inside](https://example.com "title [pg 3] page number")
+.
+<p><a href="https://example.com" title="title [pg 3] page number">link [pg 1] text <strong>with [pg 2] page numbers</strong> inside</a></p>
+````````````````````````````````
+
+Page numbers are not permitted within image alt tags or titles
+```````````````````````````````` example
+![image alt text with [pg 1] a page number inside](image.jpg "title [pg 2] page number")
+.
+<p><img src="image.jpg" alt="image alt text with [pg 1] a page number inside" title="title [pg 2] page number" /></p>
+````````````````````````````````
+
+
 ### Typographic elements
 [markdown-it-replacements]: https://github.com/edemaine/markdown-it-replacements
 

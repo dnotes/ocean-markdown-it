@@ -64,6 +64,7 @@ const md = require('markdown-it')('commonmark', {
   .use(require('markdown-it-macron-underline'))
   .use(require('markdown-it-indented-quotes'))
   .use(require('markdown-it-flat-lists'))
+  .use(require('markdown-it-pagenumbers'))
   .use(require('markdown-it-attrs'), {
     allowedAttributes: ['id', 'class', /^(¶|data)/],
   })

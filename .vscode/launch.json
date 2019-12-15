@@ -7,6 +7,20 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Debug",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "--colors",
+        "${workspaceFolder}/test/temp"
+      ],
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Run Tests",
       "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
       "internalConsoleOptions": "openOnSessionStart"

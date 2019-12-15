@@ -6,6 +6,7 @@
   "scripts": {
     "build": "make build",
     "coverage": "yarn test && nyc report -r text-lcov | coveralls",
+    "debug": "mocha ./test/temp.js",
     "lint": "eslint .",
     "failing": "yarn testgen && mocha --reporter ./support/failing-tests.js",
     "pub": "yarn lint && yarn coverage && make build && make publish",

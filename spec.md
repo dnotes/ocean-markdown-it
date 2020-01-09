@@ -51,19 +51,19 @@ The sections below follow the [Commonmark spec], detailing any ways in which OFM
     - [ATX headings]
     - [Setext headings]
     - [Fenced code blocks]
-    - [HTML blocks] [1]
-    - [Link reference definitions] [2]
+    - [HTML blocks] ([1])
+    - [Link reference definitions] ([2])
     - [Paragraphs]
     - [Blank lines]
 - [Container blocks]
-    - [Block quotes] [1]
+    - [Block quotes] ([1])
 - [Inlines]
     - [Entity and numeric character references]
     - [Emphasis and strong emphasis]
-    - [Links] [2]
-    - [Images] [2]
+    - [Links] ([2])
+    - [Images] ([2])
     - [Autolinks]
-    - [Raw HTML] [1]
+    - [Raw HTML] ([1])
     - [Hard line breaks]
     - [Soft line breaks]
     - [Textual content]

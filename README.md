@@ -29,7 +29,6 @@ console.log(html) // <h1 class="title">This is Ocean-flavored markdown</h1>
 - [x] page numbers
 - [x] typography
 - [x] underline
-- [ ] automated paragraph numbers
 
 # Ocean-flavored Markdown (OFM)
 

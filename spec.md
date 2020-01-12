@@ -59,7 +59,6 @@ The sections below follow the [Commonmark spec], detailing any ways in which OFM
     - [Block quotes] ([1])
 - [Inlines]
     - [Entity and numeric character references]
-    - [Emphasis and strong emphasis]
     - [Links] ([2])
     - [Images] ([2])
     - [Autolinks]
@@ -426,6 +425,220 @@ bbb
 .
 <p>aaa
 bbb</p>
+````````````````````````````````
+
+
+### [Emphasis and strong emphasis]
+[markdown-it-underline]: https://www.npmjs.com/package/markdown-it-underline
+
+In addition to emphasis and strong emphasis, OFM adds support for the unarticulated annotation (\<u\>) tag as defined in [markdown-it-underline]. Note that this is a valid semantic tag in HTML5, specified to provide an "unarticulated, though explicitly rendered, non-textual annotation" to text, and OFM uses it to mark text that is underlined in the literary context. Most browsers will render this as underlined text by default.
+
+```````````````````````````````` example
+text _between underscores_ vs *between stars*
+.
+<p>text <u>between underscores</u> vs <em>between stars</em></p>
+````````````````````````````````
+
+**Justification**: Underlined text is extremely common in [literature], and OFM uses an [existing implementation] to provide support for it.
+
+Two underscores still renders as a strong tag:
+```````````````````````````````` example
+__stay strong__
+.
+<p><strong>stay strong</strong></p>
+````````````````````````````````
+
+Underlined text can be nested with em and strong:
+```````````````````````````````` example
+some ***_text_*** here
+
+some _***text***_ here
+
+some _**_text_**_ here
+.
+<p>some <em><strong><u>text</u></strong></em> here</p>
+<p>some <u><em><strong>text</strong></em></u> here</p>
+<p>some <u><strong><u>text</u></strong></u> here</p>
+````````````````````````````````
+
+Underlined text can not cross paragraphs:
+```````````````````````````````` example
+_Underlined text must be terminated within the paragraph.
+
+This does not work._
+.
+<p>_Underlined text must be terminated within the paragraph.</p>
+<p>This does not work._</p>
+````````````````````````````````
+
+HTML blocks: Commonmark #118 (2087)
+```````````````````````````````` example
+<table><tr><td>
+<pre>
+**Hello**,
+
+_world_.
+</pre>
+</td></tr></table>
+.
+<table><tr><td>
+<pre>
+**Hello**,
+<p><u>world</u>.
+</pre></p>
+</td></tr></table>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #356 (6347)
+```````````````````````````````` example
+_foo bar_
+.
+<p><u>foo bar</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #363 (6411)
+```````````````````````````````` example
+foo-_(bar)_
+.
+<p>foo-<u>(bar)</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #372 (6506)
+```````````````````````````````` example
+_(_foo_)_
+.
+<p><u>(<u>foo</u>)</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #375 (6529)
+```````````````````````````````` example
+_foo_bar_baz_
+.
+<p><u>foo_bar_baz</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #376 (6540)
+> This is emphasis, even though the closing delimiter is
+> both left- and right-flanking, because it is followed by
+> punctuation:
+```````````````````````````````` example
+_(bar)_.
+.
+<p><u>(bar)</u>.</p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #398 (6752)
+> The point of this restriction is more easily appreciated
+> with this example:
+```````````````````````````````` example
+_(__foo__)_
+.
+<p><u>(<strong>foo</strong>)</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #405 (6817)
+> In particular, emphasis and strong emphasis can be nested
+> inside emphasis:
+```````````````````````````````` example
+_foo __bar__ baz_
+.
+<p><u>foo <strong>bar</strong> baz</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #406 (6824)
+```````````````````````````````` example
+_foo _bar_ baz_
+.
+<p><u>foo <u>bar</u> baz</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #407 (6831)
+```````````````````````````````` example
+__foo_ bar_
+.
+<p><u><u>foo</u> bar</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #423 (6983)
+> In particular, emphasis and strong emphasis can be nested
+> inside strong emphasis:
+```````````````````````````````` example
+__foo _bar_ baz__
+.
+<p><strong>foo <u>bar</u> baz</strong></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #448 (7174)
+```````````````````````````````` example
+foo _\__
+.
+<p>foo <u>_</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #449 (7181)
+```````````````````````````````` example
+foo _*_
+.
+<p>foo <u>*</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #453 (7209)
+```````````````````````````````` example
+__foo_
+.
+<p>_<u>foo</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #454 (7220)
+> Note that when delimiters do not match evenly, Rule 12 determines
+> that the excess literal `_` characters will appear outside of the
+> emphasis, rather than inside it:
+```````````````````````````````` example
+_foo__
+.
+<p><u>foo</u>_</p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #456 (7234)
+```````````````````````````````` example
+____foo_
+.
+<p>___<u>foo</u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #458 (7248)
+```````````````````````````````` example
+_foo____
+.
+<p><u>foo</u>___</p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #460 (7265)
+```````````````````````````````` example
+*_foo_*
+.
+<p><em><u>foo</u></em></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #462 (7279)
+```````````````````````````````` example
+_*foo*_
+.
+<p><u><em>foo</em></u></p>
+````````````````````````````````
+
+Emphasis and strong emphasis: Commonmark #467 (7323)
+```````````````````````````````` example
+_____foo_____
+.
+<p><u><strong><strong>foo</strong></strong></u></p>
+````````````````````````````````
+
+[Code spans]: Commonmark #478 (7406), Ocean #168 (2224)
+```````````````````````````````` example
+_a `_`_
+.
+<p><u>a `</u>`_</p>
 ````````````````````````````````
 
 
@@ -2217,14 +2430,6 @@ Emphasis and strong emphasis: Commonmark #477 (7399)
 *a `*`*
 .
 <p><em>a `</em>`*</p>
-````````````````````````````````
-
-
-Emphasis and strong emphasis: Commonmark #478 (7406)
-```````````````````````````````` example
-_a `_`_
-.
-<p><em>a `</em>`_</p>
 ````````````````````````````````
 
 

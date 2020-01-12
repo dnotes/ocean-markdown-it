@@ -25,7 +25,8 @@
     "markdown-it-indented-quotes": "^3",
     "markdown-it-macron-underline": "^1",
     "markdown-it-pagenumbers": "^1.0.0",
-    "markdown-it-replacements": "^1"
+    "markdown-it-replacements": "^1",
+    "markdown-it-underline": "^1.0.1"
   },
   "devDependencies": {
     "browserify": "^16.2.3",

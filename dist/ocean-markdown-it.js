@@ -1,4 +1,4 @@
-/*! ocean-markdown-it 1.1.1  @license MIT */(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.oceanMarkdownIt = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+/*! ocean-markdown-it 2.0.0  @license MIT */(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.oceanMarkdownIt = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 // Lists
 /* eslint-disable semi, brace-style, array-bracket-spacing */
 
@@ -2348,7 +2348,7 @@ module.exports = function (opts) {
   return re;
 };
 
-},{"uc.micro/categories/Cc/regex":85,"uc.micro/categories/P/regex":87,"uc.micro/categories/Z/regex":88,"uc.micro/properties/Any/regex":90}],20:[function(require,module,exports){
+},{"uc.micro/categories/Cc/regex":86,"uc.micro/categories/P/regex":88,"uc.micro/categories/Z/regex":89,"uc.micro/properties/Any/regex":91}],20:[function(require,module,exports){
 'use strict';
 
 const patternsConfig = require('./patterns.js');
@@ -3701,12 +3701,27 @@ https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacemen
 }).call(this);
 
 },{}],27:[function(require,module,exports){
+module.exports = function markdownItUnderline (md) {
+
+  function renderEm (tokens, idx, opts, _, slf) {
+    var token = tokens[idx];
+    if (token.markup === '_') {
+      token.tag = 'u';
+    }
+    return slf.renderToken(tokens, idx, opts);
+  }
+
+  md.renderer.rules.em_open = renderEm;
+  md.renderer.rules.em_close = renderEm;
+};
+
+},{}],28:[function(require,module,exports){
 'use strict';
 
 
 module.exports = require('./lib/');
 
-},{"./lib/":36}],28:[function(require,module,exports){
+},{"./lib/":37}],29:[function(require,module,exports){
 // HTML5 entities map: { name -> utf16string }
 //
 'use strict';
@@ -3714,7 +3729,7 @@ module.exports = require('./lib/');
 /*eslint quotes:0*/
 module.exports = require('entities/lib/maps/entities.json');
 
-},{"entities/lib/maps/entities.json":17}],29:[function(require,module,exports){
+},{"entities/lib/maps/entities.json":17}],30:[function(require,module,exports){
 // List of valid html blocks names, accorting to commonmark spec
 // http://jgm.github.io/CommonMark/spec.html#html-blocks
 
@@ -3787,7 +3802,7 @@ module.exports = [
   'ul'
 ];
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 // Regexps to match html elements
 
 'use strict';
@@ -3817,7 +3832,7 @@ var HTML_OPEN_CLOSE_TAG_RE = new RegExp('^(?:' + open_tag + '|' + close_tag + ')
 module.exports.HTML_TAG_RE = HTML_TAG_RE;
 module.exports.HTML_OPEN_CLOSE_TAG_RE = HTML_OPEN_CLOSE_TAG_RE;
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 // Utilities
 //
 'use strict';
@@ -4136,7 +4151,7 @@ exports.isPunctChar         = isPunctChar;
 exports.escapeRE            = escapeRE;
 exports.normalizeReference  = normalizeReference;
 
-},{"./entities":28,"mdurl":82,"uc.micro":89,"uc.micro/categories/P/regex":87}],32:[function(require,module,exports){
+},{"./entities":29,"mdurl":83,"uc.micro":90,"uc.micro/categories/P/regex":88}],33:[function(require,module,exports){
 // Just a shortcut for bulk export
 'use strict';
 
@@ -4145,7 +4160,7 @@ exports.parseLinkLabel       = require('./parse_link_label');
 exports.parseLinkDestination = require('./parse_link_destination');
 exports.parseLinkTitle       = require('./parse_link_title');
 
-},{"./parse_link_destination":33,"./parse_link_label":34,"./parse_link_title":35}],33:[function(require,module,exports){
+},{"./parse_link_destination":34,"./parse_link_label":35,"./parse_link_title":36}],34:[function(require,module,exports){
 // Parse link destination
 //
 'use strict';
@@ -4226,7 +4241,7 @@ module.exports = function parseLinkDestination(str, pos, max) {
   return result;
 };
 
-},{"../common/utils":31}],34:[function(require,module,exports){
+},{"../common/utils":32}],35:[function(require,module,exports){
 // Parse link label
 //
 // this function assumes that first character ("[") already matches;
@@ -4276,7 +4291,7 @@ module.exports = function parseLinkLabel(state, start, disableNested) {
   return labelEnd;
 };
 
-},{}],35:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 // Parse link title
 //
 'use strict';
@@ -4331,7 +4346,7 @@ module.exports = function parseLinkTitle(str, pos, max) {
   return result;
 };
 
-},{"../common/utils":31}],36:[function(require,module,exports){
+},{"../common/utils":32}],37:[function(require,module,exports){
 // Main parser class
 
 'use strict';
@@ -4914,7 +4929,7 @@ MarkdownIt.prototype.renderInline = function (src, env) {
 
 module.exports = MarkdownIt;
 
-},{"./common/utils":31,"./helpers":32,"./parser_block":37,"./parser_core":38,"./parser_inline":39,"./presets/commonmark":40,"./presets/default":41,"./presets/zero":42,"./renderer":43,"linkify-it":18,"mdurl":82,"punycode":84}],37:[function(require,module,exports){
+},{"./common/utils":32,"./helpers":33,"./parser_block":38,"./parser_core":39,"./parser_inline":40,"./presets/commonmark":41,"./presets/default":42,"./presets/zero":43,"./renderer":44,"linkify-it":18,"mdurl":83,"punycode":85}],38:[function(require,module,exports){
 /** internal
  * class ParserBlock
  *
@@ -5038,7 +5053,7 @@ ParserBlock.prototype.State = require('./rules_block/state_block');
 
 module.exports = ParserBlock;
 
-},{"./ruler":44,"./rules_block/blockquote":45,"./rules_block/code":46,"./rules_block/fence":47,"./rules_block/heading":48,"./rules_block/hr":49,"./rules_block/html_block":50,"./rules_block/lheading":51,"./rules_block/list":52,"./rules_block/paragraph":53,"./rules_block/reference":54,"./rules_block/state_block":55,"./rules_block/table":56}],38:[function(require,module,exports){
+},{"./ruler":45,"./rules_block/blockquote":46,"./rules_block/code":47,"./rules_block/fence":48,"./rules_block/heading":49,"./rules_block/hr":50,"./rules_block/html_block":51,"./rules_block/lheading":52,"./rules_block/list":53,"./rules_block/paragraph":54,"./rules_block/reference":55,"./rules_block/state_block":56,"./rules_block/table":57}],39:[function(require,module,exports){
 /** internal
  * class Core
  *
@@ -5098,7 +5113,7 @@ Core.prototype.State = require('./rules_core/state_core');
 
 module.exports = Core;
 
-},{"./ruler":44,"./rules_core/block":57,"./rules_core/inline":58,"./rules_core/linkify":59,"./rules_core/normalize":60,"./rules_core/replacements":61,"./rules_core/smartquotes":62,"./rules_core/state_core":63}],39:[function(require,module,exports){
+},{"./ruler":45,"./rules_core/block":58,"./rules_core/inline":59,"./rules_core/linkify":60,"./rules_core/normalize":61,"./rules_core/replacements":62,"./rules_core/smartquotes":63,"./rules_core/state_core":64}],40:[function(require,module,exports){
 /** internal
  * class ParserInline
  *
@@ -5277,7 +5292,7 @@ ParserInline.prototype.State = require('./rules_inline/state_inline');
 
 module.exports = ParserInline;
 
-},{"./ruler":44,"./rules_inline/autolink":64,"./rules_inline/backticks":65,"./rules_inline/balance_pairs":66,"./rules_inline/emphasis":67,"./rules_inline/entity":68,"./rules_inline/escape":69,"./rules_inline/html_inline":70,"./rules_inline/image":71,"./rules_inline/link":72,"./rules_inline/newline":73,"./rules_inline/state_inline":74,"./rules_inline/strikethrough":75,"./rules_inline/text":76,"./rules_inline/text_collapse":77}],40:[function(require,module,exports){
+},{"./ruler":45,"./rules_inline/autolink":65,"./rules_inline/backticks":66,"./rules_inline/balance_pairs":67,"./rules_inline/emphasis":68,"./rules_inline/entity":69,"./rules_inline/escape":70,"./rules_inline/html_inline":71,"./rules_inline/image":72,"./rules_inline/link":73,"./rules_inline/newline":74,"./rules_inline/state_inline":75,"./rules_inline/strikethrough":76,"./rules_inline/text":77,"./rules_inline/text_collapse":78}],41:[function(require,module,exports){
 // Commonmark default options
 
 'use strict';
@@ -5359,7 +5374,7 @@ module.exports = {
   }
 };
 
-},{}],41:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 // markdown-it default options
 
 'use strict';
@@ -5402,7 +5417,7 @@ module.exports = {
   }
 };
 
-},{}],42:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 // "Zero" preset, with nothing enabled. Useful for manual configuring of simple
 // modes. For example, to parse bold/italic only.
 
@@ -5466,7 +5481,7 @@ module.exports = {
   }
 };
 
-},{}],43:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 /**
  * class Renderer
  *
@@ -5803,7 +5818,7 @@ Renderer.prototype.render = function (tokens, options, env) {
 
 module.exports = Renderer;
 
-},{"./common/utils":31}],44:[function(require,module,exports){
+},{"./common/utils":32}],45:[function(require,module,exports){
 /**
  * class Ruler
  *
@@ -6157,7 +6172,7 @@ Ruler.prototype.getRules = function (chainName) {
 
 module.exports = Ruler;
 
-},{}],45:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 // Block quotes
 
 'use strict';
@@ -6444,7 +6459,7 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
   return true;
 };
 
-},{"../common/utils":31}],46:[function(require,module,exports){
+},{"../common/utils":32}],47:[function(require,module,exports){
 // Code block (4 spaces padded)
 
 'use strict';
@@ -6480,7 +6495,7 @@ module.exports = function code(state, startLine, endLine/*, silent*/) {
   return true;
 };
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 // fences (``` lang, ~~~ lang)
 
 'use strict';
@@ -6580,7 +6595,7 @@ module.exports = function fence(state, startLine, endLine, silent) {
   return true;
 };
 
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 // heading (#, ##, ...)
 
 'use strict';
@@ -6637,7 +6652,7 @@ module.exports = function heading(state, startLine, endLine, silent) {
   return true;
 };
 
-},{"../common/utils":31}],49:[function(require,module,exports){
+},{"../common/utils":32}],50:[function(require,module,exports){
 // Horizontal rule
 
 'use strict';
@@ -6684,7 +6699,7 @@ module.exports = function hr(state, startLine, endLine, silent) {
   return true;
 };
 
-},{"../common/utils":31}],50:[function(require,module,exports){
+},{"../common/utils":32}],51:[function(require,module,exports){
 // HTML block
 
 'use strict';
@@ -6760,7 +6775,7 @@ module.exports = function html_block(state, startLine, endLine, silent) {
   return true;
 };
 
-},{"../common/html_blocks":29,"../common/html_re":30}],51:[function(require,module,exports){
+},{"../common/html_blocks":30,"../common/html_re":31}],52:[function(require,module,exports){
 // lheading (---, ===)
 
 'use strict';
@@ -6845,7 +6860,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
   return true;
 };
 
-},{}],52:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 // Lists
 
 'use strict';
@@ -7207,7 +7222,7 @@ module.exports = function list(state, startLine, endLine, silent) {
   return true;
 };
 
-},{"../common/utils":31}],53:[function(require,module,exports){
+},{"../common/utils":32}],54:[function(require,module,exports){
 // Paragraph
 
 'use strict';
@@ -7261,7 +7276,7 @@ module.exports = function paragraph(state, startLine/*, endLine*/) {
   return true;
 };
 
-},{}],54:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 'use strict';
 
 
@@ -7461,7 +7476,7 @@ module.exports = function reference(state, startLine, _endLine, silent) {
   return true;
 };
 
-},{"../common/utils":31}],55:[function(require,module,exports){
+},{"../common/utils":32}],56:[function(require,module,exports){
 // Parser state class
 
 'use strict';
@@ -7694,7 +7709,7 @@ StateBlock.prototype.Token = Token;
 
 module.exports = StateBlock;
 
-},{"../common/utils":31,"../token":78}],56:[function(require,module,exports){
+},{"../common/utils":32,"../token":79}],57:[function(require,module,exports){
 // GFM table, non-standard
 
 'use strict';
@@ -7892,7 +7907,7 @@ module.exports = function table(state, startLine, endLine, silent) {
   return true;
 };
 
-},{"../common/utils":31}],57:[function(require,module,exports){
+},{"../common/utils":32}],58:[function(require,module,exports){
 'use strict';
 
 
@@ -7910,7 +7925,7 @@ module.exports = function block(state) {
   }
 };
 
-},{}],58:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 'use strict';
 
 module.exports = function inline(state) {
@@ -7925,7 +7940,7 @@ module.exports = function inline(state) {
   }
 };
 
-},{}],59:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 // Replace link-like texts with link nodes.
 //
 // Currently restricted by `md.validateLink()` to http/https/ftp
@@ -8060,7 +8075,7 @@ module.exports = function linkify(state) {
   }
 };
 
-},{"../common/utils":31}],60:[function(require,module,exports){
+},{"../common/utils":32}],61:[function(require,module,exports){
 // Normalize input string
 
 'use strict';
@@ -8083,7 +8098,7 @@ module.exports = function normalize(state) {
   state.src = str;
 };
 
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 // Simple typographic replacements
 //
 // (c) (C) → ©
@@ -8192,7 +8207,7 @@ module.exports = function replace(state) {
   }
 };
 
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 // Convert straight quotation marks to typographic ones
 //
 'use strict';
@@ -8389,7 +8404,7 @@ module.exports = function smartquotes(state) {
   }
 };
 
-},{"../common/utils":31}],63:[function(require,module,exports){
+},{"../common/utils":32}],64:[function(require,module,exports){
 // Core state object
 //
 'use strict';
@@ -8411,7 +8426,7 @@ StateCore.prototype.Token = Token;
 
 module.exports = StateCore;
 
-},{"../token":78}],64:[function(require,module,exports){
+},{"../token":79}],65:[function(require,module,exports){
 // Process autolinks '<protocol:...>'
 
 'use strict';
@@ -8485,7 +8500,7 @@ module.exports = function autolink(state, silent) {
   return false;
 };
 
-},{}],65:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 // Parse backticks
 
 'use strict';
@@ -8530,7 +8545,7 @@ module.exports = function backtick(state, silent) {
   return true;
 };
 
-},{}],66:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 // For each opening emphasis-like marker find a matching closing one
 //
 'use strict';
@@ -8640,7 +8655,7 @@ module.exports = function link_pairs(state) {
   }
 };
 
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 // Process *this* and _that_
 //
 'use strict';
@@ -8779,7 +8794,7 @@ module.exports.postProcess = function emphasis(state) {
   }
 };
 
-},{}],68:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 // Process html entity - &#123;, &#xAF;, &quot;, ...
 
 'use strict';
@@ -8829,7 +8844,7 @@ module.exports = function entity(state, silent) {
   return true;
 };
 
-},{"../common/entities":28,"../common/utils":31}],69:[function(require,module,exports){
+},{"../common/entities":29,"../common/utils":32}],70:[function(require,module,exports){
 // Process escaped chars and hardbreaks
 
 'use strict';
@@ -8883,7 +8898,7 @@ module.exports = function escape(state, silent) {
   return true;
 };
 
-},{"../common/utils":31}],70:[function(require,module,exports){
+},{"../common/utils":32}],71:[function(require,module,exports){
 // Process html tags
 
 'use strict';
@@ -8932,7 +8947,7 @@ module.exports = function html_inline(state, silent) {
   return true;
 };
 
-},{"../common/html_re":30}],71:[function(require,module,exports){
+},{"../common/html_re":31}],72:[function(require,module,exports){
 // Process ![image](<src> "title")
 
 'use strict';
@@ -9086,7 +9101,7 @@ module.exports = function image(state, silent) {
   return true;
 };
 
-},{"../common/utils":31}],72:[function(require,module,exports){
+},{"../common/utils":32}],73:[function(require,module,exports){
 // Process [link](<to> "stuff")
 
 'use strict';
@@ -9238,7 +9253,7 @@ module.exports = function link(state, silent) {
   return true;
 };
 
-},{"../common/utils":31}],73:[function(require,module,exports){
+},{"../common/utils":32}],74:[function(require,module,exports){
 // Proceess '\n'
 
 'use strict';
@@ -9282,7 +9297,7 @@ module.exports = function newline(state, silent) {
   return true;
 };
 
-},{"../common/utils":31}],74:[function(require,module,exports){
+},{"../common/utils":32}],75:[function(require,module,exports){
 // Inline parser state
 
 'use strict';
@@ -9434,7 +9449,7 @@ StateInline.prototype.Token = Token;
 
 module.exports = StateInline;
 
-},{"../common/utils":31,"../token":78}],75:[function(require,module,exports){
+},{"../common/utils":32,"../token":79}],76:[function(require,module,exports){
 // ~~strike through~~
 //
 'use strict';
@@ -9567,7 +9582,7 @@ module.exports.postProcess = function strikethrough(state) {
   }
 };
 
-},{}],76:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 // Skip text characters for text token, place those to pending buffer
 // and increment current pos
 
@@ -9658,7 +9673,7 @@ module.exports = function text(state, silent) {
   return true;
 };*/
 
-},{}],77:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 // Clean up tokens after emphasis and strikethrough postprocessing:
 // merge adjacent text nodes into one and re-calculate all token levels
 //
@@ -9701,7 +9716,7 @@ module.exports = function text_collapse(state) {
   }
 };
 
-},{}],78:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 // Token class
 
 'use strict';
@@ -9900,17 +9915,17 @@ Token.prototype.attrJoin = function attrJoin(name, value) {
 
 module.exports = Token;
 
-},{}],79:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
 arguments[4][5][0].apply(exports,arguments)
-},{"dup":5}],80:[function(require,module,exports){
+},{"dup":5}],81:[function(require,module,exports){
 arguments[4][6][0].apply(exports,arguments)
-},{"dup":6}],81:[function(require,module,exports){
+},{"dup":6}],82:[function(require,module,exports){
 arguments[4][7][0].apply(exports,arguments)
-},{"dup":7}],82:[function(require,module,exports){
+},{"dup":7}],83:[function(require,module,exports){
 arguments[4][8][0].apply(exports,arguments)
-},{"./decode":79,"./encode":80,"./format":81,"./parse":83,"dup":8}],83:[function(require,module,exports){
+},{"./decode":80,"./encode":81,"./format":82,"./parse":84,"dup":8}],84:[function(require,module,exports){
 arguments[4][9][0].apply(exports,arguments)
-},{"dup":9}],84:[function(require,module,exports){
+},{"dup":9}],85:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/punycode v1.4.1 by @mathias */
 ;(function(root) {
@@ -10447,19 +10462,19 @@ arguments[4][9][0].apply(exports,arguments)
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],85:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],86:[function(require,module,exports){
+},{"dup":10}],87:[function(require,module,exports){
 arguments[4][11][0].apply(exports,arguments)
-},{"dup":11}],87:[function(require,module,exports){
+},{"dup":11}],88:[function(require,module,exports){
 arguments[4][12][0].apply(exports,arguments)
-},{"dup":12}],88:[function(require,module,exports){
+},{"dup":12}],89:[function(require,module,exports){
 arguments[4][13][0].apply(exports,arguments)
-},{"dup":13}],89:[function(require,module,exports){
+},{"dup":13}],90:[function(require,module,exports){
 arguments[4][14][0].apply(exports,arguments)
-},{"./categories/Cc/regex":85,"./categories/Cf/regex":86,"./categories/P/regex":87,"./categories/Z/regex":88,"./properties/Any/regex":90,"dup":14}],90:[function(require,module,exports){
+},{"./categories/Cc/regex":86,"./categories/Cf/regex":87,"./categories/P/regex":88,"./categories/Z/regex":89,"./properties/Any/regex":91,"dup":14}],91:[function(require,module,exports){
 arguments[4][15][0].apply(exports,arguments)
-},{"dup":15}],91:[function(require,module,exports){
+},{"dup":15}],92:[function(require,module,exports){
 'use strict'
 
 // Load plugins
@@ -10527,6 +10542,7 @@ const md = require('markdown-it')('commonmark', {
   .use(require('markdown-it-indented-quotes'))
   .use(require('markdown-it-flat-lists'))
   .use(require('markdown-it-pagenumbers'))
+  .use(require('markdown-it-underline'))
   .use(require('markdown-it-attrs'), {
     allowedAttributes: ['id', 'class', /^(¶|data)/],
   })
@@ -10606,5 +10622,5 @@ md.renderer.rules.blockquote_close = noRender
 
 module.exports = md
 
-},{"markdown-it":27,"markdown-it-attrs":20,"markdown-it-flat-lists":1,"markdown-it-footnote":23,"markdown-it-indented-quotes":16,"markdown-it-macron-underline":24,"markdown-it-pagenumbers":25,"markdown-it-replacements":26}]},{},[91])(91)
+},{"markdown-it":28,"markdown-it-attrs":20,"markdown-it-flat-lists":1,"markdown-it-footnote":23,"markdown-it-indented-quotes":16,"markdown-it-macron-underline":24,"markdown-it-pagenumbers":25,"markdown-it-replacements":26,"markdown-it-underline":27}]},{},[92])(92)
 });
